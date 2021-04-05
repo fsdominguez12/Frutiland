@@ -58,8 +58,9 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe Script", 0, 48)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("FRUTILAND");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 340, 50));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Frutiland.png"))); // NOI18N
+        jLabel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 250, 100));
 
         jToolBar1.setBackground(new java.awt.Color(102, 255, 255));
         jToolBar1.setRollover(true);
@@ -121,7 +122,7 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 810, 470));
+        jPanel1.add(Desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 810, 470));
 
         jLabel6.setFont(new java.awt.Font("Segoe Script", 0, 100)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
