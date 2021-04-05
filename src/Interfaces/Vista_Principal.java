@@ -6,6 +6,7 @@
 package Interfaces;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JMenu;
 
 /**
@@ -41,7 +42,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         btnensalada = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        Desktop = new javax.swing.JDesktopPane();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,18 +110,18 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 50));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 980, Short.MAX_VALUE)
+        javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
+        Desktop.setLayout(DesktopLayout);
+        DesktopLayout.setHorizontalGroup(
+            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        DesktopLayout.setVerticalGroup(
+            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 980, 470));
+        jPanel1.add(Desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 810, 470));
 
         jLabel6.setFont(new java.awt.Font("Segoe Script", 0, 100)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -173,16 +174,24 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.btnsalir = btnsalir;
     }
 
+    public JDesktopPane getDesktop() {
+        return Desktop;
+    }
+
+    public void setDesktop(JDesktopPane Desktop) {
+        this.Desktop = Desktop;
+    }
+
  
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane Desktop;
     private javax.swing.JButton btncliente;
     private javax.swing.JButton btnensalada;
     private javax.swing.JButton btningrediente;
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton jButton1;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
