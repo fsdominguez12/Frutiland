@@ -23,6 +23,7 @@ Vista_Inicio vi;
         Vista_Principal vista = new Vista_Principal();
         ControlVentanaPrincipal cvp = new ControlVentanaPrincipal(vista);
         cvp.IniciaControl();
+        vi.setVisible(false);
      }
      
      public void Usuario2(){
