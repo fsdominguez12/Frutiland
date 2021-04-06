@@ -1,19 +1,33 @@
 package Control;
 
 import Clases_base.Cliente;
+import Clases_base.Ingrediente;
+import Interfaces.Vista_Cliente;
 import Interfaces.Vista_Ensalada;
+import Interfaces.Vista_Ingrediente;
+import Interfaces.Vista_Principal;
 import Modelo.ModeloCliente;
 import Modelo.ModeloEnsalada;
+import Modelo.ModeloIngrediente;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 public class ControlEnsalada {
 
     private ModeloEnsalada moes;
+    private ModeloIngrediente modeloIn;
     private Vista_Ensalada visen;
+    private ControlCliente cocli;
+    private Vista_Principal vp;
 
     public ControlEnsalada(ModeloEnsalada moes, Vista_Ensalada visen) {
         this.moes = moes;
@@ -38,16 +52,25 @@ public class ControlEnsalada {
             @Override
             public void keyReleased(KeyEvent e) {
                 buscarCliente(visen.getTxtCedulaClienteEnsalada().getText());
+                cargaTabla(visen.getTxtBuscar().getText());
+                calculoSubTotal(visen.getTxtPorcionIngrediente().getText());
             }
 
         };
 
         visen.getTxtCedulaClienteEnsalada().addKeyListener(kl);
+        visen.getTxtBuscarAgregar().addKeyListener(kl);
+        visen.getTxtPorcionIngrediente().addKeyListener(kl);
+        visen.getBtnAgregarCliente().addActionListener(l -> crearCliente());
+        visen.getBtnAgregarIngrediente().addActionListener(l -> agregaIngrediente());
+        visen.getBtnSalir().addActionListener(l -> salirDialogo());
+        visen.getBtnAgregaIngrediente().addActionListener(l -> agregarPro());
 
     }
 
     public void limpiarDialogo() {
         visen.getTxtCodigoEnsalada().setText(" ");
+
     }
 
     public void restringirDialogo() {
@@ -55,6 +78,8 @@ public class ControlEnsalada {
         visen.getTxtDescripcionEnsalada().setEnabled(false);
         visen.getTxtTiempoEnsalada().setEnabled(false);
         visen.getTxtTotalEnsalada().setEnabled(false);
+        visen.getTxtPrecioIngrediente().setEnabled(false);
+        visen.getTxtPrecioIngrediente().setText("0");
     }
 
     public void buscarCliente(String aguja) {
@@ -63,10 +88,93 @@ public class ControlEnsalada {
         Holder<Integer> i = new Holder<>(0);
         lista.stream().forEach(cl -> {
             String[] cliente = {cl.getNombre(), cl.getApellido()};
-            visen.getTxtClienteEnsalada().setText(cl.getNombre()+" "+cl.getApellido());
+            visen.getTxtClienteEnsalada().setText(cl.getNombre() + " " + cl.getApellido());
 
         });
-        
-        
     }
+
+    public void crearCliente() {
+
+    }
+
+    public void agregaIngrediente() {
+        visen.getDlgAgregarIngrediente().setTitle("Agregar Ingrediente");
+        visen.getDlgAgregarIngrediente().setSize(615, 408);
+        visen.getDlgAgregarIngrediente().setLocationRelativeTo(vp);
+        visen.getDlgAgregarIngrediente().setVisible(true);
+        visen.getTxtSubTotal().setEnabled(false);
+        cargaTabla("");
+
+    }
+
+    public void salirDialogo() {
+        visen.getDlgAgregarIngrediente().setVisible(false);
+        visen.getTxtBuscarAgregar().setText("");
+        visen.getTxtPorcionIngrediente().setText("");
+        visen.getTxtSubTotal().setText("");
+    }
+
+    public void cargaTabla(String aguja) {
+        visen.getTblingredientes().setDefaultRenderer(Object.class, new ImagenTabla());
+        visen.getTblingredientes().setRowHeight(100);
+        DefaultTableCellRenderer renderer = new DefaultTableCellHeaderRenderer();
+
+        DefaultTableModel tblModel;
+        tblModel = (DefaultTableModel) visen.getTblingredientes().getModel();
+        tblModel.setNumRows(0);
+        List<Ingrediente> lista = modeloIn.listarIngrediente(aguja);
+
+        int ncols = tblModel.getColumnCount();
+        Holder<Integer> i = new Holder<>(0);
+
+        lista.stream().forEach(p -> {
+
+            tblModel.addRow(new Object[ncols]);
+            visen.getTblingredientes().setValueAt(p.getCodigoIngrediente(), i.value, 0);
+            visen.getTblingredientes().setValueAt(p.getNombre(), i.value, 1);
+            visen.getTblingredientes().setValueAt(p.getBeneficio(), i.value, 2);
+            visen.getTblingredientes().setValueAt(String.valueOf(p.getCantidad()), i.value, 3);
+            visen.getTblingredientes().setValueAt(String.valueOf(p.getPrecio()), i.value, 4);
+
+            Image img = p.getFoto();
+            if (img != null) {
+                Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(newimg);
+                renderer.setIcon(icon);
+                visen.getTblingredientes().setValueAt(new JLabel(icon), i.value, 5);
+            } else {
+                visen.getTblingredientes().setValueAt(null, i.value, 5);
+            }
+            i.value++;
+        });
+    }
+
+    public void calculoSubTotal(String aguja) {
+
+        try {
+            int porcion = Integer.parseInt(aguja);
+            float precioi = Float.parseFloat(visen.getTxtPrecioIngrediente().getText());
+            float sub = porcion * precioi;
+            visen.getTxtSubTotal().setText(String.valueOf(sub));
+
+        } catch (Exception ex) {
+            visen.getTxtSubTotal().setText("0");
+
+        }
+    }
+
+    public void agregarPro() {
+        int fila = visen.getTblingredientes().getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "DEBE SELECCIONAR UNA FILA");
+
+        } else {
+            String ident = (String) visen.getTblingredientes().getValueAt(fila, 0);
+            String cantidad = (String) visen.getTblingredientes().getValueAt(fila, 3);
+            String precio = (String) visen.getTblingredientes().getValueAt(fila, 4);
+            visen.getTxtPrecioIngrediente().setText(precio);
+            calculoSubTotal(visen.getTxtPorcionIngrediente().getText());
+        }
+    }
+
 }
