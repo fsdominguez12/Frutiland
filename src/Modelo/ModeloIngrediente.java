@@ -28,9 +28,10 @@ public class ModeloIngrediente extends Ingrediente {
     public ModeloIngrediente() {
     }
 
-    public ModeloIngrediente(String codigoIngrediente, String nombre, String beneficio, int cantidad, float precio) {
-        super(codigoIngrediente, nombre, beneficio, cantidad, precio);
+    public ModeloIngrediente(String codigoIngrediente, String nombre, String beneficio, int cantidad, float precio, int tiempoPreparacion) {
+        super(codigoIngrediente, nombre, beneficio, cantidad, precio, tiempoPreparacion);
     }
+   
     public boolean Crear() {
         String foto64 = null;
         //Transformar imgagen a base64 para postgresql
@@ -47,8 +48,8 @@ public class ModeloIngrediente extends Ingrediente {
         }
         
         String sql;
-        sql = "INSERT INTO ingrediente (cod_ingrediente, nombre,beneficio,cantidad,precio,foto)";
-        sql += "VALUES ('" + getCodigoIngrediente() + "', '" + getNombre() + "', '" + getBeneficio() + "', '" + getCantidad() + "', '" + getPrecio() + "', '" +foto64 + "')";
+        sql = "INSERT INTO ingrediente (cod_ingrediente, nombre,beneficio,cantidad,precio,tiempo_preparacion,foto)";
+        sql += "VALUES ('" + getCodigoIngrediente() + "', '" + getNombre() + "', '" + getBeneficio() + "', '" + getCantidad() + "', '" + getPrecio() + "','" + getTiempoPreparacion() + "' '" +foto64 + "')";
         if (con.noquery(sql) == null) {
             return true;
         } else {
@@ -73,6 +74,7 @@ public class ModeloIngrediente extends Ingrediente {
                 ingr.setBeneficio(rs.getString("beneficio"));
                 ingr.setCantidad(rs.getInt("cantidad"));
                 ingr.setPrecio(rs.getFloat("precio"));
+                ingr.setTiempoPreparacion(rs.getInt("tiempo_preparacion"));
                     bf = rs.getBytes("foto");
                     
                 if (bf != null) {
@@ -98,7 +100,7 @@ public class ModeloIngrediente extends Ingrediente {
     }
     public boolean Modificar() {
         String sql;
-        sql = "UPDATE ingrediente SET cod_ingrediente='" + getCodigoIngrediente() + "', nombre='" +getNombre() + "', beneficio='" + getBeneficio() + "', cantidad='" +getCantidad() + "', precio='" + getPrecio() + "' WHERE cod_ingrediente='" + getCodigoIngrediente() + "'";
+        sql = "UPDATE ingrediente SET cod_ingrediente='" + getCodigoIngrediente() + "', nombre='" +getNombre() + "', beneficio='" + getBeneficio() + "', cantidad='" +getCantidad() + "', precio='" + getPrecio() + "', tiempo_preparacion='" + getTiempoPreparacion() + "' WHERE cod_ingrediente='" + getCodigoIngrediente() + "'";
         if (con.noquery(sql) == null) {
             return true;
         } else {
