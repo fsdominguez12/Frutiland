@@ -12,6 +12,7 @@ import Modelo.ModeloIngrediente;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.DecimalFormat;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -152,10 +153,12 @@ public class ControlEnsalada {
     public void calculoSubTotal(String aguja) {
 
         try {
+            DecimalFormat df=new DecimalFormat("#.00");
             int porcion = Integer.parseInt(aguja);
             float precioi = Float.parseFloat(visen.getTxtPrecioIngrediente().getText());
             float sub = porcion * precioi;
-            visen.getTxtSubTotal().setText(String.valueOf(sub));
+            visen.getTxtSubTotal().setText(String.valueOf(df.format(sub)) );
+            //visen.getTxtSubTotal().setText(df.format(String.valueOf(sub)) );
 
         } catch (Exception ex) {
             visen.getTxtSubTotal().setText("0");
