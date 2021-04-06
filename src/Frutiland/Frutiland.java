@@ -1,27 +1,18 @@
 
 package Frutiland;
 
+import Control.ControlInicio;
 import Control.ControlVentanaPrincipal;
+import Interfaces.Vista_Inicio;
 import Interfaces.Vista_Principal;
 
-
-
-
-/**
- *
- * @author Jonnathan
- */
 public class Frutiland {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-       Vista_Principal vista = new Vista_Principal();
-        ControlVentanaPrincipal cvp = new ControlVentanaPrincipal(vista);
-        cvp.IniciaControl();
-        
+
+        Vista_Inicio vi=new Vista_Inicio();
+        ControlInicio cvi = new ControlInicio(vi);
+        cvi.IniciaControl();        
     }
     
 }

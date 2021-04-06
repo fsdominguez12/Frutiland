@@ -7,7 +7,9 @@ package Interfaces;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -35,15 +37,22 @@ public class Vista_Principal extends javax.swing.JFrame {
         btnsalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
-        btncliente = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        btningrediente = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        btnensalada = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
         Desktop = new javax.swing.JDesktopPane();
+        jPanel2 = new javax.swing.JPanel();
+        lblReloj = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        btncliente = new javax.swing.JMenuItem();
+        btnCrearClienteMenu = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        btningrediente = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        btnensalada = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,7 +63,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Salir.PNG"))); // NOI18N
         btnsalir.setToolTipText("SALIR");
         btnsalir.setBorder(null);
-        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 610, 73, -1));
+        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 400, 73, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe Script", 0, 48)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -65,51 +74,17 @@ public class Vista_Principal extends javax.swing.JFrame {
         jToolBar1.setBackground(new java.awt.Color(102, 255, 255));
         jToolBar1.setRollover(true);
 
-        btncliente.setBackground(new java.awt.Color(51, 255, 255));
-        btncliente.setForeground(new java.awt.Color(0, 255, 255));
-        btncliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cleinte.png"))); // NOI18N
-        btncliente.setToolTipText("CLIENTE");
-        btncliente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btncliente.setFocusable(false);
-        btncliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btncliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(btncliente);
+        jLabel9.setFont(new java.awt.Font("Segoe Script", 0, 10)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jToolBar1.add(jLabel9);
 
-        jLabel4.setFont(new java.awt.Font("Segoe Script", 0, 10)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("     :     ");
-        jToolBar1.add(jLabel4);
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/atras.png"))); // NOI18N
+        btnRegresar.setFocusable(false);
+        btnRegresar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRegresar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnRegresar);
 
-        btningrediente.setBackground(new java.awt.Color(0, 255, 255));
-        btningrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Ingrediente (2).png"))); // NOI18N
-        btningrediente.setToolTipText("INGREDIENTES");
-        btningrediente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToolBar1.add(btningrediente);
-
-        jLabel5.setFont(new java.awt.Font("Segoe Script", 0, 10)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("     :     ");
-        jToolBar1.add(jLabel5);
-
-        btnensalada.setBackground(new java.awt.Color(0, 255, 255));
-        btnensalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada2.png"))); // NOI18N
-        btnensalada.setToolTipText("ENSALADA");
-        btnensalada.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToolBar1.add(btnensalada);
-
-        jLabel8.setFont(new java.awt.Font("Segoe Script", 0, 10)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("     :     ");
-        jToolBar1.add(jLabel8);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/info.png"))); // NOI18N
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
-
-        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 50));
+        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 0, 70, 50));
 
         javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
         Desktop.setLayout(DesktopLayout);
@@ -124,10 +99,92 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jPanel1.add(Desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 810, 470));
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        jPanel2.setOpaque(false);
+
+        lblReloj.setBackground(new java.awt.Color(0, 255, 255));
+        lblReloj.setFont(new java.awt.Font("Baskerville Old Face", 0, 36)); // NOI18N
+        lblReloj.setForeground(new java.awt.Color(255, 255, 255));
+        lblReloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblReloj.setText("RELOJ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lblReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 18, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(lblReloj))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 60, 200, 50));
+
         jLabel6.setFont(new java.awt.Font("Segoe Script", 0, 100)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im6.jpg"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 1450, 700));
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/grupo-de-personas-dibujadas-a-mano-de-personas.png"))); // NOI18N
+        jMenu1.setText("CLIENTES");
+
+        btncliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cleinte.png"))); // NOI18N
+        btncliente.setText("Clientes");
+        btncliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btncliente);
+
+        btnCrearClienteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/seguir.png"))); // NOI18N
+        btnCrearClienteMenu.setText("Crear Cliente");
+        jMenu1.add(btnCrearClienteMenu);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Ingrediente (2).png"))); // NOI18N
+        jMenu2.setText("INGREDIENTES");
+
+        btningrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Ingrediente (2).png"))); // NOI18N
+        btningrediente.setText("Ingredientes");
+        btningrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btningredienteActionPerformed(evt);
+            }
+        });
+        jMenu2.add(btningrediente);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada2.png"))); // NOI18N
+        jMenu3.setText("ENSALADAS");
+
+        btnensalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada2.png"))); // NOI18N
+        btnensalada.setText("Ensaladas");
+        jMenu3.add(btnensalada);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/beneficio.png"))); // NOI18N
+        jMenuItem1.setText("Beneficios");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/info.png"))); // NOI18N
+        jMenu4.setText("INFORMACIÓN");
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,29 +200,51 @@ public class Vista_Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public JButton getBtncliente() {
+    private void btnclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnclienteActionPerformed
+
+    private void btningredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningredienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btningredienteActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    public JMenuItem getBtncliente() {
         return btncliente;
     }
 
-    public void setBtncliente(JButton btncliente) {
+    public void setBtncliente(JMenuItem btncliente) {
         this.btncliente = btncliente;
     }
 
-    public JButton getBtnensalada() {
+    public JMenuItem getBtnensalada() {
         return btnensalada;
     }
 
-    public void setBtnensalada(JButton btnensalada) {
+    public void setBtnensalada(JMenuItem btnensalada) {
         this.btnensalada = btnensalada;
     }
 
-    public JButton getBtningrediente() {
+    public JMenuItem getBtningrediente() {
         return btningrediente;
     }
 
-    public void setBtningrediente(JButton btningrediente) {
+    public void setBtningrediente(JMenuItem btningrediente) {
         this.btningrediente = btningrediente;
     }
+
+    public JMenuItem getBtnCrearClienteMenu() {
+        return btnCrearClienteMenu;
+    }
+
+    public void setBtnCrearClienteMenu(JMenuItem btnCrearClienteMenu) {
+        this.btnCrearClienteMenu = btnCrearClienteMenu;
+    }
+
+    
 
     public JButton getBtnsalir() {
         return btnsalir;
@@ -183,22 +262,45 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.Desktop = Desktop;
     }
 
- 
+    public JButton getBtnRegresar() {
+        return btnRegresar;
+    }
+
+    public void setBtnRegresar(JButton btnRegresar) {
+        this.btnRegresar = btnRegresar;
+    }
+
+    public JLabel getLblReloj() {
+        return lblReloj;
+    }
+
+    public void setLblReloj(JLabel lblReloj) {
+        this.lblReloj = lblReloj;
+    }
+
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Desktop;
-    private javax.swing.JButton btncliente;
-    private javax.swing.JButton btnensalada;
-    private javax.swing.JButton btningrediente;
+    private javax.swing.JMenuItem btnCrearClienteMenu;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JMenuItem btncliente;
+    private javax.swing.JMenuItem btnensalada;
+    private javax.swing.JMenuItem btningrediente;
     private javax.swing.JButton btnsalir;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lblReloj;
     // End of variables declaration//GEN-END:variables
 }

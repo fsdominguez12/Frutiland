@@ -14,10 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Jonnathan
- */
+
 public class ModeloCliente extends Cliente{
     
     private static ConexionPG con = new ConexionPG();

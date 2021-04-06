@@ -31,9 +31,6 @@ public class ModeloIngrediente extends Ingrediente {
     public ModeloIngrediente(String codigoIngrediente, String nombre, String beneficio, int cantidad, float precio) {
         super(codigoIngrediente, nombre, beneficio, cantidad, precio);
     }
-
-    
-
     public boolean Crear() {
         String foto64 = null;
         //Transformar imgagen a base64 para postgresql
@@ -58,9 +55,6 @@ public class ModeloIngrediente extends Ingrediente {
             return false;
         }
     }
-
-    ;
-    
     public static List<Ingrediente> listarIngrediente(String aguja) {
 
         try {
@@ -102,7 +96,6 @@ public class ModeloIngrediente extends Ingrediente {
             return null;
         }
     }
-
     public boolean Modificar() {
         String sql;
         sql = "UPDATE ingrediente SET cod_ingrediente='" + getCodigoIngrediente() + "', nombre='" +getNombre() + "', beneficio='" + getBeneficio() + "', cantidad='" +getCantidad() + "', precio='" + getPrecio() + "' WHERE cod_ingrediente='" + getCodigoIngrediente() + "'";
@@ -112,9 +105,6 @@ public class ModeloIngrediente extends Ingrediente {
             return false;
         }
     }
-
-    ;
-    
     public boolean Eliminar() {
         String sql;
         sql = "DELETE FROM ingrediente WHERE cod_ingrediente='" + this.getCodigoIngrediente() + "'";
@@ -124,10 +114,6 @@ public class ModeloIngrediente extends Ingrediente {
             return false;
         }
     }
-;
-    
-    //Imagen
-    
     private BufferedImage imgBimage(Image img) {
 
         if (img instanceof BufferedImage) {
@@ -142,7 +128,6 @@ public class ModeloIngrediente extends Ingrediente {
         bGR.dispose();
         return bi;
     }
-
     public static Image obtenImagen(byte[] bytes) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
         Iterator it = ImageIO.getImageReadersByFormatName("png");

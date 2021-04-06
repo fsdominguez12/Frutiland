@@ -16,10 +16,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 
-/**
- *
- * @author Jonnathan
- */
 public class ControlCliente {
     
     private ModeloCliente modelo;
@@ -31,7 +27,7 @@ public class ControlCliente {
         this.vista = vista;
         this.vp = vp;
         vista.setVisible(true);//Mostramos la interfaz
-        vista.setLocationRelativeTo(null);
+        //vista.setLocationRelativeTo(null);
     }
     
     public void IniciaControl(){
@@ -91,9 +87,9 @@ public class ControlCliente {
         });
     }
     
-    //CREAR---------------------------------------------------------------------------------------------------------------------
     
-    private void CrearCliente(){
+    //CREAR---------------------------------------------------------------------------------------------------------------------
+    public void CrearCliente(){
         vista.getBtnguardar().setVisible(true);
         vista.getBtneditar().setVisible(false);
         vista.getTxtid().setEnabled(true);
@@ -103,8 +99,7 @@ public class ControlCliente {
         vista.setVisible(false);
         vista.getDgcliente().setLocationRelativeTo(null);
     }
-    
-    private void grabarpersona(){
+    public void grabarpersona(){
         String ident = vista.getTxtid().getText();
         String nombre = vista.getTxtnombres().getText();
         String apellido = vista.getTxtapellidos().getText();
@@ -121,22 +116,18 @@ public class ControlCliente {
         
         vista.getDgcliente().setVisible(false);
         vista.setVisible(true);
-        CargarLista("");
+       // CargarLista("");
     }
-    
-    private void LimpiarDialogo(){
+    public void LimpiarDialogo(){
         vista.getTxtid().setText("");
         vista.getTxtnombres().setText("");
         vista.getTxtapellidos().setText("");
     }
-    
     private void CancelarDialogo(){
         vista.getDgcliente().setVisible(false);
         vista.setVisible(true);
     }
-    
     //MODIFICAR------------------------------------------------------------------------------------------------------------------
-    
     private void editarpersona(){
         vista.getBtnguardar().setVisible(false);
         vista.getBtneditar().setVisible(true);
@@ -147,7 +138,6 @@ public class ControlCliente {
         vista.setVisible(false);
         vista.getDgcliente().setLocationRelativeTo(null);//Para que el Jdialog se muestre en la mitad de la pantalla
     }
-    
     private void Elegir(){
         editarpersona();
         
@@ -166,7 +156,6 @@ public class ControlCliente {
             editarpersona();
         }
     }
-    
     public void Actualizar(){
         String idcli = vista.getTxtid().getText();
         String nombre = vista.getTxtnombres().getText();
@@ -185,9 +174,7 @@ public class ControlCliente {
         vista.setVisible(true);
         CargarLista("");
     }
-    
-    //ELIMINAR------------------------------------------------------------------------------------------------------------------
-    
+    //ELIMINAR-----------------------------------------------------------------------------------------------------------------
     private void Eliminar(){
         DefaultTableModel dtmCliente = (DefaultTableModel) vista.getTblcliente().getModel();
         int fila = vista.getTblcliente().getSelectedRow();
@@ -206,9 +193,7 @@ public class ControlCliente {
         }
         CargarLista("");
     }
-    
-    //CERRAR JFRAME---------------------------------------------------------------------------------------------------------
-    
+    //CERRAR JFRAME--------------------------------------------------------------------------------------------------------- 
     public void cancelar(){
         vista.setVisible(false);
     }

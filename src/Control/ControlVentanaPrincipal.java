@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Control;
 
 import Interfaces.Vista_Cliente;
@@ -19,6 +15,7 @@ import javax.swing.JFrame;
 public class ControlVentanaPrincipal {
     
     Vista_Principal vp;
+    ControlCliente cl;
 
     public ControlVentanaPrincipal(Vista_Principal vp) {
         this.vp = vp;
@@ -28,10 +25,15 @@ public class ControlVentanaPrincipal {
     }
     
     public void IniciaControl(){
+        Thread hilo1 = new ControlHilo("reloj", vp);
+        hilo1.start();
+        Ensalada();
         vp.getBtncliente().addActionListener(l->Cliente());
         vp.getBtnsalir().addActionListener(l->Salir());
         vp.getBtningrediente().addActionListener(l->Ingrediente());
         vp.getBtnensalada().addActionListener(l->Ensalada());
+        vp.getBtnRegresar().addActionListener(l->Regresar());
+        vp.getBtnCrearClienteMenu().addActionListener(l->NuevoCliente());
        
     }
     
@@ -41,6 +43,7 @@ public class ControlVentanaPrincipal {
         vp.getDesktop().add(vista);
         ControlCliente cli = new ControlCliente(modelo, vista);
         cli.IniciaControl();
+        
     }
     
      private void Ingrediente(){
@@ -60,6 +63,22 @@ public class ControlVentanaPrincipal {
         ens.IniciaControl();
      }
     
+     private void Regresar(){
+        Vista_Inicio vi=new Vista_Inicio();
+        ControlInicio cvi = new ControlInicio(vi);
+        cvi.IniciaControl();  
+        vp.setVisible(false);
+        
+     }
+     
+     private void NuevoCliente(){
+       ModeloCliente modelo = new ModeloCliente();
+        Vista_Cliente vista = new Vista_Cliente();
+        ControlCliente cli = new ControlCliente(modelo, vista);
+        cli.IniciaControl();
+        cli.CrearCliente();
+     }
+     
     private void Salir(){
         System.exit(0);
     }

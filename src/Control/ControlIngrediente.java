@@ -30,7 +30,7 @@ public class ControlIngrediente {
         this.modeloIn = modeloIn;
         this.vistaIn = vistaIn;
         vistaIn.setVisible(true);//Mostramos la interfaz
-        vistaIn.setLocationRelativeTo(null);
+       
     }
 
     public void IniciaControl() {
@@ -74,12 +74,15 @@ public class ControlIngrediente {
 
     }
     
+    public void lis(){
+        cargarLista("");
+    }
+    
     public void venIngrediente(String nobo, String nobi) {
         vistaIn.getDgIngrediente().setTitle("CREAR INGREDIENTE");
         vistaIn.getDgIngrediente().setSize(615, 408);
         vistaIn.getDgIngrediente().setLocationRelativeTo(vistaIn);
         vistaIn.getBtnGuardar().setText(nobo);
-
         vistaIn.getLblTituloIng().setText(nobi);
         vistaIn.getDgIngrediente().setVisible(true);
 
@@ -93,7 +96,7 @@ public class ControlIngrediente {
         vistaIn.getTxtPrecio().setText("");
     }
     
-    private void cargarLista(String aguja) {
+    public void cargarLista(String aguja) {
         vistaIn.getTblingredientes().setDefaultRenderer(Object.class, new ImagenTabla());
         vistaIn.getTblingredientes().setRowHeight(100);
         DefaultTableCellRenderer renderer = new DefaultTableCellHeaderRenderer();
@@ -185,6 +188,7 @@ public class ControlIngrediente {
             String beneficio = (String) vistaIn.getTblingredientes().getValueAt(fila, 2);
             String cantidad = (String) vistaIn.getTblingredientes().getValueAt(fila, 3);
             String precio = (String) vistaIn.getTblingredientes().getValueAt(fila, 4);
+            
 
             vistaIn.getTxtCodigo().setText(ident);
             vistaIn.getTxtNombre().setText(nombre);
@@ -192,6 +196,7 @@ public class ControlIngrediente {
             vistaIn.getTxtCantidad().setText(cantidad);
             vistaIn.getTxtPrecio().setText(precio);
             vistaIn.getTxtCodigo().setEnabled(false);
+            
             venIngrediente("ACTUALIZAR", "EDITAR PRODUCTO");
         }
     }
