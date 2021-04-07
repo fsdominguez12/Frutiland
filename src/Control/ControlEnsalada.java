@@ -131,7 +131,7 @@ public class ControlEnsalada {
         lista.stream().forEach(p -> {
 
             tblModel.addRow(new Object[ncols]);
-            visen.getTblingredientes().setValueAt(p.getCodigoIngrediente(), i.value, 0);
+            //visen.getTblingredientes().setValueAt(p.getCodigoIngrediente(), i.value, 0);
             visen.getTblingredientes().setValueAt(p.getNombre(), i.value, 1);
             visen.getTblingredientes().setValueAt(p.getBeneficio(), i.value, 2);
             visen.getTblingredientes().setValueAt(String.valueOf(p.getCantidad()), i.value, 3);
