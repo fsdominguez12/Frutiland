@@ -69,7 +69,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Frutiland.png"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 250, 100));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 250, 100));
 
         jToolBar1.setBackground(new java.awt.Color(102, 255, 255));
         jToolBar1.setRollover(true);
@@ -97,7 +97,7 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 810, 470));
+        jPanel1.add(Desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 810, 470));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jPanel2.setOpaque(false);
@@ -148,7 +148,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Ingrediente (2).png"))); // NOI18N
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ingredientes.png"))); // NOI18N
         jMenu2.setText("INGREDIENTES");
 
         btningrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Ingrediente (2).png"))); // NOI18N
@@ -162,7 +162,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada2.png"))); // NOI18N
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada-de-frutas.png"))); // NOI18N
         jMenu3.setText("ENSALADAS");
 
         btnensalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada2.png"))); // NOI18N
