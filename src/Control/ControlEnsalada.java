@@ -80,8 +80,10 @@ public class ControlEnsalada {
         visen.getTxtTiempoEnsalada().setEnabled(false);
         visen.getTxtTotalEnsalada().setEnabled(false);
         visen.getTxtPrecioIngrediente().setEnabled(false);
+        visen.getTxtCanDisponible().setEnabled(false);
         visen.getTxtPrecioIngrediente().setText("0");
         visen.getTxtSubTotal().setText("0");
+        visen.getTxtCanDisponible().setText("0");
     }
 
     public void buscarCliente(String aguja) {
@@ -116,9 +118,11 @@ public class ControlEnsalada {
     }
 
     public void borrarDialogo() {
+        visen.getTxtSubTotal().setText("0");
         visen.getTxtBuscarAgregar().setText("");
         visen.getTxtPorcionIngrediente().setText("");
-        visen.getTxtSubTotal().setText("0");
+        visen.getTxtPrecioIngrediente().setText("0");
+        visen.getTxtCanDisponible().setText("0");
     }
 
     public void cargaTabla(String aguja) {
@@ -183,29 +187,30 @@ public class ControlEnsalada {
             String ident = (String) visen.getTblingredientes().getValueAt(fila, 0);
             cantidad = (String) visen.getTblingredientes().getValueAt(fila, 3);
             String precio = (String) visen.getTblingredientes().getValueAt(fila, 4);
+
             visen.getTxtPrecioIngrediente().setText(precio);
+            visen.getTxtCanDisponible().setText(cantidad);
             calculoSubTotal(visen.getTxtPorcionIngrediente().getText());
         }
-
         return c = Integer.parseInt(cantidad);
     }
 
     public void exportarDatos() {
-        JOptionPane.showMessageDialog(null, "hollaa");
 
-        //int ka=Integer.parseInt(visen.getTxtPorcionIngrediente().getText());
-        //if (agregarPro() <= 0) {
-        int a = 0;
-        if ((a) <= 0) {
+        int ca = Integer.parseInt(visen.getTxtPorcionIngrediente().getText());
+        int di = Integer.parseInt(visen.getTxtCanDisponible().getText());
+
+        if ((di - ca) < 0 || di==0) {
             JOptionPane.showMessageDialog(null, "Cantidad Insuficiente");
             borrarDialogo();
         } else {
-            JOptionPane.showMessageDialog(null, "no es cero");
+            JOptionPane.showMessageDialog(null, "pasa al registro");
         }
 
-        //int i= JOptionPane.showConfirmDialog(null, "vamos a confirm", "as", 0, 2);
-        //  if(i==0){
-        //    System.out.println("es opcion si");
-        // }
     }
+
+    public void almacenarValores(String id, int cantidad) {
+
+    }
+
 }
