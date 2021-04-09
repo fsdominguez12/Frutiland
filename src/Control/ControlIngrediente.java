@@ -30,11 +30,11 @@ public class ControlIngrediente {
         this.modeloIn = modeloIn;
         this.vistaIn = vistaIn;
         vistaIn.setVisible(true);//Mostramos la interfaz
-       
+
     }
 
     public void IniciaControl() {
-        
+
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -73,11 +73,11 @@ public class ControlIngrediente {
         }
 
     }
-    
-    public void lis(){
+
+    public void lis() {
         cargarLista("");
     }
-    
+
     public void venIngrediente(String nobo, String nobi) {
         vistaIn.getDgIngrediente().setTitle("CREAR INGREDIENTE");
         vistaIn.getDgIngrediente().setSize(615, 408);
@@ -87,7 +87,7 @@ public class ControlIngrediente {
         vistaIn.getDgIngrediente().setVisible(true);
 
     }
-    
+
     private void LimpiarDialogo() {
         vistaIn.getTxtCodigo().setText("");
         vistaIn.getTxtNombre().setText("");
@@ -95,7 +95,7 @@ public class ControlIngrediente {
         vistaIn.getTxtCantidad().setText("");
         vistaIn.getTxtPrecio().setText("");
     }
-    
+
     public void cargarLista(String aguja) {
         vistaIn.getTblingredientes().setDefaultRenderer(Object.class, new ImagenTabla());
         vistaIn.getTblingredientes().setRowHeight(100);
@@ -117,28 +117,31 @@ public class ControlIngrediente {
             vistaIn.getTblingredientes().setValueAt(p.getBeneficio(), i.value, 2);
             vistaIn.getTblingredientes().setValueAt(String.valueOf(p.getCantidad()), i.value, 3);
             vistaIn.getTblingredientes().setValueAt(String.valueOf(p.getPrecio()), i.value, 4);
-
+            vistaIn.getTblingredientes().setValueAt(String.valueOf(p.getTiempoPreparacion()), i.value, 5);
             Image img = p.getFoto();
             if (img != null) {
                 Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon icon = new ImageIcon(newimg);
                 renderer.setIcon(icon);
-                vistaIn.getTblingredientes().setValueAt(new JLabel(icon), i.value, 5);
+                vistaIn.getTblingredientes().setValueAt(new JLabel(icon), i.value, 6);
             } else {
-                vistaIn.getTblingredientes().setValueAt(null, i.value, 5);
+                vistaIn.getTblingredientes().setValueAt(null, i.value, 6);
             }
             i.value++;
         });
     }
-    
+
     private void grabaringrediente() {
         String ident = vistaIn.getTxtCodigo().getText();
         String nombre = vistaIn.getTxtNombre().getText();
         String beneficio = vistaIn.getTxtBeneficio().getText();
         int cantidad = Integer.parseInt(vistaIn.getTxtCantidad().getText());
         float precio = Float.parseFloat(vistaIn.getTxtPrecio().getText());
-
-        ModeloIngrediente ingrediente = new ModeloIngrediente(ident, nombre, beneficio, cantidad, precio);
+        int min = Integer.parseInt(vistaIn.getTxtMinTiPreparacion().getText());
+        int seg = Integer.parseInt(vistaIn.getTxtSegTiPreparacion().getText());
+        min = min * 60;
+        int tiempo = min + seg;
+        ModeloIngrediente ingrediente = new ModeloIngrediente(ident, nombre, beneficio, cantidad, precio, tiempo);
         ImageIcon ic = (ImageIcon) vistaIn.getLblFoto().getIcon();
         ingrediente.setFoto(ic.getImage());
 
@@ -176,7 +179,7 @@ public class ControlIngrediente {
 
         }
     }
-    
+
     private void CargaIngrediente() {
         int fila = vistaIn.getTblingredientes().getSelectedRow();
         if (fila == -1) {
@@ -188,7 +191,6 @@ public class ControlIngrediente {
             String beneficio = (String) vistaIn.getTblingredientes().getValueAt(fila, 2);
             String cantidad = (String) vistaIn.getTblingredientes().getValueAt(fila, 3);
             String precio = (String) vistaIn.getTblingredientes().getValueAt(fila, 4);
-            
 
             vistaIn.getTxtCodigo().setText(ident);
             vistaIn.getTxtNombre().setText(nombre);
@@ -196,11 +198,11 @@ public class ControlIngrediente {
             vistaIn.getTxtCantidad().setText(cantidad);
             vistaIn.getTxtPrecio().setText(precio);
             vistaIn.getTxtCodigo().setEnabled(false);
-            
+
             venIngrediente("ACTUALIZAR", "EDITAR PRODUCTO");
         }
     }
-    
+
     public void Actualizar() {
 
         String ident = vistaIn.getTxtCodigo().getText();
@@ -208,8 +210,9 @@ public class ControlIngrediente {
         String beneficio = vistaIn.getTxtBeneficio().getText();
         int cantidad = Integer.parseInt(vistaIn.getTxtCantidad().getText());
         float precio = Float.parseFloat(vistaIn.getTxtPrecio().getText());
+        int tiempo = 15;
         LimpiarDialogo();
-        ModeloIngrediente ingrediente = new ModeloIngrediente(ident, nombre, beneficio, cantidad, precio);
+        ModeloIngrediente ingrediente = new ModeloIngrediente(ident, nombre, beneficio, cantidad, precio, tiempo);
         if (ingrediente.Modificar()) {
             JOptionPane.showMessageDialog(vistaIn, "Datos De Cliente Modificados");
         } else {
@@ -225,14 +228,19 @@ public class ControlIngrediente {
         int fila = vistaIn.getTblingredientes().getSelectedRow();
 
         if (fila != -1) {
-            String idin = dtmIngrediente.getValueAt(fila, 0).toString();
-            modeloIn.setCodigoIngrediente(idin);
-            if (modeloIn.Eliminar()) {
-                JOptionPane.showMessageDialog(vistaIn, "Ingrediente Eliminado");
-            } else {
-                JOptionPane.showMessageDialog(vistaIn, "ERROR!!!");
+            int i = JOptionPane.showConfirmDialog(null, "   El valor a pagar es ¿Desea agregar el ingrediente?", "AGREGAR INGREDIENTE", 1, 2);
+            //int i = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el ingrediente?", "ELIMINAR INGREDIENTE", 1, 2);
+            if (i == 0) {
+                String idin = dtmIngrediente.getValueAt(fila, 0).toString();
+                modeloIn.setCodigoIngrediente(idin);
+                if (modeloIn.Eliminar()) {
+                    JOptionPane.showMessageDialog(vistaIn, "Ingrediente Eliminado");
+                } else {
+                    JOptionPane.showMessageDialog(vistaIn, "ERROR!!!");
+                }
+                cargarLista(idin);
             }
-            cargarLista(idin);
+
         } else {
             JOptionPane.showMessageDialog(null, "SELECCIONAR UNA FILA");
         }
