@@ -13,6 +13,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -67,6 +68,8 @@ public class ControlEnsalada {
         visen.getBtnSalir().addActionListener(l -> salirDialogo());
         visen.getBtnAgregaIngrediente().addActionListener(l -> agregarPro());
         visen.getBtnAdjuntar().addActionListener(l -> exportarDatos());
+        visen.getBtnVerProductosAgregados().addActionListener(l -> abrirListaIngredientes());
+        visen.getBtnQuitar().addActionListener(l -> QuitarIngredientesdDeListaAgregada());
     }
 
     public void limpiarDialogo() {
@@ -123,6 +126,7 @@ public class ControlEnsalada {
         visen.getTxtPorcionIngrediente().setText("");
         visen.getTxtPrecioIngrediente().setText("0");
         visen.getTxtCanDisponible().setText("0");
+        visen.getTxtPorcionIngrediente().setText("0");
     }
 
     public void cargaTabla(String aguja) {
@@ -167,8 +171,11 @@ public class ControlEnsalada {
             porcion = Integer.parseInt(aguja);
             float precioi = Float.parseFloat(visen.getTxtPrecioIngrediente().getText());
             float sub = porcion * precioi;
-            visen.getTxtSubTotal().setText(String.valueOf(df.format(sub)));
-            //visen.getTxtSubTotal().setText(df.format(String.valueOf(sub)) );
+            if (sub < 1) {
+                visen.getTxtSubTotal().setText("0" + String.valueOf(df.format(sub)));
+            } else {
+                visen.getTxtSubTotal().setText(String.valueOf(df.format(sub)));
+            }
 
         } catch (Exception ex) {
             visen.getTxtSubTotal().setText("0");
@@ -176,8 +183,8 @@ public class ControlEnsalada {
         }
     }
 
-    public int agregarPro() {
-        int c = 0;
+    public void agregarPro() {
+        
         String cantidad = "";
         int fila = visen.getTblingredientes().getSelectedRow();
         if (fila == -1) {
@@ -185,32 +192,79 @@ public class ControlEnsalada {
 
         } else {
             String ident = (String) visen.getTblingredientes().getValueAt(fila, 0);
+            String nombre = (String) visen.getTblingredientes().getValueAt(fila, 1);
             cantidad = (String) visen.getTblingredientes().getValueAt(fila, 3);
             String precio = (String) visen.getTblingredientes().getValueAt(fila, 4);
-
+           
+            visen.getLblID().setText(ident);
+            visen.getLblNombre().setText(nombre);
             visen.getTxtPrecioIngrediente().setText(precio);
             visen.getTxtCanDisponible().setText(cantidad);
             calculoSubTotal(visen.getTxtPorcionIngrediente().getText());
         }
-        return c = Integer.parseInt(cantidad);
+       
     }
+    
 
+    
     public void exportarDatos() {
 
         int ca = Integer.parseInt(visen.getTxtPorcionIngrediente().getText());
         int di = Integer.parseInt(visen.getTxtCanDisponible().getText());
 
-        if ((di - ca) < 0 || di==0) {
+        if ((di - ca) < 0 || di == 0 || ca == 0) {
             JOptionPane.showMessageDialog(null, "Cantidad Insuficiente");
             borrarDialogo();
         } else {
-            JOptionPane.showMessageDialog(null, "pasa al registro");
+            int i = JOptionPane.showConfirmDialog(null, "   El valor a pagar es " + visen.getTxtSubTotal().getText() + "\n¿Desea agregar el ingrediente?", "AGREGAR INGREDIENTE", 1, 2);
+
+            if (i == 0) {
+                JOptionPane.showMessageDialog(null, "aqui guarda los datos");
+                DefaultTableModel tblModel;
+                tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
+                String[] info = new String[4];
+                info[0] = visen.getLblID().getText();
+                info[1] = visen.getTxtPorcionIngrediente().getText();
+                info[2] = visen.getLblNombre().getText();
+                info[3] = visen.getTxtSubTotal().getText();
+                tblModel.addRow(info);
+
+            } else {
+                if (i == 1) {
+                    borrarDialogo();
+                }
+
+            }
+
         }
 
     }
 
     public void almacenarValores(String id, int cantidad) {
 
+    }
+
+    public void abrirListaIngredientes() {
+        visen.getDlgListaProductosAgregados().setTitle("Lista Ingredientes Agregados");
+        visen.getDlgListaProductosAgregados().setSize(615, 350);
+        visen.getDlgListaProductosAgregados().setLocationRelativeTo(vp);
+        visen.getDlgListaProductosAgregados().setVisible(true);
+    }
+
+    public void QuitarIngredientesdDeListaAgregada() {
+        DefaultTableModel tblModel;
+        tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
+        int fila = visen.getTblIngredientesParaCalcular().getSelectedRow();
+        if (fila >= 0) {
+            String produ = (String) visen.getTblIngredientesParaCalcular().getValueAt(fila, 2);
+            int i = JOptionPane.showConfirmDialog(null, " ¿Desea eliminar "+produ+" de la ensalada ?", "ELIMINAR", 0, 3);
+            if(i==0){
+                 tblModel.removeRow(fila);
+            }
+           
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila");
+        }
     }
 
 }
