@@ -87,6 +87,8 @@ public class ControlEnsalada {
         visen.getTxtPrecioIngrediente().setText("0");
         visen.getTxtSubTotal().setText("0");
         visen.getTxtCanDisponible().setText("0");
+        visen.getTxtTiempoEnsalada().setText("0");
+        visen.getTxtTotalEnsalada().setText("0");
     }
 
     public void buscarCliente(String aguja) {
@@ -184,7 +186,7 @@ public class ControlEnsalada {
     }
 
     public void agregarPro() {
-        
+        visen.getTxtPorcionIngrediente().setText("0");
         String cantidad = "";
         int fila = visen.getTblingredientes().getSelectedRow();
         if (fila == -1) {
@@ -195,18 +197,18 @@ public class ControlEnsalada {
             String nombre = (String) visen.getTblingredientes().getValueAt(fila, 1);
             cantidad = (String) visen.getTblingredientes().getValueAt(fila, 3);
             String precio = (String) visen.getTblingredientes().getValueAt(fila, 4);
-           
+            String esp = (String) visen.getTblingredientes().getValueAt(fila, 5);
+
             visen.getLblID().setText(ident);
             visen.getLblNombre().setText(nombre);
+            visen.getLblEspera().setText(esp);
             visen.getTxtPrecioIngrediente().setText(precio);
             visen.getTxtCanDisponible().setText(cantidad);
             calculoSubTotal(visen.getTxtPorcionIngrediente().getText());
         }
-       
-    }
-    
 
-    
+    }
+
     public void exportarDatos() {
 
         int ca = Integer.parseInt(visen.getTxtPorcionIngrediente().getText());
@@ -219,15 +221,23 @@ public class ControlEnsalada {
             int i = JOptionPane.showConfirmDialog(null, "   El valor a pagar es " + visen.getTxtSubTotal().getText() + "\n¿Desea agregar el ingrediente?", "AGREGAR INGREDIENTE", 1, 2);
 
             if (i == 0) {
-                JOptionPane.showMessageDialog(null, "aqui guarda los datos");
+                
+                visen.getTxtDescripcionEnsalada().setText(visen.getTxtDescripcionEnsalada().getText() +"- "+ visen.getTxtPorcionIngrediente().getText() +" "+ visen.getLblNombre().getText()+" ");
+                visen.getTxtTiempoEnsalada().setText(String.valueOf(Integer.parseInt(visen.getTxtTiempoEnsalada().getText())+((Integer.parseInt(visen.getLblEspera().getText()))*(Integer.parseInt(visen.getTxtPorcionIngrediente().getText())))));
+                visen.getTxtTotalEnsalada().setText(String.valueOf(Float.parseFloat(visen.getTxtTotalEnsalada().getText())+ Float.parseFloat(visen.getTxtSubTotal().getText().replace(",", "."))));
+                
+                JOptionPane.showMessageDialog(null, "Ingrediente Guardado");
                 DefaultTableModel tblModel;
                 tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
-                String[] info = new String[4];
+                String[] info = new String[5];
                 info[0] = visen.getLblID().getText();
                 info[1] = visen.getTxtPorcionIngrediente().getText();
-                info[2] = visen.getLblNombre().getText();
-                info[3] = visen.getTxtSubTotal().getText();
+                info[2] = visen.getLblNombre().getText(); 
+                info[3]= String.valueOf(Integer.parseInt(visen.getLblEspera().getText())*Integer.parseInt(visen.getTxtPorcionIngrediente().getText()));
+                info[4] = visen.getTxtSubTotal().getText();
                 tblModel.addRow(info);
+               borrarDialogo();
+                
 
             } else {
                 if (i == 1) {
@@ -257,14 +267,17 @@ public class ControlEnsalada {
         int fila = visen.getTblIngredientesParaCalcular().getSelectedRow();
         if (fila >= 0) {
             String produ = (String) visen.getTblIngredientesParaCalcular().getValueAt(fila, 2);
-            int i = JOptionPane.showConfirmDialog(null, " ¿Desea eliminar "+produ+" de la ensalada ?", "ELIMINAR", 0, 3);
-            if(i==0){
-                 tblModel.removeRow(fila);
+            int i = JOptionPane.showConfirmDialog(null, " ¿Desea eliminar " + produ + " de la ensalada ?", "ELIMINAR", 0, 3);
+            if (i == 0) {
+                tblModel.removeRow(fila);
             }
-           
+
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una fila");
         }
     }
 
+    public void agregarDescripcionEnsalada() {
+
+    }
 }
