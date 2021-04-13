@@ -49,7 +49,7 @@ public class ModeloIngrediente extends Ingrediente {
         
         String sql;
         sql = "INSERT INTO ingrediente (cod_ingrediente, nombre,beneficio,cantidad,precio,tiempo_preparacion,foto)";
-        sql += "VALUES ('" + getCodigoIngrediente() + "', '" + getNombre() + "', '" + getBeneficio() + "', '" + getCantidad() + "', '" + getPrecio() + "','" + getTiempoPreparacion() + "' '" +foto64 + "')";
+        sql += "VALUES ('" + getCodigoIngrediente() + "', '" + getNombre() + "', '" + getBeneficio() + "', '" + getCantidad() + "', '" + getPrecio() + "','" + getTiempoPreparacion() + "','" +foto64 + "')";
         if (con.noquery(sql) == null) {
             return true;
         } else {

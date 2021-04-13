@@ -228,8 +228,7 @@ public class ControlIngrediente {
         int fila = vistaIn.getTblingredientes().getSelectedRow();
 
         if (fila != -1) {
-            int i = JOptionPane.showConfirmDialog(null, "   El valor a pagar es ¿Desea agregar el ingrediente?", "AGREGAR INGREDIENTE", 1, 2);
-            //int i = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el ingrediente?", "ELIMINAR INGREDIENTE", 1, 2);
+            int i = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el ingrediente?", "ELIMINAR INGREDIENTE", 1, 2);
             if (i == 0) {
                 String idin = dtmIngrediente.getValueAt(fila, 0).toString();
                 modeloIn.setCodigoIngrediente(idin);

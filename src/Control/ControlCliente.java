@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Control;
 
 import Clases_base.Cliente;
@@ -55,7 +50,7 @@ public class ControlCliente {
         vista.getBtneliminar().addActionListener(l->Eliminar());//llamamos al listener del boton eliminar
         vista.getBtnlistar().addActionListener(l->CargarLista(""));//llamamos al listener del boton listar
         vista.getBtnsalir().addActionListener(l->cancelar());//llamamos al listener del boton salir
-        
+        vista.getTxtbuscar().addKeyListener(kl);
         // JDIALOG
         
         vista.getBtnguardar().addActionListener(l->grabarpersona());
@@ -134,8 +129,6 @@ public class ControlCliente {
         vista.getTxtid().setEnabled(false);
         vista.getDgcliente().setTitle("MODIFICAR DATOS DE PERSONA");//Poner titulo en el JDialogo
         vista.getDgcliente().setSize(450, 550);//Tamaño del JDialog
-        vista.getDgcliente().setVisible(true);//Para que se puede ver el JDialog en la compilacion
-        vista.setVisible(false);
         vista.getDgcliente().setLocationRelativeTo(null);//Para que el Jdialog se muestre en la mitad de la pantalla
     }
     private void Elegir(){
@@ -143,8 +136,12 @@ public class ControlCliente {
         
         int fila = vista.getTblcliente().getSelectedRow();
         if (fila == -1) {
+            vista.getDgcliente().setVisible(false);//Para que se puede ver el JDialog en la compilacion
+            vista.setVisible(true);
             JOptionPane.showMessageDialog(null, "SELECCIONAR UNA FILA");
         } else {
+            vista.getDgcliente().setVisible(true);//Para que se puede ver el JDialog en la compilacion
+            vista.setVisible(false);
             String idpersona = (String) vista.getTblcliente().getValueAt(fila, 0);
             String nombre = (String) vista.getTblcliente().getValueAt(fila, 1);
             String apellido = (String) vista.getTblcliente().getValueAt(fila, 2);

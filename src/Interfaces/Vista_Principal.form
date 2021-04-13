@@ -90,6 +90,24 @@
             </Property>
             <Property name="text" type="java.lang.String" value="INFORMACI&#xd3;N"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/IconosBotones/mision-cumplida.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="MISI&#xd3;N        "/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/IconosBotones/vision.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="VISI&#xd3;N"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

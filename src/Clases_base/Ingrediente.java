@@ -8,17 +8,19 @@ package Clases_base;
 import java.awt.Image;
 
 public class Ingrediente {
-    
+
     public String codigoIngrediente;
     private String nombre;
     private String beneficio;
     private int cantidad;
     private float precio;
+    private int tiempoPreparacion;
     private Image foto;
 
     public Ingrediente() {
     }
 
+    //esto no hace nada
     public Ingrediente(String codigoIngrediente, String nombre, String beneficio, int cantidad, float precio, Image foto) {
         this.codigoIngrediente = codigoIngrediente;
         this.nombre = nombre;
@@ -28,17 +30,17 @@ public class Ingrediente {
         this.foto = foto;
     }
 
-    public Ingrediente(String codigoIngrediente, String nombre, String beneficio, int cantidad, float precio) {
+
+
+    public Ingrediente(String codigoIngrediente, String nombre, String beneficio, int cantidad, float precio, int tiempoPreparacion) {
         this.codigoIngrediente = codigoIngrediente;
         this.nombre = nombre;
         this.beneficio = beneficio;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.tiempoPreparacion = tiempoPreparacion;
     }
 
-   
-    
-    
     /**
      * @return the codigoIngrediente
      */
@@ -97,7 +99,13 @@ public class Ingrediente {
         this.precio = precio;
     }
 
+    public int getTiempoPreparacion() {
+        return tiempoPreparacion;
+    }
 
+    public void setTiempoPreparacion(int tiempoPreparacion) {
+        this.tiempoPreparacion = tiempoPreparacion;
+    }
 
     /**
      * @return the foto
@@ -112,5 +120,5 @@ public class Ingrediente {
     public void setFoto(Image foto) {
         this.foto = foto;
     }
-    
+
 }

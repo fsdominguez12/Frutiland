@@ -36,7 +36,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/IconosBotones/Ingrediente (2).png"/>
+              <Image iconType="3" name="/IconosBotones/ingredientes.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="INGREDIENTES"/>
           </Properties>
@@ -57,7 +57,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/IconosBotones/ensalada2.png"/>
+              <Image iconType="3" name="/IconosBotones/ensalada-de-frutas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ENSALADAS"/>
           </Properties>
@@ -90,6 +90,24 @@
             </Property>
             <Property name="text" type="java.lang.String" value="INFORMACI&#xd3;N"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/IconosBotones/mision-cumplida.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="MISI&#xd3;N        "/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/IconosBotones/vision.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="VISI&#xd3;N"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
@@ -174,7 +192,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="580" y="60" width="250" height="100"/>
+              <AbsoluteConstraints x="580" y="30" width="250" height="100"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -216,7 +234,7 @@
         <Container class="javax.swing.JDesktopPane" name="Desktop">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="310" y="180" width="810" height="470"/>
+              <AbsoluteConstraints x="310" y="150" width="810" height="470"/>
             </Constraint>
           </Constraints>
 

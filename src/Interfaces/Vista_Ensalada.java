@@ -3,6 +3,7 @@ package Interfaces;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -27,15 +28,26 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         btnAgregaIngrediente = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         txtPorcionIngrediente = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtSubTotal = new javax.swing.JTextField();
         txtPrecioIngrediente = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        txtCanDisponible = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
         btnAdjuntar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        dlgListaProductosAgregados = new javax.swing.JDialog();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblIngredientesParaCalcular = new javax.swing.JTable();
+        btnQuitar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         lblTexto2 = new javax.swing.JLabel();
@@ -53,25 +65,39 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         btnAgregarCliente = new javax.swing.JButton();
         txtClienteEnsalada = new javax.swing.JTextField();
         lblTexto7 = new javax.swing.JLabel();
-        btnEliminarCliente = new javax.swing.JButton();
         btnEliminarIngrediente = new javax.swing.JButton();
+        btnVerProductosAgregados = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lblEspera = new javax.swing.JLabel();
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblingredientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblingredientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID PRODUCTO", "NOMBRE", "BENEFICIO", "PORCION", "PRECIO", "FOTO"
+                "ID PRODUCTO", "NOMBRE", "BENEFICIO", "PORCION", "PRECIO", "T.ESPERA", "FOTO"
             }
-        ));
-        jScrollPane1.setViewportView(tblingredientes);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 550, 120));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblingredientes);
+        if (tblingredientes.getColumnModel().getColumnCount() > 0) {
+            tblingredientes.getColumnModel().getColumn(4).setHeaderValue("PRECIO");
+            tblingredientes.getColumnModel().getColumn(5).setHeaderValue("T.ESPERA");
+            tblingredientes.getColumnModel().getColumn(6).setHeaderValue("FOTO");
+        }
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 550, 100));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jPanel5.setOpaque(false);
@@ -117,13 +143,10 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 420, 70));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 420, 70));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jPanel7.setOpaque(false);
-
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Porción:");
 
         txtPorcionIngrediente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -136,6 +159,14 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Precio:");
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Porción:");
+
+        txtCanDisponible.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Disponible:");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -150,14 +181,16 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                         .addComponent(txtSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPorcionIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrecioIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtPrecioIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCanDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -165,9 +198,13 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPorcionIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCanDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPorcionIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPrecioIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -178,7 +215,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                 .addGap(13, 13, 13))
         );
 
-        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 170, 120));
+        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 170, 150));
 
         btnAdjuntar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/carrito.png"))); // NOI18N
         btnAdjuntar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -193,6 +230,14 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
 
+        lblID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblID.setText("Disponible:");
+        jPanel4.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, 23));
+
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("Disponible:");
+        jPanel4.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, 23));
+
         javax.swing.GroupLayout dlgAgregarIngredienteLayout = new javax.swing.GroupLayout(dlgAgregarIngrediente.getContentPane());
         dlgAgregarIngrediente.getContentPane().setLayout(dlgAgregarIngredienteLayout);
         dlgAgregarIngredienteLayout.setHorizontalGroup(
@@ -202,6 +247,51 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         dlgAgregarIngredienteLayout.setVerticalGroup(
             dlgAgregarIngredienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblIngredientesParaCalcular.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblIngredientesParaCalcular.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID PRODUCTO", "CANTIDAD", "NOMBRE", "TIEMPO ESPERA", "PRECIO PAGAR"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblIngredientesParaCalcular);
+
+        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 550, 80));
+
+        btnQuitar.setText("Quitar");
+        jPanel8.add(btnQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 90, -1));
+
+        jButton2.setText("jButton2");
+        jPanel8.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
+        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
+
+        javax.swing.GroupLayout dlgListaProductosAgregadosLayout = new javax.swing.GroupLayout(dlgListaProductosAgregados.getContentPane());
+        dlgListaProductosAgregados.getContentPane().setLayout(dlgListaProductosAgregadosLayout);
+        dlgListaProductosAgregadosLayout.setHorizontalGroup(
+            dlgListaProductosAgregadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dlgListaProductosAgregadosLayout.setVerticalGroup(
+            dlgListaProductosAgregadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -276,9 +366,14 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         lblTexto7.setForeground(new java.awt.Color(204, 255, 255));
         lblTexto7.setText("Cédula");
 
-        btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/action_delete.png"))); // NOI18N
-
         btnEliminarIngrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/action_delete.png"))); // NOI18N
+
+        btnVerProductosAgregados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/action_remove.png"))); // NOI18N
+        btnVerProductosAgregados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerProductosAgregadosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -300,9 +395,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                         .addGap(48, 48, 48)
                         .addComponent(txtCedulaClienteEnsalada, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,8 +410,10 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnAgregarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerProductosAgregados, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,8 +427,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtCedulaClienteEnsalada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblTexto7))
-                    .addComponent(btnAgregarCliente)
-                    .addComponent(btnEliminarCliente))
+                    .addComponent(btnAgregarCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTexto4)
@@ -342,14 +436,14 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtDescripcionEnsalada, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblTexto6))
-                            .addComponent(btnAgregarIngrediente))
-                        .addGap(18, 18, 18)
+                            .addComponent(lblTexto6)
+                            .addComponent(btnAgregarIngrediente)
+                            .addComponent(txtDescripcionEnsalada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTexto2)
                             .addComponent(txtTiempoEnsalada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnVerProductosAgregados)
                     .addComponent(btnEliminarIngrediente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -369,6 +463,11 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im5.jpg"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 440));
 
+        lblEspera.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblEspera.setForeground(new java.awt.Color(204, 255, 255));
+        lblEspera.setText("Código:");
+        jPanel1.add(lblEspera, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -382,6 +481,10 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVerProductosAgregadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerProductosAgregadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerProductosAgregadosActionPerformed
 
     public JButton getBtnAgregarCliente() {
         return btnAgregarCliente;
@@ -399,20 +502,20 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         this.btnAgregarIngrediente = btnAgregarIngrediente;
     }
 
-    public JButton getBtnEliminarCliente() {
-        return btnEliminarCliente;
+    public JButton getBtnVerProductosAgregados() {
+        return btnVerProductosAgregados;
     }
 
-    public void setBtnEliminarCliente(JButton btnEliminarCliente) {
-        this.btnEliminarCliente = btnEliminarCliente;
+    public void setBtnVerProductosAgregados(JButton btnVerProductosAgregados) {
+        this.btnVerProductosAgregados = btnVerProductosAgregados;
     }
 
     public JButton getBtnEliminarIngrediente() {
-        return btnEliminarIngrediente;
+        return btnVerProductosAgregados;
     }
 
     public void setBtnEliminarIngrediente(JButton btnEliminarIngrediente) {
-        this.btnEliminarIngrediente = btnEliminarIngrediente;
+        this.btnVerProductosAgregados = btnEliminarIngrediente;
     }
 
     public JTextField getTxtCedulaClienteEnsalada() {
@@ -551,6 +654,64 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         this.btnAgregaIngrediente = btnAgregaIngrediente;
     }
 
+    public JLabel getLblEspera() {
+        return lblEspera;
+    }
+
+    public void setLblEspera(JLabel lblEspera) {
+        this.lblEspera = lblEspera;
+    }
+
+    
+    
+    public JLabel getLblID() {
+        return lblID;
+    }
+
+    public void setLblID(JLabel lblID) {
+        this.lblID = lblID;
+    }
+
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
+
+    public void setLblNombre(JLabel lblNombre) {
+        this.lblNombre = lblNombre;
+    }
+
+    public JTextField getTxtCanDisponible() {
+        return txtCanDisponible;
+    }
+
+    public void setTxtCanDisponible(JTextField txtCanDisponible) {
+        this.txtCanDisponible = txtCanDisponible;
+    }
+
+    public JDialog getDlgListaProductosAgregados() {
+        return dlgListaProductosAgregados;
+    }
+
+    public JButton getBtnQuitar() {
+        return btnQuitar;
+    }
+
+    public void setBtnQuitar(JButton btnQuitar) {
+        this.btnQuitar = btnQuitar;
+    }
+
+    public void setDlgListaProductosAgregados(JDialog dlgListaProductosAgregados) {
+        this.dlgListaProductosAgregados = dlgListaProductosAgregados;
+    }
+
+    public JTable getTblIngredientesParaCalcular() {
+        return tblIngredientesParaCalcular;
+    }
+
+    public void setTblIngredientesParaCalcular(JTable tblIngredientesParaCalcular) {
+        this.tblIngredientesParaCalcular = tblIngredientesParaCalcular;
+    }
+
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -559,17 +720,22 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAgregaIngrediente;
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarIngrediente;
-    private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarIngrediente;
+    private javax.swing.JButton btnQuitar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnVerProductosAgregados;
     private javax.swing.JDialog dlgAgregarIngrediente;
+    private javax.swing.JDialog dlgListaProductosAgregados;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -577,14 +743,21 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblEspera;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTexto2;
     private javax.swing.JLabel lblTexto3;
     private javax.swing.JLabel lblTexto4;
     private javax.swing.JLabel lblTexto5;
     private javax.swing.JLabel lblTexto6;
     private javax.swing.JLabel lblTexto7;
+    private javax.swing.JTable tblIngredientesParaCalcular;
     private javax.swing.JTable tblingredientes;
+    private javax.swing.JTextField txtCanDisponible;
     private javax.swing.JTextField txtCedulaClienteEnsalada;
     private javax.swing.JTextField txtClienteEnsalada;
     private javax.swing.JTextField txtCodigoEnsalada;

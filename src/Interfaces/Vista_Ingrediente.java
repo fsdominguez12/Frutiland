@@ -47,6 +47,11 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         txtCantidad = new javax.swing.JTextField();
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
+        txtMinTiPreparacion = new javax.swing.JTextField();
+        txtSegTiPreparacion = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -75,7 +80,7 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im3.jpg"))); // NOI18N
+        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/blanco.png"))); // NOI18N
         lblFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -134,6 +139,25 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
 
         txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 140, 20));
+
+        txtMinTiPreparacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txtMinTiPreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 50, 20));
+
+        txtSegTiPreparacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txtSegTiPreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 50, 20));
+
+        jLabel16.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel16.setText("Min");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel17.setText("Seg");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel12.setText("T. Preparación:");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 255, 255));
@@ -292,15 +316,23 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
 
         tblingredientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID PRODUCTO", "NOMBRE", "BENEFICIO", "PORCION", "PRECIO", "FOTO"
+                "ID PRODUCTO", "NOMBRE", "BENEFICIO", "PORCION", "PRECIO", "TIEMPO ESPERA", "FOTO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblingredientes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 740, 180));
@@ -490,6 +522,22 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         this.txtPrecio = txtPrecio;
     }
 
+    public JTextField getTxtMinTiPreparacion() {
+        return txtMinTiPreparacion;
+    }
+
+    public void setTxtMinTiPreparacion(JTextField txtMinTiPreparacion) {
+        this.txtMinTiPreparacion = txtMinTiPreparacion;
+    }
+
+    public JTextField getTxtSegTiPreparacion() {
+        return txtSegTiPreparacion;
+    }
+
+    public void setTxtSegTiPreparacion(JTextField txtSegTiPreparacion) {
+        this.txtSegTiPreparacion = txtSegTiPreparacion;
+    }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -505,9 +553,12 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -527,7 +578,9 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtMinTiPreparacion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtSegTiPreparacion;
     // End of variables declaration//GEN-END:variables
 }
