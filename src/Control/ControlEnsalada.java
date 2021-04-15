@@ -70,6 +70,7 @@ public class ControlEnsalada {
         visen.getBtnAdjuntar().addActionListener(l -> exportarDatos());
         visen.getBtnVerProductosAgregados().addActionListener(l -> abrirListaIngredientes());
         visen.getBtnQuitar().addActionListener(l -> QuitarIngredientesdDeListaAgregada());
+        visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
     }
 
     public void limpiarDialogo() {
@@ -89,6 +90,7 @@ public class ControlEnsalada {
         visen.getTxtCanDisponible().setText("0");
         visen.getTxtTiempoEnsalada().setText("0");
         visen.getTxtTotalEnsalada().setText("0");
+        visen.getTxtDescripcionEnsalada().setText("");
     }
 
     public void buscarCliente(String aguja) {
@@ -221,23 +223,22 @@ public class ControlEnsalada {
             int i = JOptionPane.showConfirmDialog(null, "   El valor a pagar es " + visen.getTxtSubTotal().getText() + "\n¿Desea agregar el ingrediente?", "AGREGAR INGREDIENTE", 1, 2);
 
             if (i == 0) {
-                
-                visen.getTxtDescripcionEnsalada().setText(visen.getTxtDescripcionEnsalada().getText() +"- "+ visen.getTxtPorcionIngrediente().getText() +" "+ visen.getLblNombre().getText()+" ");
-                visen.getTxtTiempoEnsalada().setText(String.valueOf(Integer.parseInt(visen.getTxtTiempoEnsalada().getText())+((Integer.parseInt(visen.getLblEspera().getText()))*(Integer.parseInt(visen.getTxtPorcionIngrediente().getText())))));
-                visen.getTxtTotalEnsalada().setText(String.valueOf(Float.parseFloat(visen.getTxtTotalEnsalada().getText())+ Float.parseFloat(visen.getTxtSubTotal().getText().replace(",", "."))));
-                
+
+                visen.getTxtDescripcionEnsalada().setText(visen.getTxtDescripcionEnsalada().getText() + "- " + visen.getTxtPorcionIngrediente().getText() + " " + visen.getLblNombre().getText() + " ");
+                visen.getTxtTiempoEnsalada().setText(String.valueOf(Integer.parseInt(visen.getTxtTiempoEnsalada().getText()) + ((Integer.parseInt(visen.getLblEspera().getText())) * (Integer.parseInt(visen.getTxtPorcionIngrediente().getText())))));
+                visen.getTxtTotalEnsalada().setText(String.valueOf(Float.parseFloat(visen.getTxtTotalEnsalada().getText()) + Float.parseFloat(visen.getTxtSubTotal().getText().replace(",", "."))));
+
                 JOptionPane.showMessageDialog(null, "Ingrediente Guardado");
                 DefaultTableModel tblModel;
                 tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
                 String[] info = new String[5];
                 info[0] = visen.getLblID().getText();
                 info[1] = visen.getTxtPorcionIngrediente().getText();
-                info[2] = visen.getLblNombre().getText(); 
-                info[3]= String.valueOf(Integer.parseInt(visen.getLblEspera().getText())*Integer.parseInt(visen.getTxtPorcionIngrediente().getText()));
+                info[2] = visen.getLblNombre().getText();
+                info[3] = String.valueOf(Integer.parseInt(visen.getLblEspera().getText()) * Integer.parseInt(visen.getTxtPorcionIngrediente().getText()));
                 info[4] = visen.getTxtSubTotal().getText();
                 tblModel.addRow(info);
-               borrarDialogo();
-                
+                borrarDialogo();
 
             } else {
                 if (i == 1) {
@@ -277,7 +278,29 @@ public class ControlEnsalada {
         }
     }
 
-    public void agregarDescripcionEnsalada() {
-
+    public void actualizarDatosTabla() {
+        int contador = visen.getTblIngredientesParaCalcular().getRowCount();
+        if (contador == 0) {
+            JOptionPane.showMessageDialog(null, "No existen datos en la tabla");
+             borrarDialogo();
+             restringirDialogo();
+            visen.getDlgListaProductosAgregados().setVisible(false);
+        } else {
+            
+            int sumSegundos = 0;
+            float sumPrecio = 0;
+            String sumDescri = "";
+            for (int i = 0; i < contador; i++) {
+                sumDescri = sumDescri + "- " + visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString() + " " + visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString() + " ";
+                sumSegundos = sumSegundos + Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 3).toString());
+                sumPrecio = sumPrecio + Float.parseFloat(visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString().replace(",", "."));
+                
+            }
+            
+            visen.getTxtDescripcionEnsalada().setText(sumDescri);
+            visen.getTxtTiempoEnsalada().setText(Integer.toString(sumSegundos));
+            visen.getTxtTotalEnsalada().setText(Float.toString(sumPrecio));
+            
+        }
     }
 }
