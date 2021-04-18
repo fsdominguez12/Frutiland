@@ -143,5 +143,39 @@ public class ModeloIngrediente extends Ingrediente {
     }
 
     
+    //---------------- SE UTILIZARA EN EL DLGBENEFICIO-----------------------
+    
+    public static List<Ingrediente> Beneficio(String benefic){
+        try {
+            String sql = "SELECT nombre, beneficio, foto FROM ingrediente WHERE ";
+            sql += "UPPER(nombre) LIKE UPPER ('%"+benefic+"%')";
+            ResultSet rs = con.query(sql);
+            List<Ingrediente> lista = new ArrayList<>();
+            byte[] bf;    
+            while (rs.next()) {
+                Ingrediente ingrediente = new Ingrediente();
+                ingrediente.setNombre(rs.getString("nombre"));
+                ingrediente.setBeneficio(rs.getString("beneficio"));
+                bf = rs.getBytes("foto");
+                if (bf!=null) {
+                    bf=Base64.decode(bf, 0, bf.length);
+                    try{
+                    ingrediente.setFoto(obtenImagen(bf));
+                    } catch (IOException ex){
+                        ingrediente.setFoto(null);
+                        Logger.getLogger(ModeloIngrediente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    ingrediente.setFoto(null);
+                }
+                lista.add(ingrediente);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloIngrediente.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 
 }

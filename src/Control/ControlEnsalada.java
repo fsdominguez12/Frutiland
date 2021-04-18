@@ -70,7 +70,7 @@ public class ControlEnsalada {
         visen.getBtnAdjuntar().addActionListener(l -> exportarDatos());
         visen.getBtnVerProductosAgregados().addActionListener(l -> abrirListaIngredientes());
         visen.getBtnQuitar().addActionListener(l -> QuitarIngredientesdDeListaAgregada());
-        visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
+//        visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
     }
 
     public void limpiarDialogo() {

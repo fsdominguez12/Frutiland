@@ -2,6 +2,7 @@ package Control;
 
 import Clases_base.Ingrediente;
 import Interfaces.Vista_Ingrediente;
+import Interfaces.Vista_Principal;
 import Modelo.ModeloIngrediente;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -25,10 +26,12 @@ public class ControlIngrediente {
 
     private ModeloIngrediente modeloIn;
     private Vista_Ingrediente vistaIn;
+    private Vista_Principal vipri;
 
-    public ControlIngrediente(ModeloIngrediente modeloIn, Vista_Ingrediente vistaIn) {
+    public ControlIngrediente(ModeloIngrediente modeloIn, Vista_Ingrediente vistaIn, Vista_Principal vipri) {
         this.modeloIn = modeloIn;
         this.vistaIn = vistaIn;
+        this.vipri = vipri;
         vistaIn.setVisible(true);//Mostramos la interfaz
 
     }
@@ -49,6 +52,7 @@ public class ControlIngrediente {
             @Override
             public void keyReleased(KeyEvent e) {
                 cargarLista(vistaIn.getTxtBuscar().getText());
+                CargarBeneficio(vipri.getTxtbusquedabeneficio().getText());
             }
 
         };
@@ -60,8 +64,13 @@ public class ControlIngrediente {
         vistaIn.getBtnModificar().addActionListener(l -> CargaIngrediente());
         vistaIn.getBtnEliminar().addActionListener(l -> Eliminar());
         vistaIn.getTxtBuscar().addKeyListener(kl);
+        
+        
+        vipri.getTxtbusquedabeneficio().addKeyListener(kl);
+        vipri.getBtnmostrar().addActionListener(l->CargarBeneficio(""));
+        vipri.getBtnvisualizar().addActionListener(l->Visualizabeneficio());
     }
-
+    
     public void deBoton() {
         String ca = vistaIn.getBtnGuardar().getText();
         if (ca == "CREAR") {
@@ -202,7 +211,7 @@ public class ControlIngrediente {
             venIngrediente("ACTUALIZAR", "EDITAR PRODUCTO");
         }
     }
-
+    
     public void Actualizar() {
 
         String ident = vistaIn.getTxtCodigo().getText();
@@ -245,4 +254,55 @@ public class ControlIngrediente {
         }
         cargarLista("");
     }
+    
+    
+    //---------------- SE UTILIZARA EN EL DLGBENEFICIO-----------------------
+    
+    private void CargarBeneficio(String benefic){
+        
+        vipri.getTblbeneficio().setDefaultRenderer(Object.class, new ImagenTabla());
+        vipri.getTblbeneficio().setRowHeight(100);
+        DefaultTableCellRenderer renderer= new DefaultTableCellHeaderRenderer();
+        
+        DefaultTableModel tblModel;
+        tblModel = (DefaultTableModel) vipri.getTblbeneficio().getModel();
+        tblModel.setNumRows(0);
+        List<Ingrediente> lista = modeloIn.Beneficio(benefic);
+        
+        int ncols = tblModel.getColumnCount();
+        Holder<Integer> i = new Holder<>(0);
+        
+        lista.stream().forEach(pl->{
+            
+            tblModel.addRow(new Object[ncols]);
+            vipri.getTblbeneficio().setValueAt(pl.getNombre(), i.value, 0);
+            vipri.getTblbeneficio().setValueAt(pl.getBeneficio(), i.value, 1);
+            
+            Image img = pl.getFoto();
+            if (img!=null) {
+                Image newimg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(newimg);
+                renderer.setIcon(icon);
+                vipri.getTblbeneficio().setValueAt(new JLabel(icon), i.value, 2);
+            } else {
+                vipri.getTblbeneficio().setValueAt(null, i.value, 2);
+            }
+            i.value++;
+        });
+    }
+    
+    public void Visualizabeneficio(){
+        int fila = vipri.getTblbeneficio().getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "DEBE SELECCIONAR LA FILA");
+        } else {
+            String nombre = (String) vipri.getTblbeneficio().getValueAt(fila, 0);
+            String beneficio = (String) vipri.getTblbeneficio().getValueAt(fila, 1);
+            
+            vipri.getLblfruta().setText(nombre);
+            vipri.getJepbeneficio().setText(beneficio);
+            
+        }
+    }
+    
 }

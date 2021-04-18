@@ -7,9 +7,13 @@ package Interfaces;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
+import javax.swing.JDialog;
+import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -33,6 +37,20 @@ public class Vista_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        DlgBeneficios = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        txtbusquedabeneficio = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblbeneficio = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnvisualizar = new javax.swing.JButton();
+        lblfruta = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jepbeneficio = new javax.swing.JEditorPane();
+        btnmostrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnsalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -51,10 +69,136 @@ public class Vista_Principal extends javax.swing.JFrame {
         btningrediente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnensalada = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        btnBeneficiosmenu = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+
+        DlgBeneficios.setBackground(new java.awt.Color(51, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(51, 255, 255));
+
+        tblbeneficio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tblbeneficio.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Beneficio", "Foto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblbeneficio);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("BENEFICIOS");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Buscar Nombre de Fruta:");
+
+        btnvisualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnvisualizar.setText("Visualizar");
+
+        lblfruta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblfruta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblfruta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jepbeneficio.setBackground(new java.awt.Color(51, 255, 255));
+        jScrollPane1.setViewportView(jepbeneficio);
+
+        btnmostrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnmostrar.setText("MOSTRAR");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Nombre Fruta:");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Beneficio:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(70, 70, 70)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblfruta, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnvisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(73, 73, 73)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtbusquedabeneficio, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(73, 73, 73)
+                            .addComponent(btnmostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(148, 148, 148)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtbusquedabeneficio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnmostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblfruta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(btnvisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout DlgBeneficiosLayout = new javax.swing.GroupLayout(DlgBeneficios.getContentPane());
+        DlgBeneficios.getContentPane().setLayout(DlgBeneficiosLayout);
+        DlgBeneficiosLayout.setHorizontalGroup(
+            DlgBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        DlgBeneficiosLayout.setVerticalGroup(
+            DlgBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,14 +315,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         btnensalada.setText("Ensaladas");
         jMenu3.add(btnensalada);
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/beneficio.png"))); // NOI18N
-        jMenuItem1.setText("Beneficios");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        btnBeneficiosmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/beneficio.png"))); // NOI18N
+        btnBeneficiosmenu.setText("Beneficios");
+        btnBeneficiosmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                btnBeneficiosmenuActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem1);
+        jMenu3.add(btnBeneficiosmenu);
 
         jMenuBar1.add(jMenu3);
 
@@ -219,9 +363,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btningredienteActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void btnBeneficiosmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeneficiosmenuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_btnBeneficiosmenuActionPerformed
 
     public JMenuItem getBtncliente() {
         return btncliente;
@@ -254,9 +398,17 @@ public class Vista_Principal extends javax.swing.JFrame {
     public void setBtnCrearClienteMenu(JMenuItem btnCrearClienteMenu) {
         this.btnCrearClienteMenu = btnCrearClienteMenu;
     }
-
     
+    
+    public JMenuItem getBtnBeneficiosmenu() {
+        return btnBeneficiosmenu;
+    }
 
+    public void setBtnBeneficiosmenu(JMenuItem btnBeneficiosmenu) {
+        this.btnBeneficiosmenu = btnBeneficiosmenu;
+    }
+    
+    
     public JButton getBtnsalir() {
         return btnsalir;
     }
@@ -290,17 +442,79 @@ public class Vista_Principal extends javax.swing.JFrame {
     }
 
     
-    
+    public JDialog getDlgBeneficios() {
+        return DlgBeneficios;
+    }
 
+    public void setDlgBeneficios(JDialog DlgBeneficios) {
+        this.DlgBeneficios = DlgBeneficios;
+    }
+    
+    public JTable getTblbeneficio() {
+        return tblbeneficio;
+    }
+
+    public void setTblbeneficio(JTable tblbeneficio) {
+        this.tblbeneficio = tblbeneficio;
+    }
+
+    public JTextField getTxtbusquedabeneficio() {
+        return txtbusquedabeneficio;
+    }
+
+    public void setTxtbusquedabeneficio(JTextField txtbusquedabeneficio) {
+        this.txtbusquedabeneficio = txtbusquedabeneficio;
+    }
+
+    public JButton getBtnvisualizar() {
+        return btnvisualizar;
+    }
+
+    public void setBtnvisualizar(JButton btnvisualizar) {
+        this.btnvisualizar = btnvisualizar;
+    }
+
+    public JEditorPane getJepbeneficio() {
+        return jepbeneficio;
+    }
+
+    public void setJepbeneficio(JEditorPane jepbeneficio) {
+        this.jepbeneficio = jepbeneficio;
+    }
+
+    public JLabel getLblfruta() {
+        return lblfruta;
+    }
+
+    public void setLblfruta(JLabel lblfruta) {
+        this.lblfruta = lblfruta;
+    }
+
+    public JButton getBtnmostrar() {
+        return btnmostrar;
+    }
+
+    public void setBtnmostrar(JButton btnmostrar) {
+        this.btnmostrar = btnmostrar;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Desktop;
+    private javax.swing.JDialog DlgBeneficios;
+    private javax.swing.JMenuItem btnBeneficiosmenu;
     private javax.swing.JMenuItem btnCrearClienteMenu;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JMenuItem btncliente;
     private javax.swing.JMenuItem btnensalada;
     private javax.swing.JMenuItem btningrediente;
+    private javax.swing.JButton btnmostrar;
     private javax.swing.JButton btnsalir;
+    private javax.swing.JButton btnvisualizar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
@@ -308,12 +522,18 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JEditorPane jepbeneficio;
     private javax.swing.JLabel lblReloj;
+    private javax.swing.JLabel lblfruta;
+    private javax.swing.JTable tblbeneficio;
+    private javax.swing.JTextField txtbusquedabeneficio;
     // End of variables declaration//GEN-END:variables
 }

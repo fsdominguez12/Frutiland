@@ -34,7 +34,7 @@ public class ControlVentanaPrincipal {
         vp.getBtnensalada().addActionListener(l->Ensalada());
         vp.getBtnRegresar().addActionListener(l->Regresar());
         vp.getBtnCrearClienteMenu().addActionListener(l->NuevoCliente());
-       
+        vp.getBtnBeneficiosmenu().addActionListener(l->Beneficio());
     }
     
     private void Cliente(){
@@ -49,8 +49,9 @@ public class ControlVentanaPrincipal {
      private void Ingrediente(){
         ModeloIngrediente modeloIng = new ModeloIngrediente();
         Vista_Ingrediente vistaIng = new Vista_Ingrediente();
+        Vista_Principal vipri = new Vista_Principal();
         vp.getDesktop().add(vistaIng);
-        ControlIngrediente ingr=new ControlIngrediente(modeloIng,vistaIng);
+        ControlIngrediente ingr=new ControlIngrediente(modeloIng,vistaIng, vipri);
         ingr.IniciaControl();
         ingr.lis();
     }
@@ -78,6 +79,19 @@ public class ControlVentanaPrincipal {
         cli.IniciaControl();
         cli.CrearCliente();
      }
+     
+     private void Beneficio(){
+        Vista_Principal vipri = new Vista_Principal();
+        vipri.getDlgBeneficios().setSize(776, 585);
+        vipri.getDlgBeneficios().setLocationRelativeTo(null);
+        vipri.getDlgBeneficios().setVisible(true);
+        
+        ModeloIngrediente modeloIng = new ModeloIngrediente();
+        Vista_Ingrediente vistaIng = new Vista_Ingrediente();
+        ControlIngrediente ingr=new ControlIngrediente(modeloIng,vistaIng, vipri);
+        ingr.IniciaControl();
+        ingr.lis();
+    }
      
     private void Salir(){
         System.exit(0);
