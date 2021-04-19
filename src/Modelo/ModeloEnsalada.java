@@ -51,9 +51,9 @@ public static List<Cliente> buscarCliente(String aguja){
 
 public boolean Crear(){
         String sql;
-        sql="INSERT INTO ensalada (idensalada,cedclienteen,descripcion,precio,tiempoespera,estado,horaGeneracion,horaEntrega)";
+        sql="INSERT INTO ensalada (idensalada,cedclienteen,descripcion,precio,tiempoespera,estado,horageneracio,horaentrega)";
         sql+="VALUES ('"+ getCodigoEnsalada() +"', '"+ getCedulaCliEnsa() +"', '"+ getDescripcion() +"', '"+ getPrecio() +"', "
-                + "'"+getTiempoEspera() +"', '"+ isEstado() +"', '"+ getHoraGeneracion() +"', '"+ getHoraEntrega() +"')";
+                + "'"+getTiempoEspera() +"', '"+ isEstado() +"', '"+getHoraGeneracion() +"', '"+ getHoraEntrega() +"')";
         if(con.noquery(sql) == null){
             return true;
         }else{
@@ -62,5 +62,44 @@ public boolean Crear(){
         }
     }
 
+
+ public static List<Ensalada> listarEnsalada(String aguja){
+        
+        try {
+        String sql = "SELECT * FROM ensalada WHERE ";
+        sql+="UPPER(idensalada) LIKE UPPER ('%"+aguja+"%') OR ";
+        sql+="UPPER(cedclienteen) LIKE UPPER ('%"+aguja+"%') OR ";
+        
+        ResultSet rs = con.query(sql);
+        List<Ensalada> lista = new ArrayList<>();
+        
+        while (rs.next()) {            
+            Ensalada ens = new Ensalada();
+            ens.setCodigoEnsalada(sql);
+            
+            //cli.setIdCliente(rs.getString("idcliente"));
+            //cli.setNombre(rs.getString("nombre"));
+            //cli.setApellido(rs.getString("apellidos"));
+            
+            //lista.add(cli);
+        }
+        rs.close();
+        return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCliente.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+ 
+
+public boolean Eliminar() {
+        String sql;
+        sql = "DELETE FROM ensalada WHERE =idensalada'" + getCodigoEnsalada() + "'";
+        if (con.noquery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
