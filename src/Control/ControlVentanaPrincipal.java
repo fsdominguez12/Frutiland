@@ -1,4 +1,3 @@
-
 package Control;
 
 import Interfaces.Vista_Cliente;
@@ -11,9 +10,8 @@ import Modelo.ModeloEnsalada;
 import Modelo.ModeloIngrediente;
 import javax.swing.JFrame;
 
-
 public class ControlVentanaPrincipal {
-    
+
     Vista_Principal vp;
     ControlCliente cl;
 
@@ -23,77 +21,89 @@ public class ControlVentanaPrincipal {
         vp.setLocationRelativeTo(null);
         vp.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-    
-    public void IniciaControl(){
+
+    public void IniciaControl() {
         Thread hilo1 = new ControlHilo("reloj", vp);
         hilo1.start();
         Ensalada();
-        vp.getBtncliente().addActionListener(l->Cliente());
-        vp.getBtnsalir().addActionListener(l->Salir());
-        vp.getBtningrediente().addActionListener(l->Ingrediente());
-        vp.getBtnensalada().addActionListener(l->Ensalada());
-        vp.getBtnRegresar().addActionListener(l->Regresar());
-        vp.getBtnCrearClienteMenu().addActionListener(l->NuevoCliente());
-        vp.getBtnBeneficiosmenu().addActionListener(l->Beneficio());
+        vp.getBtncliente().addActionListener(l -> Cliente());
+        vp.getBtnsalir().addActionListener(l -> Salir());
+        vp.getBtningrediente().addActionListener(l -> Ingrediente());
+        vp.getBtnensalada().addActionListener(l -> Ensalada());
+        vp.getBtnRegresar().addActionListener(l -> Regresar());
+        vp.getBtnCrearClienteMenu().addActionListener(l -> NuevoCliente());
+        vp.getBtnBeneficiosmenu().addActionListener(l -> Beneficio());
+        vp.getBtnBuscarEnsalada().addActionListener(l -> BuscarEnsalada());
     }
-    
-    private void Cliente(){
+
+    private void Cliente() {
         ModeloCliente modelo = new ModeloCliente();
         Vista_Cliente vista = new Vista_Cliente();
         vp.getDesktop().add(vista);
         ControlCliente cli = new ControlCliente(modelo, vista);
         cli.IniciaControl();
-        
+
     }
-    
-     private void Ingrediente(){
+
+    private void Ingrediente() {
         ModeloIngrediente modeloIng = new ModeloIngrediente();
         Vista_Ingrediente vistaIng = new Vista_Ingrediente();
         Vista_Principal vipri = new Vista_Principal();
         vp.getDesktop().add(vistaIng);
-        ControlIngrediente ingr=new ControlIngrediente(modeloIng,vistaIng, vipri);
+        ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
         ingr.IniciaControl();
         ingr.lis();
     }
-     
-     private void Ensalada(){
+
+    private void Ensalada() {
         ModeloEnsalada modeloEns = new ModeloEnsalada();
         Vista_Ensalada vistaEns = new Vista_Ensalada();
         vp.getDesktop().add(vistaEns);
-        ControlEnsalada ens=new ControlEnsalada(modeloEns,vistaEns);
+        ControlEnsalada ens = new ControlEnsalada(modeloEns, vistaEns);
         ens.IniciaControl();
-     }
-    
-     private void Regresar(){
-        Vista_Inicio vi=new Vista_Inicio();
+    }
+
+    private void Regresar() {
+        Vista_Inicio vi = new Vista_Inicio();
         ControlInicio cvi = new ControlInicio(vi);
-        cvi.IniciaControl();  
+        cvi.IniciaControl();
         vp.setVisible(false);
-        
-     }
-     
-     private void NuevoCliente(){
-       ModeloCliente modelo = new ModeloCliente();
+
+    }
+
+    public void NuevoCliente() {
+        ModeloCliente modelo = new ModeloCliente();
         Vista_Cliente vista = new Vista_Cliente();
         ControlCliente cli = new ControlCliente(modelo, vista);
         cli.IniciaControl();
         cli.CrearCliente();
-     }
-     
-     private void Beneficio(){
+    }
+
+    private void Beneficio() {
         Vista_Principal vipri = new Vista_Principal();
         vipri.getDlgBeneficios().setSize(776, 585);
         vipri.getDlgBeneficios().setLocationRelativeTo(null);
         vipri.getDlgBeneficios().setVisible(true);
-        
+
         ModeloIngrediente modeloIng = new ModeloIngrediente();
         Vista_Ingrediente vistaIng = new Vista_Ingrediente();
-        ControlIngrediente ingr=new ControlIngrediente(modeloIng,vistaIng, vipri);
+        ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
         ingr.IniciaControl();
         ingr.lis();
     }
-     
-    private void Salir(){
+
+    public void BuscarEnsalada() {
+        Vista_Ensalada vistaEns = new Vista_Ensalada();
+        vistaEns.getDlgListaEnsaladas().setSize(600, 390);
+        vistaEns.getDlgListaEnsaladas().setLocationRelativeTo(null);
+        vistaEns.getDlgListaEnsaladas().setVisible(true);
+        
+        ModeloEnsalada modeloEns = new ModeloEnsalada();
+        ControlEnsalada ens = new ControlEnsalada(modeloEns, vistaEns);
+        ens.IniciaControl();
+    }
+
+    private void Salir() {
         System.exit(0);
     }
 }
