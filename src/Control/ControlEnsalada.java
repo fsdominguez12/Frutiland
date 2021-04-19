@@ -235,12 +235,13 @@ public class ControlEnsalada {
                 JOptionPane.showMessageDialog(null, "Ingrediente Guardado");
                 DefaultTableModel tblModel;
                 tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
-                String[] info = new String[5];
+                String[] info = new String[6];
                 info[0] = visen.getLblID().getText();
-                info[1] = visen.getTxtPorcionIngrediente().getText();
-                info[2] = visen.getLblNombre().getText();
-                info[3] = String.valueOf(Integer.parseInt(visen.getLblEspera().getText()) * Integer.parseInt(visen.getTxtPorcionIngrediente().getText()));
-                info[4] = visen.getTxtSubTotal().getText();
+                info[1] = visen.getTxtCanDisponible().getText();
+                info[2] = visen.getTxtPorcionIngrediente().getText();
+                info[3] = visen.getLblNombre().getText();
+                info[4] = String.valueOf(Integer.parseInt(visen.getLblEspera().getText()) * Integer.parseInt(visen.getTxtPorcionIngrediente().getText()));
+                info[5] = visen.getTxtSubTotal().getText();
                 tblModel.addRow(info);
                 borrarDialogo();
 
@@ -322,13 +323,38 @@ public class ControlEnsalada {
         ModeloEnsalada ensalada = new ModeloEnsalada(ideEns, cedCliEn, des, precio, tiEspera, estado, horaGenera, horaEntrega);
 
         if (ensalada.Crear()) {
-            JOptionPane.showMessageDialog(visen, "Ingrediente Creado");//Si la persona se creo envia el mensaje
+            JOptionPane.showMessageDialog(visen, "Ingrediente Creado");
         } else {
-            JOptionPane.showMessageDialog(visen, "ERROR!!!!!!");//Si no se creo se enviara el error
+            JOptionPane.showMessageDialog(visen, "ERROR!!!!!!");
+        }
+       
+        restaroSumarIngrediente();
+
+    }
+
+    private void restaroSumarIngrediente() {
+        int contar = visen.getTblIngredientesParaCalcular().getRowCount();
+        int suma = 0;
+        for (int i = 0; i < contar; i++) {
+
+            String ident = visen.getTblIngredientesParaCalcular().getValueAt(i, 0).toString();
+            int stock = Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString());
+            int cantidad = (Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString())) - (Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString()));
+
+            ModeloIngrediente ingrediente = new ModeloIngrediente(ident,cantidad);
+            
+            if (ingrediente.RestaIngrediente()) {
+            JOptionPane.showMessageDialog(visen, "Cantidad de base de datos actualizado");
+        } else {
+            JOptionPane.showMessageDialog(visen, "ERROR!!!");
+        }
+            
         }
 
     }
 
+    
+    
     private String generarHora() {
         LocalTime horaActual = LocalTime.now();
         String horaGen = "";
