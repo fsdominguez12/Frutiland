@@ -219,7 +219,10 @@ public class ControlIngrediente {
         String beneficio = vistaIn.getTxtBeneficio().getText();
         int cantidad = Integer.parseInt(vistaIn.getTxtCantidad().getText());
         float precio = Float.parseFloat(vistaIn.getTxtPrecio().getText());
-        int tiempo = 15;
+        int min = Integer.parseInt(vistaIn.getTxtMinTiPreparacion().getText());
+        int seg = Integer.parseInt(vistaIn.getTxtSegTiPreparacion().getText());
+        min = min * 60;
+        int tiempo = min + seg;
         LimpiarDialogo();
         ModeloIngrediente ingrediente = new ModeloIngrediente(ident, nombre, beneficio, cantidad, precio, tiempo);
         if (ingrediente.Modificar()) {
