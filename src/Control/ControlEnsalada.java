@@ -13,6 +13,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.DecimalFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -70,6 +71,7 @@ public class ControlEnsalada {
         visen.getBtnAdjuntar().addActionListener(l -> exportarDatos());
         visen.getBtnVerProductosAgregados().addActionListener(l -> abrirListaIngredientes());
         visen.getBtnQuitar().addActionListener(l -> QuitarIngredientesdDeListaAgregada());
+        visen.getBtnGenerarEnsalada().addActionListener(l -> guardarEnsalada());
 //        visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
     }
 
@@ -85,6 +87,7 @@ public class ControlEnsalada {
         visen.getTxtTotalEnsalada().setEnabled(false);
         visen.getTxtPrecioIngrediente().setEnabled(false);
         visen.getTxtCanDisponible().setEnabled(false);
+        visen.getTxtClienteCedulaEnsalada().setEnabled(false);
         visen.getTxtPrecioIngrediente().setText("0");
         visen.getTxtSubTotal().setText("0");
         visen.getTxtCanDisponible().setText("0");
@@ -99,6 +102,7 @@ public class ControlEnsalada {
         Holder<Integer> i = new Holder<>(0);
         lista.stream().forEach(cl -> {
             String[] cliente = {cl.getNombre(), cl.getApellido()};
+            visen.getTxtClienteCedulaEnsalada().setText(cl.getIdCliente());
             visen.getTxtClienteEnsalada().setText(cl.getNombre() + " " + cl.getApellido());
 
         });
@@ -282,11 +286,11 @@ public class ControlEnsalada {
         int contador = visen.getTblIngredientesParaCalcular().getRowCount();
         if (contador == 0) {
             JOptionPane.showMessageDialog(null, "No existen datos en la tabla");
-             borrarDialogo();
-             restringirDialogo();
+            borrarDialogo();
+            restringirDialogo();
             visen.getDlgListaProductosAgregados().setVisible(false);
         } else {
-            
+
             int sumSegundos = 0;
             float sumPrecio = 0;
             String sumDescri = "";
@@ -294,13 +298,57 @@ public class ControlEnsalada {
                 sumDescri = sumDescri + "- " + visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString() + " " + visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString() + " ";
                 sumSegundos = sumSegundos + Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 3).toString());
                 sumPrecio = sumPrecio + Float.parseFloat(visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString().replace(",", "."));
-                
+
             }
-            
+
             visen.getTxtDescripcionEnsalada().setText(sumDescri);
             visen.getTxtTiempoEnsalada().setText(Integer.toString(sumSegundos));
             visen.getTxtTotalEnsalada().setText(Float.toString(sumPrecio));
-            
+
         }
+    }
+
+    public void guardarEnsalada() {
+
+        String ideEns = visen.getTxtCodigoEnsalada().getText();
+        String cedCliEn = visen.getTxtClienteCedulaEnsalada().getText();
+        String des = visen.getTxtDescripcionEnsalada().getText();
+        float precio = Float.parseFloat(visen.getTxtTotalEnsalada().getText());
+        int tiEspera = Integer.parseInt(visen.getTxtTiempoEnsalada().getText());
+        boolean estado = false;
+        String horaGenera = generarHora();
+        String horaEntrega = "---";
+
+        ModeloEnsalada ensalada = new ModeloEnsalada(ideEns, cedCliEn, des, precio, tiEspera, estado, horaGenera, horaEntrega);
+
+        if (ensalada.Crear()) {
+            JOptionPane.showMessageDialog(visen, "Ingrediente Creado");//Si la persona se creo envia el mensaje
+        } else {
+            JOptionPane.showMessageDialog(visen, "ERROR!!!!!!");//Si no se creo se enviara el error
+        }
+
+    }
+
+    private String generarHora() {
+        LocalTime horaActual = LocalTime.now();
+        String horaGen = "";
+        int hora = horaActual.getHour();
+        int minuto = horaActual.getMinute();
+        int segundo = horaActual.getSecond();
+        if (segundo < 10) {
+            horaGen = Integer.toString(hora) + " H " + Integer.toString(minuto) + " : 0" + Integer.toString(segundo);
+        } else {
+            if (minuto < 10) {
+                horaGen = Integer.toString(hora) + " H 0" + Integer.toString(minuto) + " : " + Integer.toString(segundo);
+            } else {
+                if (minuto < 10 && segundo < 10) {
+                    horaGen = Integer.toString(hora) + " H 0" + Integer.toString(minuto) + " : 0" + Integer.toString(segundo);
+                } else {
+                    horaGen = Integer.toString(hora) + " H " + Integer.toString(minuto) + " : " + Integer.toString(segundo);
+                }
+            }
+        }
+        return horaGen;
+
     }
 }
