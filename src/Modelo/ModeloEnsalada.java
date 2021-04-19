@@ -18,9 +18,13 @@ public class ModeloEnsalada extends Ensalada {
     public ModeloEnsalada() {
     }
 
-    public ModeloEnsalada(String codigoEnsalada, String cedulaCliEnsa, String descripcion, double precio, float tiempoEspera, String estado) {
-        super(codigoEnsalada, cedulaCliEnsa, descripcion, precio, tiempoEspera, estado);
+    public ModeloEnsalada(String codigoEnsalada, String cedulaCliEnsa, String descripcion, float precio, int tiempoEspera, boolean estado, String horaGeneracion, String horaEntrega) {
+        super(codigoEnsalada, cedulaCliEnsa, descripcion, precio, tiempoEspera, estado, horaGeneracion, horaEntrega);
     }
+
+    
+
+    
 
 public static List<Cliente> buscarCliente(String aguja){
         
@@ -42,6 +46,19 @@ public static List<Cliente> buscarCliente(String aguja){
         } catch (SQLException ex) {
             Logger.getLogger(ModeloCliente.class.getName()).log(Level.SEVERE, null, ex);
             return null;
+        }
+    }
+
+public boolean Crear(){
+        String sql;
+        sql="INSERT INTO ensalada (idensalada,cedclienteen,descripcion,precio,tiempoespera,estado,horaGeneracion,horaEntrega)";
+        sql+="VALUES ('"+ getCodigoEnsalada() +"', '"+ getCedulaCliEnsa() +"', '"+ getDescripcion() +"', '"+ getPrecio() +"', "
+                + "'"+getTiempoEspera() +"', '"+ isEstado() +"', '"+ getHoraGeneracion() +"', '"+ getHoraEntrega() +"')";
+        if(con.noquery(sql) == null){
+            return true;
+        }else{
+            return false;
+           
         }
     }
 
