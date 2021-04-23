@@ -68,7 +68,7 @@ public boolean Crear(){
         try {
         String sql = "SELECT * FROM ensalada WHERE ";
         sql+="UPPER(idensalada) LIKE UPPER ('%"+aguja+"%') OR ";
-        sql+="UPPER(cedclienteen) LIKE UPPER ('%"+aguja+"%') OR ";
+        sql+="UPPER(cedclienteen) LIKE UPPER ('%"+aguja+"%')";
         
         ResultSet rs = con.query(sql);
         List<Ensalada> lista = new ArrayList<>();
@@ -76,12 +76,16 @@ public boolean Crear(){
         while (rs.next()) {            
             Ensalada ens = new Ensalada();
             ens.setCodigoEnsalada(sql);
+            ens.setCodigoEnsalada(rs.getString("idensalada"));
+            ens.setCedulaCliEnsa(rs.getString("cedclienteen"));
+            ens.setDescripcion(rs.getString("descripcion"));
+            ens.setPrecio(rs.getFloat("precio"));
+            ens.setTiempoEspera(rs.getInt("tiempoespera"));
+            ens.setEstado(rs.getBoolean("estado"));
+            ens.setHoraGeneracion(rs.getString("horageneracio"));
+            ens.setHoraEntrega(rs.getString("horaentrega"));
             
-            //cli.setIdCliente(rs.getString("idcliente"));
-            //cli.setNombre(rs.getString("nombre"));
-            //cli.setApellido(rs.getString("apellidos"));
-            
-            //lista.add(cli);
+            lista.add(ens);
         }
         rs.close();
         return lista;
