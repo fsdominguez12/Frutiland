@@ -72,7 +72,9 @@ public class ControlEnsalada {
         visen.getBtnVerProductosAgregados().addActionListener(l -> abrirListaIngredientes());
         visen.getBtnQuitar().addActionListener(l -> QuitarIngredientesdDeListaAgregada());
         visen.getBtnGenerarEnsalada().addActionListener(l -> guardarEnsalada());
-//        visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
+        visen.getBtnCancelarEnsalada().addActionListener(l -> borrarDialogo());
+        visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
+        visen.getBtnActualizaListaProducto().addActionListener(l -> actualizarDatosTabla());
     }
 
     public void limpiarDialogo() {
@@ -113,7 +115,6 @@ public class ControlEnsalada {
     }
 
     public void agregaIngrediente() {
-        borrarDialogo();
         visen.getDlgAgregarIngrediente().setTitle("Agregar Ingrediente");
         visen.getDlgAgregarIngrediente().setSize(615, 408);
         visen.getDlgAgregarIngrediente().setLocationRelativeTo(vp);
@@ -125,7 +126,7 @@ public class ControlEnsalada {
 
     public void salirDialogo() {
         visen.getDlgAgregarIngrediente().setVisible(false);
-        borrarDialogo();
+        //borrarDialogo();
     }
 
     public void borrarDialogo() {
@@ -135,6 +136,10 @@ public class ControlEnsalada {
         visen.getTxtPrecioIngrediente().setText("0");
         visen.getTxtCanDisponible().setText("0");
         visen.getTxtPorcionIngrediente().setText("0");
+        visen.getTxtCodigoEnsalada().setText("");
+        visen.getTxtCedulaClienteEnsalada().setText("");
+        visen.getTxtClienteCedulaEnsalada().setText("");
+        visen.getTxtClienteEnsalada().setText("");
     }
 
     public void cargaTabla(String aguja) {
@@ -243,7 +248,7 @@ public class ControlEnsalada {
                 info[4] = String.valueOf(Integer.parseInt(visen.getLblEspera().getText()) * Integer.parseInt(visen.getTxtPorcionIngrediente().getText()));
                 info[5] = visen.getTxtSubTotal().getText();
                 tblModel.addRow(info);
-                borrarDialogo();
+               
 
             } else {
                 if (i == 1) {
@@ -282,8 +287,18 @@ public class ControlEnsalada {
             JOptionPane.showMessageDialog(null, "Seleccione una fila");
         }
     }
+    
+    public void EliminarDatosTabla(){
+        DefaultTableModel tblModel;
+        tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
+         int fila=visen.getTblIngredientesParaCalcular().getRowCount();
+         for(int i=fila;i>0;i--){
+             tblModel.removeRow(i);
+             
+         }
+    }
 
-    public void actualizarDatosTabla() {
+    public void actualizarDatosTablaKK() {
         int contador = visen.getTblIngredientesParaCalcular().getRowCount();
         if (contador == 0) {
             JOptionPane.showMessageDialog(null, "No existen datos en la tabla");
@@ -308,6 +323,32 @@ public class ControlEnsalada {
 
         }
     }
+    
+    public void actualizarDatosTabla() {
+        int contador = visen.getTblIngredientesParaCalcular().getRowCount();
+        if (contador == 0) {
+            JOptionPane.showMessageDialog(null, "No existen datos en la tabla");
+             borrarDialogo();
+             restringirDialogo();
+            visen.getDlgListaProductosAgregados().setVisible(false);
+        } else {
+            
+            int sumSegundos = 0;
+            float sumPrecio = 0;
+            String sumDescri = "";
+            for (int i = 0; i < contador; i++) {
+                sumDescri = sumDescri + "- " + visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString() + " " + visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString() + " ";
+                sumSegundos = sumSegundos + Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 3).toString());
+                sumPrecio = sumPrecio + Float.parseFloat(visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString().replace(",", "."));
+                
+            }
+            
+            visen.getTxtDescripcionEnsalada().setText(sumDescri);
+            visen.getTxtTiempoEnsalada().setText(Integer.toString(sumSegundos));
+            visen.getTxtTotalEnsalada().setText(Float.toString(sumPrecio));
+            
+        }
+    }
 
     public void guardarEnsalada() {
 
@@ -324,11 +365,13 @@ public class ControlEnsalada {
 
         if (ensalada.Crear()) {
             JOptionPane.showMessageDialog(visen, "Ingrediente Creado");
+            restaroSumarIngrediente();
+            borrarDialogo();
+            //EliminarDatosTabla();
+            restringirDialogo();
         } else {
             JOptionPane.showMessageDialog(visen, "ERROR!!!!!!");
         }
-       
-        restaroSumarIngrediente();
 
     }
 
@@ -341,20 +384,18 @@ public class ControlEnsalada {
             int stock = Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString());
             int cantidad = (Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString())) - (Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString()));
 
-            ModeloIngrediente ingrediente = new ModeloIngrediente(ident,cantidad);
-            
+            ModeloIngrediente ingrediente = new ModeloIngrediente(ident, cantidad);
+
             if (ingrediente.RestaIngrediente()) {
-            JOptionPane.showMessageDialog(visen, "Cantidad de base de datos actualizado");
-        } else {
-            JOptionPane.showMessageDialog(visen, "ERROR!!!");
-        }
-            
+                JOptionPane.showMessageDialog(visen, "Cantidad de base de datos actualizado");
+            } else {
+                JOptionPane.showMessageDialog(visen, "ERROR!!!");
+            }
+
         }
 
     }
 
-    
-    
     private String generarHora() {
         LocalTime horaActual = LocalTime.now();
         String horaGen = "";
