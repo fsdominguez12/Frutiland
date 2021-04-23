@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 
 public class ConexionPG {
     
-    private String url="jdbc:postgresql://localhost:5433/Frutiland";
+    private String url="jdbc:postgresql://localhost:5432/Frutiland";
     private String usuariopg="postgres";
-    private String passpg="leon17rv";
+    private String passpg="fd12345";
     
     private Connection con;
     

@@ -96,7 +96,7 @@ public boolean Crear(){
     }
  
 
-public boolean Eliminar() {
+public boolean EliminarEnsalada() {
         String sql;
         sql = "DELETE FROM ensalada WHERE =idensalada'" + getCodigoEnsalada() + "'";
         if (con.noquery(sql) == null) {

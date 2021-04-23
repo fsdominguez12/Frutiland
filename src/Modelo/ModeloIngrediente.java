@@ -19,6 +19,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
+import javax.swing.JOptionPane;
 import org.postgresql.util.Base64;
 
 public class ModeloIngrediente extends Ingrediente {
@@ -31,6 +32,12 @@ public class ModeloIngrediente extends Ingrediente {
     public ModeloIngrediente(String codigoIngrediente, String nombre, String beneficio, int cantidad, float precio, int tiempoPreparacion) {
         super(codigoIngrediente, nombre, beneficio, cantidad, precio, tiempoPreparacion);
     }
+
+    public ModeloIngrediente(String codigoIngrediente, int cantidad) {
+        super(codigoIngrediente, cantidad);
+    }
+
+   
    
     public boolean Crear() {
         String foto64 = null;
@@ -103,10 +110,22 @@ public class ModeloIngrediente extends Ingrediente {
         sql = "UPDATE ingrediente SET cod_ingrediente='" + getCodigoIngrediente() + "', nombre='" +getNombre() + "', beneficio='" + getBeneficio() + "', cantidad='" +getCantidad() + "', precio='" + getPrecio() + "', tiempo_preparacion='" + getTiempoPreparacion() + "' WHERE cod_ingrediente='" + getCodigoIngrediente() + "'";
         if (con.noquery(sql) == null) {
             return true;
+            
         } else {
             return false;
         }
     }
+    
+    public boolean RestaIngrediente() {
+        String sql;
+        sql = "UPDATE ingrediente SET cod_ingrediente='" + getCodigoIngrediente() + "',cantidad='" +getCantidad() + "' WHERE cod_ingrediente='" + getCodigoIngrediente() + "'";
+        if (con.noquery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public boolean Eliminar() {
         String sql;
         sql = "DELETE FROM ingrediente WHERE cod_ingrediente='" + this.getCodigoIngrediente() + "'";

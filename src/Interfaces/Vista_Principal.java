@@ -69,6 +69,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         btningrediente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnensalada = new javax.swing.JMenuItem();
+        btnBuscarEnsalada = new javax.swing.JMenuItem();
         btnBeneficiosmenu = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -315,6 +316,10 @@ public class Vista_Principal extends javax.swing.JFrame {
         btnensalada.setText("Ensaladas");
         jMenu3.add(btnensalada);
 
+        btnBuscarEnsalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/buscarEnsalada.png"))); // NOI18N
+        btnBuscarEnsalada.setText("Buscar Ensalada");
+        jMenu3.add(btnBuscarEnsalada);
+
         btnBeneficiosmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/beneficio.png"))); // NOI18N
         btnBeneficiosmenu.setText("Beneficios");
         btnBeneficiosmenu.addActionListener(new java.awt.event.ActionListener() {
@@ -497,11 +502,22 @@ public class Vista_Principal extends javax.swing.JFrame {
     public void setBtnmostrar(JButton btnmostrar) {
         this.btnmostrar = btnmostrar;
     }
+
+    public JMenuItem getBtnBuscarEnsalada() {
+        return btnBuscarEnsalada;
+    }
+
+    public void setBtnBuscarEnsalada(JMenuItem btnBuscarEnsalada) {
+        this.btnBuscarEnsalada = btnBuscarEnsalada;
+    }
+    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Desktop;
     private javax.swing.JDialog DlgBeneficios;
     private javax.swing.JMenuItem btnBeneficiosmenu;
+    private javax.swing.JMenuItem btnBuscarEnsalada;
     private javax.swing.JMenuItem btnCrearClienteMenu;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JMenuItem btncliente;

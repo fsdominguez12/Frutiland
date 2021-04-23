@@ -1,6 +1,7 @@
 package Control;
 
 import Clases_base.Cliente;
+import Clases_base.Ensalada;
 import Clases_base.Ingrediente;
 import Interfaces.Vista_Cliente;
 import Interfaces.Vista_Ensalada;
@@ -40,7 +41,7 @@ public class ControlEnsalada {
 
     public void IniciaControl() {
         restringirDialogo();
-
+        CargarListaEnsalada("");
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -57,14 +58,15 @@ public class ControlEnsalada {
                 buscarCliente(visen.getTxtCedulaClienteEnsalada().getText());
                 cargaTabla(visen.getTxtBuscar().getText());
                 calculoSubTotal(visen.getTxtPorcionIngrediente().getText());
+                CargarListaEnsalada(visen.getTxtBuscarEnsalada().getText());
             }
 
         };
-
+        visen.getTxtBuscarEnsalada().addKeyListener(kl);
         visen.getTxtCedulaClienteEnsalada().addKeyListener(kl);
         visen.getTxtBuscarAgregar().addKeyListener(kl);
         visen.getTxtPorcionIngrediente().addKeyListener(kl);
-        visen.getBtnAgregarCliente().addActionListener(l -> crearCliente());
+        //visen.getBtnAgregarCliente().addActionListener(l -> crearCliente());
         visen.getBtnAgregarIngrediente().addActionListener(l -> agregaIngrediente());
         visen.getBtnSalir().addActionListener(l -> salirDialogo());
         visen.getBtnAgregaIngrediente().addActionListener(l -> agregarPro());
@@ -74,7 +76,8 @@ public class ControlEnsalada {
         visen.getBtnGenerarEnsalada().addActionListener(l -> guardarEnsalada());
         visen.getBtnCancelarEnsalada().addActionListener(l -> borrarDialogo());
         visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
-        visen.getBtnActualizaListaProducto().addActionListener(l -> actualizarDatosTabla());
+        visen.getBtnEliminarEnsalada().addActionListener(l -> EliminarEnsalada());
+        
     }
 
     public void limpiarDialogo() {
@@ -110,8 +113,53 @@ public class ControlEnsalada {
         });
     }
 
-    public void crearCliente() {
+   private void CargarListaEnsalada(String aguja){
+        
+        DefaultTableModel tblModel;
+        tblModel=(DefaultTableModel)visen.getTableBuscarEnsalada().getModel();
+        tblModel.setNumRows(0);
+        List<Ensalada> lista=ModeloEnsalada.listarEnsalada(aguja);
+        int ncols=tblModel.getColumnCount();
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach((Ensalada en)->{
+        String [] ensalada ={en.getCodigoEnsalada(),en.getCedulaCliEnsa(),en.getDescripcion(),String.valueOf(en.getPrecio()).toString(),String.valueOf(en.getTiempoEspera()).toString(),String.valueOf(en.isEstado()).toString(),en.getHoraGeneracion(),en.getHoraEntrega()};
+        
+            tblModel.addRow(new Object[ncols]);
+            visen.getTableBuscarEnsalada().setValueAt(en.getCodigoEnsalada(), i.value, 0);
+            visen.getTableBuscarEnsalada().setValueAt(en.getCedulaCliEnsa(), i.value, 1);
+            visen.getTableBuscarEnsalada().setValueAt(en.getDescripcion(), i.value, 2);
+            visen.getTableBuscarEnsalada().setValueAt(en.getPrecio(), i.value, 3);
+            visen.getTableBuscarEnsalada().setValueAt(en.getTiempoEspera(), i.value, 4);
+            //aqui va un llamado
+            visen.getTableBuscarEnsalada().setValueAt(en.isEstado(), i.value, 5);
+            visen.getTableBuscarEnsalada().setValueAt(en.getHoraGeneracion(), i.value, 6);
+            visen.getTableBuscarEnsalada().setValueAt(en.getHoraEntrega(), i.value, 7);
+            i.value++;
+        });
+    }
+   
+   private void EliminarEnsalada() {
+        DefaultTableModel dtmEnsalada = (DefaultTableModel) visen.getTableBuscarEnsalada().getModel();
+        int fila =  visen.getTableBuscarEnsalada().getSelectedRow();
 
+        if (fila != -1) {
+            int i = JOptionPane.showConfirmDialog(null, "¿Desea eliminar Ensalada?", "ELIMINAR INGREDIENTE", 1, 2);
+            if (i == 0) {
+                String idin = dtmEnsalada.getValueAt(fila, 0).toString();
+                moes.setCodigoEnsalada(idin);
+                if (moes.EliminarEnsalada()) {
+                    JOptionPane.showMessageDialog(visen, "Ingrediente Eliminado");
+                } else {
+                    JOptionPane.showMessageDialog(visen, "ERROR!!!");
+                }
+                //cargarLista(idin);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "SELECCIONAR UNA FILA");
+            CargarListaEnsalada("");
+        }
+        CargarListaEnsalada("");
     }
 
     public void agregaIngrediente() {
@@ -140,6 +188,9 @@ public class ControlEnsalada {
         visen.getTxtCedulaClienteEnsalada().setText("");
         visen.getTxtClienteCedulaEnsalada().setText("");
         visen.getTxtClienteEnsalada().setText("");
+        visen.getTxtDescripcionEnsalada().setText("");
+        visen.getTxtTiempoEnsalada().setText("0");
+                visen.getTxtTotalEnsalada().setText("0");
     }
 
     public void cargaTabla(String aguja) {
@@ -236,8 +287,6 @@ public class ControlEnsalada {
                 visen.getTxtDescripcionEnsalada().setText(visen.getTxtDescripcionEnsalada().getText() + "- " + visen.getTxtPorcionIngrediente().getText() + " " + visen.getLblNombre().getText() + " ");
                 visen.getTxtTiempoEnsalada().setText(String.valueOf(Integer.parseInt(visen.getTxtTiempoEnsalada().getText()) + ((Integer.parseInt(visen.getLblEspera().getText())) * (Integer.parseInt(visen.getTxtPorcionIngrediente().getText())))));
                 visen.getTxtTotalEnsalada().setText(String.valueOf(Float.parseFloat(visen.getTxtTotalEnsalada().getText()) + Float.parseFloat(visen.getTxtSubTotal().getText().replace(",", "."))));
-
-                JOptionPane.showMessageDialog(null, "Ingrediente Guardado");
                 DefaultTableModel tblModel;
                 tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
                 String[] info = new String[6];

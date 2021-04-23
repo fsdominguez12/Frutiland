@@ -30,6 +30,11 @@ public class Ingrediente {
         this.foto = foto;
     }
 
+    public Ingrediente(String codigoIngrediente, int cantidad) {
+        this.codigoIngrediente = codigoIngrediente;
+        this.cantidad = cantidad;
+    }
+
 
 
     public Ingrediente(String codigoIngrediente, String nombre, String beneficio, int cantidad, float precio, int tiempoPreparacion) {

@@ -91,7 +91,7 @@ public class ControlCliente {
         vista.getDgcliente().setTitle("CREAR CLIENTE");
         vista.getDgcliente().setSize(450,550);
         vista.getDgcliente().setVisible(true);
-        vista.setVisible(false);
+        vista.setVisible(true);
         vista.getDgcliente().setLocationRelativeTo(null);
     }
     public void grabarpersona(){
@@ -128,7 +128,7 @@ public class ControlCliente {
         vista.getBtneditar().setVisible(true);
         vista.getTxtid().setEnabled(false);
         vista.getDgcliente().setTitle("MODIFICAR DATOS DE PERSONA");//Poner titulo en el JDialogo
-        vista.getDgcliente().setSize(450, 550);//Tamaño del JDialog
+        vista.getDgcliente().setSize(450, 450);//Tamaño del JDialog
         vista.getDgcliente().setLocationRelativeTo(null);//Para que el Jdialog se muestre en la mitad de la pantalla
     }
     private void Elegir(){
