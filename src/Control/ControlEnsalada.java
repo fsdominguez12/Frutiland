@@ -298,7 +298,7 @@ public class ControlEnsalada {
          }
     }
 
-    public void actualizarDatosTablaKK() {
+    public void actualizarDatosTabla() {
         int contador = visen.getTblIngredientesParaCalcular().getRowCount();
         if (contador == 0) {
             JOptionPane.showMessageDialog(null, "No existen datos en la tabla");
@@ -311,9 +311,10 @@ public class ControlEnsalada {
             float sumPrecio = 0;
             String sumDescri = "";
             for (int i = 0; i < contador; i++) {
-                sumDescri = sumDescri + "- " + visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString() + " " + visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString() + " ";
-                sumSegundos = sumSegundos + Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 3).toString());
-                sumPrecio = sumPrecio + Float.parseFloat(visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString().replace(",", "."));
+                System.out.println("hola");
+                sumDescri = sumDescri + "- " + visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString() + " " + visen.getTblIngredientesParaCalcular().getValueAt(i, 3).toString() + " ";
+                sumSegundos = sumSegundos + Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString());
+                sumPrecio = sumPrecio + Float.parseFloat(visen.getTblIngredientesParaCalcular().getValueAt(i, 5).toString().replace(",", "."));
 
             }
 
@@ -324,7 +325,7 @@ public class ControlEnsalada {
         }
     }
     
-    public void actualizarDatosTabla() {
+    public void actualizarDatosTabla22() {
         int contador = visen.getTblIngredientesParaCalcular().getRowCount();
         if (contador == 0) {
             JOptionPane.showMessageDialog(null, "No existen datos en la tabla");
