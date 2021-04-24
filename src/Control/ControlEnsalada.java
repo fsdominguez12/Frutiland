@@ -66,7 +66,6 @@ public class ControlEnsalada {
         visen.getTxtCedulaClienteEnsalada().addKeyListener(kl);
         visen.getTxtBuscarAgregar().addKeyListener(kl);
         visen.getTxtPorcionIngrediente().addKeyListener(kl);
-        //visen.getBtnAgregarCliente().addActionListener(l -> crearCliente());
         visen.getBtnAgregarIngrediente().addActionListener(l -> agregaIngrediente());
         visen.getBtnSalir().addActionListener(l -> salirDialogo());
         visen.getBtnAgregaIngrediente().addActionListener(l -> agregarPro());
@@ -386,9 +385,9 @@ public class ControlEnsalada {
 
         if (ensalada.Crear()) {
             JOptionPane.showMessageDialog(visen, "Ingrediente Creado");
+            
             restaroSumarIngrediente();
             borrarDialogo();
-            //EliminarDatosTabla();
             restringirDialogo();
         } else {
             JOptionPane.showMessageDialog(visen, "ERROR!!!!!!");
@@ -400,7 +399,6 @@ public class ControlEnsalada {
         int contar = visen.getTblIngredientesParaCalcular().getRowCount();
         int suma = 0;
         for (int i = 0; i < contar; i++) {
-
             String ident = visen.getTblIngredientesParaCalcular().getValueAt(i, 0).toString();
             int stock = Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString());
             int cantidad = (Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString())) - (Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString()));
