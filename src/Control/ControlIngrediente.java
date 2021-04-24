@@ -207,14 +207,17 @@ public class ControlIngrediente {
             String beneficio = (String) vistaIn.getTblingredientes().getValueAt(fila, 2);
             String cantidad = (String) vistaIn.getTblingredientes().getValueAt(fila, 3);
             String precio = (String) vistaIn.getTblingredientes().getValueAt(fila, 4);
+            ImageIcon icon = new ImageIcon((String) vistaIn.getTblingredientes().getValueAt(fila, 5));
             
+          
             vistaIn.getTxtCodigo().setText(ident);
             vistaIn.getTxtNombre().setText(nombre);
             vistaIn.getTxtBeneficio().setText(beneficio);
             vistaIn.getTxtCantidad().setText(cantidad);
             vistaIn.getTxtPrecio().setText(precio);
-            vistaIn.getTxtCodigo().setEnabled(false);
             
+            vistaIn.getTxtCodigo().setEnabled(false);
+            vistaIn.getLblFoto().setIcon(icon);
             venIngrediente("ACTUALIZAR", "EDITAR PRODUCTO");
         }
     }
@@ -329,6 +332,10 @@ public class ControlIngrediente {
         vistaIn.getTxtStockCantidadActual().setEnabled(false);
         vistaIn.getTxtStockCantidadTotal().setEnabled(false);
         vistaIn.getTxtStockCantidadActual().setText("0");
+        vistaIn.getTxtStockCantidadTotal().setText("0");
+        vistaIn.getTxtStockBusqueda().setText("");
+        vistaIn.getTxtStockNombre().setText("");
+        vistaIn.getTxtStockCantidadAgregar().setText("");
     }
     
     public void sumarStockIngresado(String valorIngresar) {
@@ -346,6 +353,7 @@ public class ControlIngrediente {
             
             if (ingrediente.RestaIngrediente()) {
                 JOptionPane.showMessageDialog(vistaIn, "Cantidad de base de datos actualizado");
+                RestringirDialogoStock();
                 cargarLista("");
             } else {
                 JOptionPane.showMessageDialog(vistaIn, "ERROR!!!");
