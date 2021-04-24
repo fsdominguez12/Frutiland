@@ -9,6 +9,7 @@ import Clases_base.Ensalada;
 import Interfaces.Vista_Entrega_Ensalada;
 import Modelo.ModeloEnsalada;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 
@@ -26,6 +27,7 @@ public class ControlEntrega {
     public void IniciaControl() {
         vivese.setVisible(true);
         CargarListaEnsaladaParaBuscar("");
+        vivese.getBtnEntregaEntregar().addActionListener(l -> ModificarEstadoEntregaEnsalada());
     }
 
     private void CargarListaEnsaladaParaBuscar(String aguja) {
@@ -56,4 +58,33 @@ public class ControlEntrega {
             i.value++;
         });
     }
+    
+    
+    private void ModificarEstadoEntregaEnsalada(){
+    
+        int fila = vivese.getTblEntregaEnsalada().getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "DEBE SELECCIONAR UNA FILA");
+            //cargarLista("");
+        } else {
+            String codigo = (String)vivese.getTblEntregaEnsalada().getValueAt(fila, 0);
+            boolean estado = true;
+            
+            
+        try {
+            ModeloEnsalada ensalada = new ModeloEnsalada(codigo, estado);
+            if (ensalada.ModificarEstadoEnsalada()) {
+                JOptionPane.showMessageDialog(vivese, "Ensalada Entregado con éxito");
+                
+                CargarListaEnsaladaParaBuscar("");
+            } else {
+                JOptionPane.showMessageDialog(vivese, "ERROR!!!");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(vivese, "Ingrese Valores");
+        }
+       
+    }
+    
+    }  
 }

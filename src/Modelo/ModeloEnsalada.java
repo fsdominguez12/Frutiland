@@ -21,6 +21,11 @@ public class ModeloEnsalada extends Ensalada {
         super(codigoEnsalada, cedulaCliEnsa, descripcion, precio, tiempoEspera, estado, horaGeneracion, horaEntrega);
     }
 
+    public ModeloEnsalada(String codigoEnsalada, boolean estado) {
+        super(codigoEnsalada, estado);
+    }
+
+    
     public static List<Cliente> buscarCliente(String aguja) {
 
         try {
@@ -95,6 +100,16 @@ public class ModeloEnsalada extends Ensalada {
         }
     }
 
+    public boolean ModificarEstadoEnsalada() {
+        String sql;
+        sql = "UPDATE ensalada SET idensalada='" + getCodigoEnsalada() + "',estado='" +isEstado() + "' WHERE idensalada='" +getCodigoEnsalada() + "'";
+        if (con.noquery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public boolean EliminarEnsalada() {
         String sql;
         sql = "DELETE FROM ensalada WHERE =idensalada'" + getCodigoEnsalada() + "'";

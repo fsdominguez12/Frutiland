@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import javax.swing.JButton;
 import javax.swing.JTable;
 
 /**
@@ -154,6 +155,15 @@ public class Vista_Entrega_Ensalada extends javax.swing.JInternalFrame {
         this.tblEntregaEnsalada = tblEntregaEnsalada;
     }
 
+    public JButton getBtnEntregaEntregar() {
+        return btnEntregaEntregar;
+    }
+
+    public void setBtnEntregaEntregar(JButton btnEntregaEntregar) {
+        this.btnEntregaEntregar = btnEntregaEntregar;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntregaActualizar;
     private javax.swing.JButton btnEntregaEntregar;

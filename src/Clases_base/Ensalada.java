@@ -26,6 +26,13 @@ public class Ensalada {
         this.horaEntrega = horaEntrega;
     }
 
+    public Ensalada(String codigoEnsalada, boolean estado) {
+        this.codigoEnsalada = codigoEnsalada;
+        this.estado = estado;
+    }
+    
+    
+
     public String getCodigoEnsalada() {
         return codigoEnsalada;
     }

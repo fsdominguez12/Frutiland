@@ -25,6 +25,7 @@ public class ControlCliente {
     }
     
     public void IniciaControl(){
+        CargarLista("");
         
         KeyListener kl = new KeyListener() {
             @Override
@@ -132,6 +133,7 @@ public class ControlCliente {
         vista.getDgcliente().setLocationRelativeTo(null);//Para que el Jdialog se muestre en la mitad de la pantalla
     }
     private void Elegir(){
+         CargarLista("");
         editarpersona();
         
         int fila = vista.getTblcliente().getSelectedRow();
