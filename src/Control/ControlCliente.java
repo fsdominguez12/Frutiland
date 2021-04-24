@@ -11,8 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 
-public class ControlCliente {
-    
+public class ControlCliente {    
     private ModeloCliente modelo;
     private Vista_Cliente vista;
     private Vista_Principal vp;
@@ -101,6 +100,7 @@ public class ControlCliente {
         
         ModeloCliente cliente = new ModeloCliente(ident, nombre, apellido);
         if(cliente.Crear()){
+            
             //cargarLista("");
             vista.getDgcliente().setVisible(false);
                 JOptionPane.showMessageDialog(vista, "Cliente Creado");//Si la persona se creo envia el mensaje

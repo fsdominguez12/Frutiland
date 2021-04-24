@@ -1,8 +1,10 @@
 package Control;
 
+import Clases_base.Cliente;
 import Clases_base.Ingrediente;
 import Interfaces.Vista_Ingrediente;
 import Interfaces.Vista_Principal;
+import Modelo.ModeloCliente;
 import Modelo.ModeloIngrediente;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -53,6 +55,8 @@ public class ControlIngrediente {
             public void keyReleased(KeyEvent e) {
                 cargarLista(vistaIn.getTxtBuscar().getText());
                 CargarBeneficio(vipri.getTxtbusquedabeneficio().getText());
+                cargarIngredienteParaStock(vistaIn.getTxtStockBusqueda().getText());
+               
             }
 
         };
@@ -64,8 +68,7 @@ public class ControlIngrediente {
         vistaIn.getBtnModificar().addActionListener(l -> CargaIngrediente());
         vistaIn.getBtnEliminar().addActionListener(l -> Eliminar());
         vistaIn.getTxtBuscar().addKeyListener(kl);
-        
-        
+        vistaIn.getTxtStockBusqueda().addKeyListener(kl);
         vipri.getTxtbusquedabeneficio().addKeyListener(kl);
         vipri.getBtnmostrar().addActionListener(l->CargarBeneficio(""));
         vipri.getBtnvisualizar().addActionListener(l->Visualizabeneficio());
@@ -103,6 +106,13 @@ public class ControlIngrediente {
         vistaIn.getTxtBeneficio().setText("");
         vistaIn.getTxtCantidad().setText("");
         vistaIn.getTxtPrecio().setText("");
+    }
+    
+    public void RestringirDialogoStock(){
+        vistaIn.getTxtStockNombre().setEnabled(false);
+        vistaIn.getTxtStockCodigoPro().setEnabled(false);
+        vistaIn.getTxtStockCantidadActual().setEnabled(false);
+        vistaIn.getTxtStockCantidadTotal().setEnabled(false);
     }
 
     public void cargarLista(String aguja) {
@@ -189,6 +199,25 @@ public class ControlIngrediente {
         }
     }
 
+    
+       public void cargarIngredienteParaStock(String aguja) {
+        List<Ingrediente> lista = ModeloIngrediente.listarIngrediente(aguja);
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach(in -> {
+            String[] ingrediente = {in.getNombre(), String.valueOf(in.getCantidad())};
+            vistaIn.getTxtStockCodigoPro().setText(in.getCodigoIngrediente());
+            vistaIn.getTxtStockNombre().setText(in.getNombre());
+            vistaIn.getTxtStockCantidadActual().setText(String.valueOf(in.getCantidad()));
+            
+
+        });
+    }
+    
+       
+       
+   
+    
+    
     private void CargaIngrediente() {
         int fila = vistaIn.getTblingredientes().getSelectedRow();
         if (fila == -1) {

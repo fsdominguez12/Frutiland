@@ -68,8 +68,8 @@ public class ModeloIngrediente extends Ingrediente {
         try {
             String sql = "SELECT * FROM ingrediente WHERE ";
             sql += "UPPER(cod_ingrediente) LIKE UPPER ('%" + aguja + "%') OR ";
-            sql += "UPPER(nombre) LIKE UPPER ('%" + aguja + "%') OR ";
-            sql += "UPPER(beneficio) LIKE UPPER ('%" + aguja + "%')";
+           // sql += "UPPER(beneficio) LIKE UPPER ('%" + aguja + "%') OR ";
+            sql += "UPPER(nombre) LIKE UPPER ('%" + aguja + "%')  ";
 
             ResultSet rs = con.query(sql);
             List<Ingrediente> lista = new ArrayList<>();
@@ -105,6 +105,10 @@ public class ModeloIngrediente extends Ingrediente {
             return null;
         }
     }
+    
+    
+    
+    
     public boolean Modificar() {
         String sql;
         sql = "UPDATE ingrediente SET cod_ingrediente='" + getCodigoIngrediente() + "', nombre='" +getNombre() + "', beneficio='" + getBeneficio() + "', cantidad='" +getCantidad() + "', precio='" + getPrecio() + "', tiempo_preparacion='" + getTiempoPreparacion() + "' WHERE cod_ingrediente='" + getCodigoIngrediente() + "'";

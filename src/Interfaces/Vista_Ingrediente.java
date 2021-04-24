@@ -59,6 +59,48 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         lblTituloIng = new javax.swing.JLabel();
         lblTexto2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        lblFoto1 = new javax.swing.JLabel();
+        btnSalir1 = new javax.swing.JButton();
+        btnExaminar1 = new javax.swing.JButton();
+        btnAtras1 = new javax.swing.JButton();
+        btnGuardar1 = new javax.swing.JButton();
+        txtPrecio1 = new javax.swing.JTextField();
+        txtBeneficio1 = new javax.swing.JTextField();
+        txtCantidad1 = new javax.swing.JTextField();
+        txtCodigo1 = new javax.swing.JTextField();
+        txtNombre1 = new javax.swing.JTextField();
+        txtMinTiPreparacion1 = new javax.swing.JTextField();
+        txtSegTiPreparacion1 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        lblTituloIng1 = new javax.swing.JLabel();
+        lblTexto3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        DgStock = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        btnStockGuardar = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        lblTexto4 = new javax.swing.JLabel();
+        txtStockBusqueda = new javax.swing.JTextField();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        txtStockCantidadAgregar = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        txtStockCantidadTotal = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        txtStockNombre = new javax.swing.JTextField();
+        txtStockCantidadActual = new javax.swing.JTextField();
+        txtStockCodigoPro = new javax.swing.JTextField();
+        lblTituloIng2 = new javax.swing.JLabel();
+        btnStockCancelar = new javax.swing.JButton();
+        jLabel40 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -194,6 +236,126 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblFoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/blanco.png"))); // NOI18N
+        lblFoto1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(lblFoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblFoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 150, 100));
+
+        btnSalir1.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnSalir1.setText("SALIR");
+        btnSalir1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnSalir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalir1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 100, 30));
+
+        btnExaminar1.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnExaminar1.setText("EXAMINAR");
+        btnExaminar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(btnExaminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 100, 30));
+
+        btnAtras1.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnAtras1.setText("ATRAS");
+        btnAtras1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(btnAtras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 100, 30));
+
+        btnGuardar1.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnGuardar1.setText("CREAR");
+        btnGuardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 100, 30));
+
+        txtPrecio1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txtPrecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 140, 20));
+
+        txtBeneficio1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txtBeneficio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 140, 20));
+
+        txtCantidad1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txtCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 140, 20));
+
+        txtCodigo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txtCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 140, 20));
+
+        txtNombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 140, 20));
+
+        txtMinTiPreparacion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txtMinTiPreparacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 50, 20));
+
+        txtSegTiPreparacion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(txtSegTiPreparacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 50, 20));
+
+        jLabel18.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel18.setText("Min");
+        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        jLabel19.setText("Seg");
+        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel20.setText("T. Preparación:");
+        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel21.setText("Nombre:");
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel22.setText("Beneficio:");
+        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel23.setText("Porción:");
+        jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel24.setText("Precio:");
+        jPanel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+
+        lblTituloIng1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblTituloIng1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloIng1.setText("REGISTRO INGREDIENTE");
+        jPanel5.add(lblTituloIng1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+
+        lblTexto3.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblTexto3.setForeground(new java.awt.Color(204, 255, 255));
+        lblTexto3.setText("Código:");
+        jPanel5.add(lblTexto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         javax.swing.GroupLayout DgIngredienteLayout = new javax.swing.GroupLayout(DgIngrediente.getContentPane());
         DgIngrediente.getContentPane().setLayout(DgIngredienteLayout);
         DgIngredienteLayout.setHorizontalGroup(
@@ -203,6 +365,159 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         DgIngredienteLayout.setVerticalGroup(
             DgIngredienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnStockGuardar.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnStockGuardar.setText("GUARDAR");
+        btnStockGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel7.add(btnStockGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 100, 30));
+
+        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel10.setOpaque(false);
+
+        lblTexto4.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblTexto4.setForeground(new java.awt.Color(204, 255, 255));
+        lblTexto4.setText("Buscar:");
+
+        txtStockBusqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTexto4)
+                .addGap(18, 18, 18)
+                .addComponent(txtStockBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtStockBusqueda)
+                    .addComponent(lblTexto4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jPanel7.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 250, 50));
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel9.setOpaque(false);
+
+        jLabel30.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel30.setText("Valor Agregar:");
+
+        txtStockCantidadAgregar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel31.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel31.setText("Total:");
+
+        txtStockCantidadTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel31))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtStockCantidadAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(txtStockCantidadTotal))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30)
+                    .addComponent(txtStockCantidadAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel31))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtStockCantidadTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
+        );
+
+        jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 280, -1));
+
+        jPanel8.setOpaque(false);
+
+        txtStockNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtStockCantidadActual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtStockCodigoPro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtStockCodigoPro, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtStockNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtStockCantidadActual, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStockNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStockCantidadActual, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStockCodigoPro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 350, 50));
+
+        lblTituloIng2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblTituloIng2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloIng2.setText("AGREGAR STOCK");
+        jPanel7.add(lblTituloIng2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        btnStockCancelar.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnStockCancelar.setText("CANCELAR");
+        btnStockCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnStockCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStockCancelarActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnStockCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 100, 30));
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
+        jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 370));
+
+        javax.swing.GroupLayout DgStockLayout = new javax.swing.GroupLayout(DgStock.getContentPane());
+        DgStock.getContentPane().setLayout(DgStockLayout);
+        DgStockLayout.setHorizontalGroup(
+            DgStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        DgStockLayout.setVerticalGroup(
+            DgStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -359,6 +674,14 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalir1ActionPerformed
+
+    private void btnStockCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStockCancelarActionPerformed
 
     public JDialog getDgIngrediente() {
         return DgIngrediente;
@@ -538,18 +861,111 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         this.txtSegTiPreparacion = txtSegTiPreparacion;
     }
 
+    public JDialog getDgStock() {
+        return DgStock;
+    }
+
+    public void setDgStock(JDialog DgStock) {
+        this.DgStock = DgStock;
+    }
+
+    public JButton getBtnStockCancelar() {
+        return btnStockCancelar;
+    }
+
+    public void setBtnStockCancelar(JButton btnStockCancelar) {
+        this.btnStockCancelar = btnStockCancelar;
+    }
+
+    public JButton getBtnStockGuardar() {
+        return btnStockGuardar;
+    }
+
+    public void setBtnStockGuardar(JButton btnStockGuardar) {
+        this.btnStockGuardar = btnStockGuardar;
+    }
+
+    public JTextField getTxtStockCantidadActual() {
+        return txtStockCantidadActual;
+    }
+
+    public void setTxtStockCantidadActual(JTextField txtStockCantidadActual) {
+        this.txtStockCantidadActual = txtStockCantidadActual;
+    }
+
+    public JTextField getTxtStockCantidadAgregar() {
+        return txtStockCantidadAgregar;
+    }
+
+    public void setTxtStockCantidadAgregar(JTextField txtStockCantidadAgregar) {
+        this.txtStockCantidadAgregar = txtStockCantidadAgregar;
+    }
+
+    public JTextField getTxtStockBusqueda() {
+        return txtStockBusqueda;
+    }
+
+    public void setTxtStockBusqueda(JTextField txtStockBusqueda) {
+        this.txtStockBusqueda = txtStockBusqueda;
+    }
+
+    
+
+    
+    
+
+    
+
+    
+    
+    public JTextField getTxtStockCantidadTotal() {
+        return txtStockCantidadTotal;
+    }
+
+    
+    
+
+    public void setTxtStockCantidadTotal(JTextField txtStockCantidadTotal) {
+        this.txtStockCantidadTotal = txtStockCantidadTotal;
+    }
+
+   
+
+    public JTextField getTxtStockCodigoPro() {
+        return txtStockCodigoPro;
+    }
+
+    public void setTxtStockCodigoPro(JTextField txtStockCodigoPro) {
+        this.txtStockCodigoPro = txtStockCodigoPro;
+    }
+
+    public JTextField getTxtStockNombre() {
+        return txtStockNombre;
+    }
+
+    public void setTxtStockNombre(JTextField txtStockNombre) {
+        this.txtStockNombre = txtStockNombre;
+    }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DgIngrediente;
+    private javax.swing.JDialog DgStock;
     private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnAtras1;
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnExaminar;
+    private javax.swing.JButton btnExaminar1;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnSalir1;
+    private javax.swing.JButton btnStockCancelar;
+    private javax.swing.JButton btnStockGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -559,28 +975,63 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblFoto1;
     private javax.swing.JLabel lblTexto2;
+    private javax.swing.JLabel lblTexto3;
+    private javax.swing.JLabel lblTexto4;
     private javax.swing.JLabel lblTituloIng;
+    private javax.swing.JLabel lblTituloIng1;
+    private javax.swing.JLabel lblTituloIng2;
     private javax.swing.JTable tblingredientes;
     private javax.swing.JTextField txtBeneficio;
+    private javax.swing.JTextField txtBeneficio1;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtCantidad1;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtCodigo1;
     private javax.swing.JTextField txtMinTiPreparacion;
+    private javax.swing.JTextField txtMinTiPreparacion1;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombre1;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtPrecio1;
     private javax.swing.JTextField txtSegTiPreparacion;
+    private javax.swing.JTextField txtSegTiPreparacion1;
+    private javax.swing.JTextField txtStockBusqueda;
+    private javax.swing.JTextField txtStockCantidadActual;
+    private javax.swing.JTextField txtStockCantidadAgregar;
+    private javax.swing.JTextField txtStockCantidadTotal;
+    private javax.swing.JTextField txtStockCodigoPro;
+    private javax.swing.JTextField txtStockNombre;
     // End of variables declaration//GEN-END:variables
 }

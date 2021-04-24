@@ -119,6 +119,18 @@ public class ControlVentanaPrincipal {
     
     public void AgregarStockIngrediente(){
         
+       
+       
+       Vista_Principal vipri = new Vista_Principal();
+       Vista_Ingrediente vistaIng = new Vista_Ingrediente();
+        vistaIng.getDgStock().setSize(385, 405);
+        vistaIng.getDgStock().setLocationRelativeTo(null);
+        vistaIng.getDgStock().setVisible(true);
+        
+        ModeloIngrediente modeloIng = new ModeloIngrediente();
+        ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
+        ingr.IniciaControl();
+        ingr.RestringirDialogoStock();
     }
 
     private void Salir() {

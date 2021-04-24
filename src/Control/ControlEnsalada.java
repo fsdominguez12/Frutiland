@@ -325,7 +325,7 @@ public class ControlEnsalada {
         tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
         int fila = visen.getTblIngredientesParaCalcular().getSelectedRow();
         if (fila >= 0) {
-            String produ = (String) visen.getTblIngredientesParaCalcular().getValueAt(fila, 2);
+            String produ = (String) visen.getTblIngredientesParaCalcular().getValueAt(fila, 3);
             int i = JOptionPane.showConfirmDialog(null, " ¿Desea eliminar " + produ + " de la ensalada ?", "ELIMINAR", 0, 3);
             if (i == 0) {
                 tblModel.removeRow(fila);
@@ -354,12 +354,10 @@ public class ControlEnsalada {
             restringirDialogo();
             visen.getDlgListaProductosAgregados().setVisible(false);
         } else {
-
             int sumSegundos = 0;
             float sumPrecio = 0;
             String sumDescri = "";
             for (int i = 0; i < contador; i++) {
-                System.out.println("hola");
                 sumDescri = sumDescri + "- " + visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString() + " " + visen.getTblIngredientesParaCalcular().getValueAt(i, 3).toString() + " ";
                 sumSegundos = sumSegundos + Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString());
                 sumPrecio = sumPrecio + Float.parseFloat(visen.getTblIngredientesParaCalcular().getValueAt(i, 5).toString().replace(",", "."));
@@ -373,32 +371,6 @@ public class ControlEnsalada {
         }
     }
     
-    public void actualizarDatosTabla22() {
-        int contador = visen.getTblIngredientesParaCalcular().getRowCount();
-        if (contador == 0) {
-            JOptionPane.showMessageDialog(null, "No existen datos en la tabla");
-             borrarDialogo();
-             restringirDialogo();
-            visen.getDlgListaProductosAgregados().setVisible(false);
-        } else {
-            
-            int sumSegundos = 0;
-            float sumPrecio = 0;
-            String sumDescri = "";
-            for (int i = 0; i < contador; i++) {
-                sumDescri = sumDescri + "- " + visen.getTblIngredientesParaCalcular().getValueAt(i, 1).toString() + " " + visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString() + " ";
-                sumSegundos = sumSegundos + Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 3).toString());
-                sumPrecio = sumPrecio + Float.parseFloat(visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString().replace(",", "."));
-                
-            }
-            
-            visen.getTxtDescripcionEnsalada().setText(sumDescri);
-            visen.getTxtTiempoEnsalada().setText(Integer.toString(sumSegundos));
-            visen.getTxtTotalEnsalada().setText(Float.toString(sumPrecio));
-            
-        }
-    }
-
     public void guardarEnsalada() {
 
         String ideEns = visen.getTxtCodigoEnsalada().getText();
