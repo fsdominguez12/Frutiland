@@ -3,6 +3,7 @@ package Control;
 
 import Interfaces.Vista_Inicio;
 import Interfaces.Vista_Principal;
+import Interfaces.Vista_Secundario;
 
 public class ControlInicio {
     
@@ -27,6 +28,10 @@ Vista_Inicio vi;
      }
      
      public void Usuario2(){
+        Vista_Secundario  vistaSecu=new Vista_Secundario();
+        ControlVentanaSecundario cvs = new ControlVentanaSecundario( vistaSecu);
+        cvs.IniciaControl();
+        vi.setVisible(false);
         
      }
      

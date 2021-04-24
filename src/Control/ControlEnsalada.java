@@ -41,7 +41,7 @@ public class ControlEnsalada {
 
     public void IniciaControl() {
         restringirDialogo();
-        CargarListaEnsalada("");
+        CargarListaEnsaladaParaBuscar("");
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -58,7 +58,7 @@ public class ControlEnsalada {
                 buscarCliente(visen.getTxtCedulaClienteEnsalada().getText());
                 cargaTabla(visen.getTxtBuscar().getText());
                 calculoSubTotal(visen.getTxtPorcionIngrediente().getText());
-                CargarListaEnsalada(visen.getTxtBuscarEnsalada().getText());
+                CargarListaEnsaladaParaBuscar(visen.getTxtBuscarEnsalada().getText());
             }
 
         };
@@ -76,7 +76,7 @@ public class ControlEnsalada {
         visen.getBtnCancelarEnsalada().addActionListener(l -> borrarDialogo());
         visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
         visen.getBtnEliminarEnsalada().addActionListener(l -> EliminarEnsalada());
-        
+
     }
 
     public void limpiarDialogo() {
@@ -92,12 +92,15 @@ public class ControlEnsalada {
         visen.getTxtPrecioIngrediente().setEnabled(false);
         visen.getTxtCanDisponible().setEnabled(false);
         visen.getTxtClienteCedulaEnsalada().setEnabled(false);
+        visen.getTxtTiempoEnsaladaEnMinutos().setEditable(false);
+        visen.getTxtTiempoEnsalada().setVisible(false);
         visen.getTxtPrecioIngrediente().setText("0");
         visen.getTxtSubTotal().setText("0");
         visen.getTxtCanDisponible().setText("0");
         visen.getTxtTiempoEnsalada().setText("0");
         visen.getTxtTotalEnsalada().setText("0");
         visen.getTxtDescripcionEnsalada().setText("");
+        
     }
 
     public void buscarCliente(String aguja) {
@@ -112,33 +115,33 @@ public class ControlEnsalada {
         });
     }
 
-   private void CargarListaEnsalada(String aguja){
-        
+    private void CargarListaEnsaladaParaBuscar(String aguja) {
+
         DefaultTableModel tblModel;
-        tblModel=(DefaultTableModel)visen.getTableBuscarEnsalada().getModel();
+        tblModel = (DefaultTableModel) visen.getTableBuscarEnsalada().getModel();
         tblModel.setNumRows(0);
-        List<Ensalada> lista=ModeloEnsalada.listarEnsalada(aguja);
-        int ncols=tblModel.getColumnCount();
+        List<Ensalada> lista = ModeloEnsalada.listarEnsalada(aguja,0);
+        int ncols = tblModel.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
-        lista.stream().forEach((Ensalada en)->{
-        String [] ensalada ={en.getCodigoEnsalada(),en.getCedulaCliEnsa(),en.getDescripcion(),String.valueOf(en.getPrecio()).toString(),String.valueOf(en.getTiempoEspera()).toString(),String.valueOf(en.isEstado()).toString(),en.getHoraGeneracion(),en.getHoraEntrega()};
-        
+        lista.stream().forEach((Ensalada en) -> {
+            String[] ensalada = {en.getCodigoEnsalada(), en.getCedulaCliEnsa(), en.getDescripcion(), String.valueOf(en.getPrecio()).toString(), String.valueOf(en.getTiempoEspera()).toString(), String.valueOf(en.isEstado()).toString(), en.getHoraGeneracion(), en.getHoraEntrega()};
+
             tblModel.addRow(new Object[ncols]);
             visen.getTableBuscarEnsalada().setValueAt(en.getCodigoEnsalada(), i.value, 0);
             visen.getTableBuscarEnsalada().setValueAt(en.getCedulaCliEnsa(), i.value, 1);
             visen.getTableBuscarEnsalada().setValueAt(en.getDescripcion(), i.value, 2);
             visen.getTableBuscarEnsalada().setValueAt(en.getPrecio(), i.value, 3);
-            visen.getTableBuscarEnsalada().setValueAt(en.getTiempoEspera(), i.value, 4);
+            visen.getTableBuscarEnsalada().setValueAt(horaEntrega(false, en.getTiempoEspera()), i.value, 4);
             visen.getTableBuscarEnsalada().setValueAt(textoDeEstadoEntrega(en.isEstado()), i.value, 5);
             visen.getTableBuscarEnsalada().setValueAt(en.getHoraGeneracion(), i.value, 6);
             visen.getTableBuscarEnsalada().setValueAt(en.getHoraEntrega(), i.value, 7);
             i.value++;
         });
     }
-   
-   private void EliminarEnsalada() {
+
+    private void EliminarEnsalada() {
         DefaultTableModel dtmEnsalada = (DefaultTableModel) visen.getTableBuscarEnsalada().getModel();
-        int fila =  visen.getTableBuscarEnsalada().getSelectedRow();
+        int fila = visen.getTableBuscarEnsalada().getSelectedRow();
 
         if (fila != -1) {
             int i = JOptionPane.showConfirmDialog(null, "¿Desea eliminar Ensalada?", "ELIMINAR INGREDIENTE", 1, 2);
@@ -155,9 +158,9 @@ public class ControlEnsalada {
 
         } else {
             JOptionPane.showMessageDialog(null, "SELECCIONAR UNA FILA");
-            CargarListaEnsalada("");
+            CargarListaEnsaladaParaBuscar("");
         }
-        CargarListaEnsalada("");
+        CargarListaEnsaladaParaBuscar("");
     }
 
     public void agregaIngrediente() {
@@ -172,7 +175,7 @@ public class ControlEnsalada {
 
     public void salirDialogo() {
         visen.getDlgAgregarIngrediente().setVisible(false);
-        //borrarDialogo();
+       
     }
 
     public void borrarDialogo() {
@@ -188,7 +191,8 @@ public class ControlEnsalada {
         visen.getTxtClienteEnsalada().setText("");
         visen.getTxtDescripcionEnsalada().setText("");
         visen.getTxtTiempoEnsalada().setText("0");
-                visen.getTxtTotalEnsalada().setText("0");
+        visen.getTxtTotalEnsalada().setText("0");
+        visen.getTxtTiempoEnsaladaEnMinutos().setText("0");
     }
 
     public void cargaTabla(String aguja) {
@@ -281,7 +285,6 @@ public class ControlEnsalada {
             int i = JOptionPane.showConfirmDialog(null, "   El valor a pagar es " + visen.getTxtSubTotal().getText() + "\n¿Desea agregar el ingrediente?", "AGREGAR INGREDIENTE", 1, 2);
 
             if (i == 0) {
-
                 visen.getTxtDescripcionEnsalada().setText(visen.getTxtDescripcionEnsalada().getText() + "- " + visen.getTxtPorcionIngrediente().getText() + " " + visen.getLblNombre().getText() + " ");
                 visen.getTxtTiempoEnsalada().setText(String.valueOf(Integer.parseInt(visen.getTxtTiempoEnsalada().getText()) + ((Integer.parseInt(visen.getLblEspera().getText())) * (Integer.parseInt(visen.getTxtPorcionIngrediente().getText())))));
                 visen.getTxtTotalEnsalada().setText(String.valueOf(Float.parseFloat(visen.getTxtTotalEnsalada().getText()) + Float.parseFloat(visen.getTxtSubTotal().getText().replace(",", "."))));
@@ -295,8 +298,8 @@ public class ControlEnsalada {
                 info[4] = String.valueOf(Integer.parseInt(visen.getLblEspera().getText()) * Integer.parseInt(visen.getTxtPorcionIngrediente().getText()));
                 info[5] = visen.getTxtSubTotal().getText();
                 tblModel.addRow(info);
-               
-
+                visen.getTxtTiempoEnsaladaEnMinutos().setText(horaEntrega(false,Integer.parseInt(visen.getTxtTiempoEnsalada().getText())));
+                
             } else {
                 if (i == 1) {
                     borrarDialogo();
@@ -334,15 +337,15 @@ public class ControlEnsalada {
             JOptionPane.showMessageDialog(null, "Seleccione una fila");
         }
     }
-    
-    public void EliminarDatosTabla(){
+
+    public void EliminarDatosTabla() {
         DefaultTableModel tblModel;
         tblModel = (DefaultTableModel) visen.getTblIngredientesParaCalcular().getModel();
-         int fila=visen.getTblIngredientesParaCalcular().getRowCount();
-         for(int i=fila;i>0;i--){
-             tblModel.removeRow(i);
-             
-         }
+        int fila = visen.getTblIngredientesParaCalcular().getRowCount();
+        for (int i = fila; i > 0; i--) {
+            tblModel.removeRow(i);
+
+        }
     }
 
     public void actualizarDatosTabla() {
@@ -366,10 +369,11 @@ public class ControlEnsalada {
             visen.getTxtDescripcionEnsalada().setText(sumDescri);
             visen.getTxtTiempoEnsalada().setText(Integer.toString(sumSegundos));
             visen.getTxtTotalEnsalada().setText(Float.toString(sumPrecio));
+            visen.getTxtTiempoEnsaladaEnMinutos().setText(horaEntrega(false,Integer.parseInt(visen.getTxtTiempoEnsalada().getText())));
 
         }
     }
-    
+
     public void guardarEnsalada() {
 
         String ideEns = visen.getTxtCodigoEnsalada().getText();
@@ -379,13 +383,14 @@ public class ControlEnsalada {
         int tiEspera = Integer.parseInt(visen.getTxtTiempoEnsalada().getText());
         boolean estado = false;
         String horaGenera = generarHora();
-        String horaEntrega = "---";
+        
+        String horaEntrega = horaEntrega(true,Integer.parseInt(visen.getTxtTiempoEnsalada().getText()));;
 
         ModeloEnsalada ensalada = new ModeloEnsalada(ideEns, cedCliEn, des, precio, tiEspera, estado, horaGenera, horaEntrega);
 
         if (ensalada.Crear()) {
             JOptionPane.showMessageDialog(visen, "Ingrediente Creado");
-            
+
             restaroSumarIngrediente();
             borrarDialogo();
             restringirDialogo();
@@ -415,6 +420,22 @@ public class ControlEnsalada {
 
     }
 
+    
+
+    public String textoDeEstadoEntrega(boolean estado) {
+
+        String estadoEn = "";
+
+        if (estado == true) {
+            estadoEn = "Entregado";
+        } else {
+            estadoEn = "Por Entregar";
+        }
+        return estadoEn;
+    }
+
+    //CALCULO DE SEGUNDOS A MINUTIOS Y DE HORA ENTREGA y HORA GENERADO
+    
     private String generarHora() {
         LocalTime horaActual = LocalTime.now();
         String horaGen = "";
@@ -437,17 +458,95 @@ public class ControlEnsalada {
         return horaGen;
     }
     
-    
-    public String  textoDeEstadoEntrega( boolean estado){
-        
-        String estadoEn="";
-        
-        if (estado==true){
-            estadoEn="Entregado";
-        }else{
-            estadoEn="Por Entregar";
+    public String horaEntrega(boolean estado , int ti) {
+
+        int tiempoEspera = ti;
+        int horage = 0;
+        int minge = 0;
+        int segge = 0;
+        float resu = 0;
+        int cont = 0;        
+        String descripcion="";
+        resu = tiempoEspera / 60;
+        if (resu == 0) {
+            horage = 0;
+            minge = 0;
+            segge = tiempoEspera;
+        } else {
+            do {
+                tiempoEspera = tiempoEspera - 60;
+                cont = cont + 1;
+            } while (tiempoEspera > 59);
+            horage = 0;
+            minge = cont;
+            segge = tiempoEspera;
+
+            if (minge > 59) {
+                cont = 0;
+                tiempoEspera = minge;
+                do {
+                    tiempoEspera = tiempoEspera - 60;
+                    cont = cont + 1;
+                } while (tiempoEspera > 59);
+                horage = cont;
+                minge = tiempoEspera;
+            }
         }
-        return estadoEn;
+        if (estado == true) {
+            sumadeHoras(horage, minge, segge);
+        } else {
+            if (horage==0){
+                descripcion=(minge + " M " + segge+" S");
+            }else{
+                descripcion=(horage + " H " + minge + " M " + segge+" S");
+            }
+        }    
+        if(estado==true){
+            descripcion=sumadeHoras(horage, minge, segge);
+        }
+        return descripcion;
     }
     
+
+    public String sumadeHoras(int h, int m, int s) {
+        
+         LocalTime horaActual = LocalTime.now();
+        String horaGen = "";
+        int hora = horaActual.getHour();
+        int minuto = horaActual.getMinute();
+        int segundo = horaActual.getSecond();
+        int sumahor;
+        int sumamin;
+        int sumaseg;
+        int cont = 0;
+        String descripcionEntre="";
+
+        sumahor = h + hora;
+        sumamin = m + minuto;
+        sumaseg = s + segundo;
+
+        if (sumaseg > 59) {
+            segundo = sumaseg - 60;
+            minuto = (sumamin + 1) - 60;
+        } else {
+            segundo = sumaseg;
+            if (sumamin > 59) {
+                minuto = (sumamin) - 60;
+                int minutos = minuto;
+                do {
+                    minutos = minutos - 60;
+                    cont = cont + 1;
+                } while (minutos > 59);
+
+                hora = (sumahor + cont);
+            } else {
+                minuto = (sumamin);
+                hora = sumahor;
+            }
+        }
+       
+        descripcionEntre=(hora + " H " + minuto + " : " + segundo);
+        
+        return descripcionEntre;
+    }
 }

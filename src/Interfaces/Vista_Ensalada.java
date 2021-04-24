@@ -66,7 +66,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         lblTexto4 = new javax.swing.JLabel();
         lblTexto6 = new javax.swing.JLabel();
         txtCodigoEnsalada = new javax.swing.JTextField();
-        txtTiempoEnsalada = new javax.swing.JTextField();
+        txtTiempoEnsaladaEnMinutos = new javax.swing.JTextField();
         txtDescripcionEnsalada = new javax.swing.JTextField();
         txtCedulaClienteEnsalada = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -83,6 +83,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         btnCancelarEnsalada = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        txtTiempoEnsalada = new javax.swing.JTextField();
         lblEspera = new javax.swing.JLabel();
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -369,7 +370,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tableBuscarEnsalada);
 
-        jPanel9.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 550, 80));
+        jPanel9.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 550, 110));
 
         jLabel2.setBackground(new java.awt.Color(0, 255, 255));
         jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 0, 24)); // NOI18N
@@ -424,7 +425,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
 
         txtCodigoEnsalada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        txtTiempoEnsalada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTiempoEnsaladaEnMinutos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtDescripcionEnsalada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -512,14 +513,14 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                                     .addComponent(lblTexto2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTiempoEnsalada, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                    .addComponent(txtDescripcionEnsalada, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
+                                    .addComponent(txtDescripcionEnsalada, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                    .addComponent(txtTiempoEnsaladaEnMinutos))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnAgregarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnVerProductosAgregados, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblTexto4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                                 .addComponent(txtClienteCedulaEnsalada, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -556,7 +557,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTexto2)
-                            .addComponent(txtTiempoEnsalada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtTiempoEnsaladaEnMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnVerProductosAgregados))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -608,6 +609,9 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im5.jpg"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 440));
+
+        txtTiempoEnsalada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(txtTiempoEnsalada, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
 
         lblEspera.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         lblEspera.setForeground(new java.awt.Color(204, 255, 255));
@@ -931,6 +935,14 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         this.txtClienteCedulaEnsalada = txtClienteCedulaEnsalada;
     }
 
+    public JTextField getTxtTiempoEnsaladaEnMinutos() {
+        return txtTiempoEnsaladaEnMinutos;
+    }
+
+    public void setTxtTiempoEnsaladaEnMinutos(JTextField txtTiempoEnsaladaEnMinutos) {
+        this.txtTiempoEnsaladaEnMinutos = txtTiempoEnsaladaEnMinutos;
+    }
+
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -999,6 +1011,7 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPrecioIngrediente;
     private javax.swing.JTextField txtSubTotal;
     private javax.swing.JTextField txtTiempoEnsalada;
+    private javax.swing.JTextField txtTiempoEnsaladaEnMinutos;
     private javax.swing.JTextField txtTotalEnsalada;
     // End of variables declaration//GEN-END:variables
 }
