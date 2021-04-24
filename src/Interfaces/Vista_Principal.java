@@ -67,6 +67,8 @@ public class Vista_Principal extends javax.swing.JFrame {
         btnCrearClienteMenu = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         btningrediente = new javax.swing.JMenuItem();
+        mnuCrearIngrediente = new javax.swing.JMenuItem();
+        mnuAgregarStockIngrediente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnensalada = new javax.swing.JMenuItem();
         btnBuscarEnsalada = new javax.swing.JMenuItem();
@@ -307,6 +309,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         });
         jMenu2.add(btningrediente);
 
+        mnuCrearIngrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/mas.png"))); // NOI18N
+        mnuCrearIngrediente.setText("Crear Ingrediente");
+        jMenu2.add(mnuCrearIngrediente);
+
+        mnuAgregarStockIngrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/valores.png"))); // NOI18N
+        mnuAgregarStockIngrediente.setText("Agregar Stock");
+        jMenu2.add(mnuAgregarStockIngrediente);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada-de-frutas.png"))); // NOI18N
@@ -475,6 +485,26 @@ public class Vista_Principal extends javax.swing.JFrame {
         return btnvisualizar;
     }
 
+    public JMenuItem getMnuAgregarStockIngrediente() {
+        return mnuAgregarStockIngrediente;
+    }
+
+    public void setMnuAgregarStockIngrediente(JMenuItem mnuAgregarStockIngrediente) {
+        this.mnuAgregarStockIngrediente = mnuAgregarStockIngrediente;
+    }
+
+    public JMenuItem getMnuCrearIngrediente() {
+        return mnuCrearIngrediente;
+    }
+
+    public void setMnuCrearIngrediente(JMenuItem mnuCrearIngrediente) {
+        this.mnuCrearIngrediente = mnuCrearIngrediente;
+    }
+
+   
+    
+    
+
     public void setBtnvisualizar(JButton btnvisualizar) {
         this.btnvisualizar = btnvisualizar;
     }
@@ -549,6 +579,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JEditorPane jepbeneficio;
     private javax.swing.JLabel lblReloj;
     private javax.swing.JLabel lblfruta;
+    private javax.swing.JMenuItem mnuAgregarStockIngrediente;
+    private javax.swing.JMenuItem mnuCrearIngrediente;
     private javax.swing.JTable tblbeneficio;
     private javax.swing.JTextField txtbusquedabeneficio;
     // End of variables declaration//GEN-END:variables

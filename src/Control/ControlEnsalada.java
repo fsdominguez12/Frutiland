@@ -130,8 +130,7 @@ public class ControlEnsalada {
             visen.getTableBuscarEnsalada().setValueAt(en.getDescripcion(), i.value, 2);
             visen.getTableBuscarEnsalada().setValueAt(en.getPrecio(), i.value, 3);
             visen.getTableBuscarEnsalada().setValueAt(en.getTiempoEspera(), i.value, 4);
-            //aqui va un llamado
-            visen.getTableBuscarEnsalada().setValueAt(en.isEstado(), i.value, 5);
+            visen.getTableBuscarEnsalada().setValueAt(textoDeEstadoEntrega(en.isEstado()), i.value, 5);
             visen.getTableBuscarEnsalada().setValueAt(en.getHoraGeneracion(), i.value, 6);
             visen.getTableBuscarEnsalada().setValueAt(en.getHoraEntrega(), i.value, 7);
             i.value++;
@@ -466,6 +465,19 @@ public class ControlEnsalada {
             }
         }
         return horaGen;
-
     }
+    
+    
+    public String  textoDeEstadoEntrega( boolean estado){
+        
+        String estadoEn="";
+        
+        if (estado==true){
+            estadoEn="Entregado";
+        }else{
+            estadoEn="Por Entregar";
+        }
+        return estadoEn;
+    }
+    
 }

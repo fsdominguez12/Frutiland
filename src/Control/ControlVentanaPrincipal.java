@@ -34,6 +34,8 @@ public class ControlVentanaPrincipal {
         vp.getBtnCrearClienteMenu().addActionListener(l -> NuevoCliente());
         vp.getBtnBeneficiosmenu().addActionListener(l -> Beneficio());
         vp.getBtnBuscarEnsalada().addActionListener(l -> BuscarEnsalada());
+        vp.getMnuAgregarStockIngrediente().addActionListener(l -> AgregarStockIngrediente());
+        vp.getMnuCrearIngrediente().addActionListener(l -> CrearIngrediente());
     }
 
     private void Cliente() {
@@ -101,6 +103,22 @@ public class ControlVentanaPrincipal {
         ModeloEnsalada modeloEns = new ModeloEnsalada();
         ControlEnsalada ens = new ControlEnsalada(modeloEns, vistaEns);
         ens.IniciaControl();
+    }
+    
+    public void CrearIngrediente(){
+        
+       ModeloIngrediente modeloIng = new ModeloIngrediente();
+       Vista_Ingrediente vistaIng = new Vista_Ingrediente();
+       Vista_Principal vipri = new Vista_Principal();
+       ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
+       ingr.IniciaControl();
+       ingr.venIngrediente("CREAR", "REGISTRO INGREDIENTE");
+
+        
+    }
+    
+    public void AgregarStockIngrediente(){
+        
     }
 
     private void Salir() {
