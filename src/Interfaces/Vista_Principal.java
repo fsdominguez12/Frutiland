@@ -59,10 +59,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
-        btnsalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jToolBar1 = new javax.swing.JToolBar();
-        jLabel9 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
         Desktop = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
@@ -274,32 +271,17 @@ public class Vista_Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnsalir.setBackground(new java.awt.Color(0, 255, 255));
-        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Salir.PNG"))); // NOI18N
-        btnsalir.setToolTipText("SALIR");
-        btnsalir.setBorder(null);
-        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 400, 73, -1));
-
         jLabel3.setFont(new java.awt.Font("Segoe Script", 0, 48)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Frutiland.png"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 250, 100));
 
-        jToolBar1.setBackground(new java.awt.Color(102, 255, 255));
-        jToolBar1.setRollover(true);
-
-        jLabel9.setFont(new java.awt.Font("Segoe Script", 0, 10)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jToolBar1.add(jLabel9);
-
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/atras.png"))); // NOI18N
         btnRegresar.setFocusable(false);
         btnRegresar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRegresar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(btnRegresar);
-
-        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 0, 70, 50));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, -1, -1));
 
         javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
         Desktop.setLayout(DesktopLayout);
@@ -486,13 +468,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     }
     
     
-    public JButton getBtnsalir() {
-        return btnsalir;
-    }
-
-    public void setBtnsalir(JButton btnsalir) {
-        this.btnsalir = btnsalir;
-    }
+    
 
     public JDesktopPane getDesktop() {
         return Desktop;
@@ -623,7 +599,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btncliente;
     private javax.swing.JMenuItem btnensalada;
     private javax.swing.JMenuItem btningrediente;
-    private javax.swing.JButton btnsalir;
     private javax.swing.JButton btnvisualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -633,7 +608,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -649,7 +623,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JEditorPane jepbeneficio;
     private javax.swing.JLabel lblReloj;
     private javax.swing.JLabel lblfruta;

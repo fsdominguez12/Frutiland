@@ -16,13 +16,21 @@ import java.awt.event.KeyListener;
 import java.text.DecimalFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 public class ControlEnsalada {
@@ -373,8 +381,7 @@ private void EliminarEnsalada() {
 
         }
     }
-
-    public void guardarEnsalada() {
+public void guardarEnsalada() {
 
         String ideEns = visen.getTxtCodigoEnsalada().getText();
         String cedCliEn = visen.getTxtClienteCedulaEnsalada().getText();
@@ -389,8 +396,12 @@ private void EliminarEnsalada() {
         ModeloEnsalada ensalada = new ModeloEnsalada(ideEns, cedCliEn, des, precio, tiEspera, estado, horaGenera, horaEntrega);
 
         if (ensalada.Crear()) {
-            JOptionPane.showMessageDialog(visen, "Ingrediente Creado");
-
+            JOptionPane.showMessageDialog(visen, "Ensalada Creado");
+            int i =JOptionPane.showConfirmDialog(visen, "Desea imprimir Ticket");
+            if (i==0){
+              imprimirReporteEnsalada(visen.getTxtCodigoEnsalada().getText());  
+            }
+             
             restaroSumarIngrediente();
             borrarDialogo();
             restringirDialogo();
@@ -548,5 +559,24 @@ private void EliminarEnsalada() {
         descripcionEntre=(hora + " H " + minuto + " : " + segundo);
         
         return descripcionEntre;
+    }
+    
+    
+    ///REPORTE
+    private void imprimirReporteEnsalada(String codigoEns){
+        ConexionPG con = new ConexionPG();
+        String aguja = codigoEns;
+        try {
+           JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/Reporte/rptTicketEnsalada.jasper")); 
+            Map parametros= new HashMap();
+            parametros.put("codigo",aguja );
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+
+        } catch (JRException ex) {
+            //Logger.getLogger(ControlPersona.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERROR");
+        }    
     }
 }

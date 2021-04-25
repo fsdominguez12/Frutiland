@@ -27,7 +27,6 @@ public class ControlVentanaPrincipal {
         hilo1.start();
         Ensalada();
         vp.getBtncliente().addActionListener(l -> Cliente());
-        vp.getBtnsalir().addActionListener(l -> Salir());
         vp.getBtningrediente().addActionListener(l -> Ingrediente());
         vp.getBtnensalada().addActionListener(l -> Ensalada());
         vp.getBtnRegresar().addActionListener(l -> Regresar());
@@ -141,7 +140,5 @@ public class ControlVentanaPrincipal {
         vista.getDlgmisionvision().setLocationRelativeTo(null);
     }
 
-    private void Salir() {
-        System.exit(0);
-    }
+    
 }
