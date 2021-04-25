@@ -138,8 +138,7 @@ public class ControlEnsalada {
             i.value++;
         });
     }
-
-    private void EliminarEnsalada() {
+private void EliminarEnsalada() {
         DefaultTableModel dtmEnsalada = (DefaultTableModel) visen.getTableBuscarEnsalada().getModel();
         int fila = visen.getTableBuscarEnsalada().getSelectedRow();
 
@@ -162,6 +161,7 @@ public class ControlEnsalada {
         }
         CargarListaEnsaladaParaBuscar("");
     }
+
 
     public void agregaIngrediente() {
         visen.getDlgAgregarIngrediente().setTitle("Agregar Ingrediente");

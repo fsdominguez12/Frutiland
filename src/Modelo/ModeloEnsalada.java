@@ -112,7 +112,7 @@ public class ModeloEnsalada extends Ensalada {
     
     public boolean EliminarEnsalada() {
         String sql;
-        sql = "DELETE FROM ensalada WHERE =idensalada'" + getCodigoEnsalada() + "'";
+        sql = "DELETE FROM ensalada WHERE idensalada='" + getCodigoEnsalada() + "'";
         if (con.noquery(sql) == null) {
             return true;
         } else {

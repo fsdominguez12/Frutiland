@@ -89,7 +89,7 @@ public class ControlCliente {
         vista.getBtneditar().setVisible(false);
         vista.getTxtid().setEnabled(true);
         vista.getDgcliente().setTitle("CREAR CLIENTE");
-        vista.getDgcliente().setSize(450,550);
+        vista.getDgcliente().setSize(450,410);
         vista.getDgcliente().setVisible(true);
         vista.setVisible(true);
         vista.getDgcliente().setLocationRelativeTo(null);
@@ -129,11 +129,11 @@ public class ControlCliente {
         vista.getBtneditar().setVisible(true);
         vista.getTxtid().setEnabled(false);
         vista.getDgcliente().setTitle("MODIFICAR DATOS DE PERSONA");//Poner titulo en el JDialogo
-        vista.getDgcliente().setSize(450, 450);//Tamaño del JDialog
+        vista.getDgcliente().setSize(450, 410);//Tamaño del JDialog
         vista.getDgcliente().setLocationRelativeTo(null);//Para que el Jdialog se muestre en la mitad de la pantalla
     }
     private void Elegir(){
-         CargarLista("");
+         
         editarpersona();
         
         int fila = vista.getTblcliente().getSelectedRow();
@@ -143,7 +143,7 @@ public class ControlCliente {
             JOptionPane.showMessageDialog(null, "SELECCIONAR UNA FILA");
         } else {
             vista.getDgcliente().setVisible(true);//Para que se puede ver el JDialog en la compilacion
-            vista.setVisible(false);
+            vista.setVisible(true);
             String idpersona = (String) vista.getTblcliente().getValueAt(fila, 0);
             String nombre = (String) vista.getTblcliente().getValueAt(fila, 1);
             String apellido = (String) vista.getTblcliente().getValueAt(fila, 2);

@@ -74,7 +74,7 @@ public class ControlIngrediente {
         vistaIn.getTxtStockBusqueda().addKeyListener(kl);
         vistaIn.getTxtStockCantidadAgregar().addKeyListener(kl);
         vipri.getTxtbusquedabeneficio().addKeyListener(kl);
-        vipri.getBtnmostrar().addActionListener(l -> CargarBeneficio(""));
+        //vipri.getBtnmostrar().addActionListener(l -> CargarBeneficio(""));
         vipri.getBtnvisualizar().addActionListener(l -> Visualizabeneficio());
     }
     
