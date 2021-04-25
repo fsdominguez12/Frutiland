@@ -83,7 +83,9 @@ public class ControlEnsalada {
         visen.getBtnGenerarEnsalada().addActionListener(l -> guardarEnsalada());
         visen.getBtnCancelarEnsalada().addActionListener(l -> borrarDialogo());
         visen.getBtnActualizarLis().addActionListener(l -> actualizarDatosTabla());
-        visen.getBtnEliminarEnsalada().addActionListener(l -> EliminarEnsalada());
+        visen.getBtnEliminarEnsalada().addActionListener(l -> EliminarEnsaladaListaEnsalada());
+        visen.getBtnImprimirEnsaladaDeLista().addActionListener(l -> MetodoParaAdjuntarParametroListaEnsalada());
+        visen.getBtnCancelarEnsaladaDeLista().addActionListener(l -> CerrarDialogoListaEnsalada());
 
     }
 
@@ -108,7 +110,7 @@ public class ControlEnsalada {
         visen.getTxtTiempoEnsalada().setText("0");
         visen.getTxtTotalEnsalada().setText("0");
         visen.getTxtDescripcionEnsalada().setText("");
-        
+
     }
 
     public void buscarCliente(String aguja) {
@@ -128,7 +130,7 @@ public class ControlEnsalada {
         DefaultTableModel tblModel;
         tblModel = (DefaultTableModel) visen.getTableBuscarEnsalada().getModel();
         tblModel.setNumRows(0);
-        List<Ensalada> lista = ModeloEnsalada.listarEnsalada(aguja,0);
+        List<Ensalada> lista = ModeloEnsalada.listarEnsalada(aguja, 0);
         int ncols = tblModel.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
         lista.stream().forEach((Ensalada en) -> {
@@ -146,30 +148,6 @@ public class ControlEnsalada {
             i.value++;
         });
     }
-private void EliminarEnsalada() {
-        DefaultTableModel dtmEnsalada = (DefaultTableModel) visen.getTableBuscarEnsalada().getModel();
-        int fila = visen.getTableBuscarEnsalada().getSelectedRow();
-
-        if (fila != -1) {
-            int i = JOptionPane.showConfirmDialog(null, "¿Desea eliminar Ensalada?", "ELIMINAR INGREDIENTE", 1, 2);
-            if (i == 0) {
-                String idin = dtmEnsalada.getValueAt(fila, 0).toString();
-                moes.setCodigoEnsalada(idin);
-                if (moes.EliminarEnsalada()) {
-                    JOptionPane.showMessageDialog(visen, "Ingrediente Eliminado");
-                } else {
-                    JOptionPane.showMessageDialog(visen, "ERROR!!!");
-                }
-                //cargarLista(idin);
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "SELECCIONAR UNA FILA");
-            CargarListaEnsaladaParaBuscar("");
-        }
-        CargarListaEnsaladaParaBuscar("");
-    }
-
 
     public void agregaIngrediente() {
         visen.getDlgAgregarIngrediente().setTitle("Agregar Ingrediente");
@@ -183,7 +161,7 @@ private void EliminarEnsalada() {
 
     public void salirDialogo() {
         visen.getDlgAgregarIngrediente().setVisible(false);
-       
+
     }
 
     public void borrarDialogo() {
@@ -224,7 +202,11 @@ private void EliminarEnsalada() {
             visen.getTblingredientes().setValueAt(p.getBeneficio(), i.value, 2);
             visen.getTblingredientes().setValueAt(String.valueOf(p.getCantidad()), i.value, 3);
             visen.getTblingredientes().setValueAt(String.valueOf(p.getPrecio()), i.value, 4);
-            visen.getTblingredientes().setValueAt(String.valueOf(p.getTiempoPreparacion()), i.value, 5);
+            //String.valueOf( horaEntrega(false , p.getTiempoPreparacion()));
+            //horaEntrega(false , p.getTiempoPreparacion());
+
+            //visen.getTblingredientes().setValueAt(String.valueOf(p.getTiempoPreparacion()), i.value, 5);
+            visen.getTblingredientes().setValueAt(String.valueOf(horaEntrega(false, p.getTiempoPreparacion())), i.value, 5);
             Image img = p.getFoto();
             if (img != null) {
                 Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
@@ -269,11 +251,15 @@ private void EliminarEnsalada() {
             String nombre = (String) visen.getTblingredientes().getValueAt(fila, 1);
             cantidad = (String) visen.getTblingredientes().getValueAt(fila, 3);
             String precio = (String) visen.getTblingredientes().getValueAt(fila, 4);
-            String esp = (String) visen.getTblingredientes().getValueAt(fila, 5);
+
+            String espera = (String) visen.getTblingredientes().getValueAt(fila, 5);
+            String[] parts = espera.split(" M ");
+            String part1 = parts[0];
+            String part2 = parts[1];
 
             visen.getLblID().setText(ident);
             visen.getLblNombre().setText(nombre);
-            visen.getLblEspera().setText(esp);
+            visen.getLblEspera().setText(String.valueOf((Integer.parseInt(part1) * 60) + Integer.parseInt(part2)));
             visen.getTxtPrecioIngrediente().setText(precio);
             visen.getTxtCanDisponible().setText(cantidad);
             calculoSubTotal(visen.getTxtPorcionIngrediente().getText());
@@ -303,11 +289,11 @@ private void EliminarEnsalada() {
                 info[1] = visen.getTxtCanDisponible().getText();
                 info[2] = visen.getTxtPorcionIngrediente().getText();
                 info[3] = visen.getLblNombre().getText();
-                info[4] = String.valueOf(Integer.parseInt(visen.getLblEspera().getText()) * Integer.parseInt(visen.getTxtPorcionIngrediente().getText()));
+                info[4] = String.valueOf(horaEntrega(false, Integer.parseInt(visen.getLblEspera().getText()) * Integer.parseInt(visen.getTxtPorcionIngrediente().getText())));
                 info[5] = visen.getTxtSubTotal().getText();
                 tblModel.addRow(info);
-                visen.getTxtTiempoEnsaladaEnMinutos().setText(horaEntrega(false,Integer.parseInt(visen.getTxtTiempoEnsalada().getText())));
-                
+                visen.getTxtTiempoEnsaladaEnMinutos().setText(horaEntrega(false, Integer.parseInt(visen.getTxtTiempoEnsalada().getText())));
+
             } else {
                 if (i == 1) {
                     borrarDialogo();
@@ -316,10 +302,6 @@ private void EliminarEnsalada() {
             }
 
         }
-
-    }
-
-    public void almacenarValores(String id, int cantidad) {
 
     }
 
@@ -369,7 +351,13 @@ private void EliminarEnsalada() {
             String sumDescri = "";
             for (int i = 0; i < contador; i++) {
                 sumDescri = sumDescri + "- " + visen.getTblIngredientesParaCalcular().getValueAt(i, 2).toString() + " " + visen.getTblIngredientesParaCalcular().getValueAt(i, 3).toString() + " ";
-                sumSegundos = sumSegundos + Integer.parseInt(visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString());
+
+                String string = visen.getTblIngredientesParaCalcular().getValueAt(i, 4).toString();
+
+                String[] parts = string.split(" M ");
+                String part1 = parts[0];
+                String part2 = parts[1];
+                sumSegundos = sumSegundos + (Integer.parseInt(part1) * 60) + Integer.parseInt(part2);
                 sumPrecio = sumPrecio + Float.parseFloat(visen.getTblIngredientesParaCalcular().getValueAt(i, 5).toString().replace(",", "."));
 
             }
@@ -377,11 +365,12 @@ private void EliminarEnsalada() {
             visen.getTxtDescripcionEnsalada().setText(sumDescri);
             visen.getTxtTiempoEnsalada().setText(Integer.toString(sumSegundos));
             visen.getTxtTotalEnsalada().setText(Float.toString(sumPrecio));
-            visen.getTxtTiempoEnsaladaEnMinutos().setText(horaEntrega(false,Integer.parseInt(visen.getTxtTiempoEnsalada().getText())));
+            visen.getTxtTiempoEnsaladaEnMinutos().setText(horaEntrega(false, Integer.parseInt(visen.getTxtTiempoEnsalada().getText())));
 
         }
     }
-public void guardarEnsalada() {
+
+    public void guardarEnsalada() {
 
         String ideEns = visen.getTxtCodigoEnsalada().getText();
         String cedCliEn = visen.getTxtClienteCedulaEnsalada().getText();
@@ -390,22 +379,21 @@ public void guardarEnsalada() {
         int tiEspera = Integer.parseInt(visen.getTxtTiempoEnsalada().getText());
         boolean estado = false;
         String horaGenera = generarHora();
-        
-        String horaEntrega = horaEntrega(true,Integer.parseInt(visen.getTxtTiempoEnsalada().getText()));;
+
+        String horaEntrega = horaEntrega(true, Integer.parseInt(visen.getTxtTiempoEnsalada().getText()));;
 
         ModeloEnsalada ensalada = new ModeloEnsalada(ideEns, cedCliEn, des, precio, tiEspera, estado, horaGenera, horaEntrega);
 
         if (ensalada.Crear()) {
             JOptionPane.showMessageDialog(visen, "Ensalada Creado");
-            int i =JOptionPane.showConfirmDialog(visen, "Desea imprimir Ticket");
-            if (i==0){
-              imprimirReporteEnsalada(visen.getTxtCodigoEnsalada().getText());  
-              restaroSumarIngrediente();
-              borrarDialogo();
-              restringirDialogo();
+            int i = JOptionPane.showConfirmDialog(visen, "Desea imprimir Ticket");
+            if (i == 0) {
+                imprimirReporteEnsalada(visen.getTxtCodigoEnsalada().getText());
+                restaroSumarIngrediente();
+                borrarDialogo();
+                restringirDialogo();
             }
-             
-            
+
         } else {
             JOptionPane.showMessageDialog(visen, "ERROR!!!!!!");
         }
@@ -433,8 +421,6 @@ public void guardarEnsalada() {
 
     }
 
-    
-
     public String textoDeEstadoEntrega(boolean estado) {
 
         String estadoEn = "";
@@ -447,8 +433,45 @@ public void guardarEnsalada() {
         return estadoEn;
     }
 
+    //Ensaladas genereadas
+    private void EliminarEnsaladaListaEnsalada() {
+        DefaultTableModel dtmEnsalada = (DefaultTableModel) visen.getTableBuscarEnsalada().getModel();
+        int fila = visen.getTableBuscarEnsalada().getSelectedRow();
+
+        if (fila != -1) {
+            int i = JOptionPane.showConfirmDialog(null, "¿Desea eliminar Ensalada?", "ELIMINAR INGREDIENTE", 1, 2);
+            if (i == 0) {
+                String idin = dtmEnsalada.getValueAt(fila, 0).toString();
+                moes.setCodigoEnsalada(idin);
+                if (moes.EliminarEnsalada()) {
+                    JOptionPane.showMessageDialog(visen, "Ingrediente Eliminado");
+                } else {
+                    JOptionPane.showMessageDialog(visen, "ERROR!!!");
+                }
+                //cargarLista(idin);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "SELECCIONAR UNA FILA");
+            CargarListaEnsaladaParaBuscar("");
+        }
+        CargarListaEnsaladaParaBuscar("");
+    }
+
+    public void MetodoParaAdjuntarParametroListaEnsalada() {
+        int fila = visen.getTableBuscarEnsalada().getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "DEBE SELECCIONAR UNA FILA");
+        } else {
+            imprimirReporteEnsalada((String) visen.getTableBuscarEnsalada().getValueAt(fila, 0));
+        }
+    }
+
+    public void CerrarDialogoListaEnsalada() {
+        visen.getDlgListaEnsaladas().setVisible(false);
+    }
+
     //CALCULO DE SEGUNDOS A MINUTIOS Y DE HORA ENTREGA y HORA GENERADO
-    
     private String generarHora() {
         LocalTime horaActual = LocalTime.now();
         String horaGen = "";
@@ -470,16 +493,16 @@ public void guardarEnsalada() {
         }
         return horaGen;
     }
-    
-    public String horaEntrega(boolean estado , int ti) {
+
+    public String horaEntrega(boolean estado, int ti) {
 
         int tiempoEspera = ti;
         int horage = 0;
         int minge = 0;
         int segge = 0;
         float resu = 0;
-        int cont = 0;        
-        String descripcion="";
+        int cont = 0;
+        String descripcion = "";
         resu = tiempoEspera / 60;
         if (resu == 0) {
             horage = 0;
@@ -508,22 +531,21 @@ public void guardarEnsalada() {
         if (estado == true) {
             sumadeHoras(horage, minge, segge);
         } else {
-            if (horage==0){
-                descripcion=(minge + " M " + segge+" S");
-            }else{
-                descripcion=(horage + " H " + minge + " M " + segge+" S");
+            if (horage == 0) {
+                descripcion = (minge + " M " + segge);
+            } else {
+                descripcion = (horage + " H " + minge + " M " + segge);
             }
-        }    
-        if(estado==true){
-            descripcion=sumadeHoras(horage, minge, segge);
+        }
+        if (estado == true) {
+            descripcion = sumadeHoras(horage, minge, segge);
         }
         return descripcion;
     }
-    
 
     public String sumadeHoras(int h, int m, int s) {
-        
-         LocalTime horaActual = LocalTime.now();
+
+        LocalTime horaActual = LocalTime.now();
         String horaGen = "";
         int hora = horaActual.getHour();
         int minuto = horaActual.getMinute();
@@ -532,7 +554,7 @@ public void guardarEnsalada() {
         int sumamin;
         int sumaseg;
         int cont = 0;
-        String descripcionEntre="";
+        String descripcionEntre = "";
 
         sumahor = h + hora;
         sumamin = m + minuto;
@@ -557,28 +579,27 @@ public void guardarEnsalada() {
                 hora = sumahor;
             }
         }
-       
-        descripcionEntre=(hora + " H " + minuto + " : " + segundo);
-        
+
+        descripcionEntre = (hora + " H " + minuto + " : " + segundo);
+
         return descripcionEntre;
     }
-    
-    
+
     ///REPORTE
-    private void imprimirReporteEnsalada(String codigoEns){
+    private void imprimirReporteEnsalada(String codigoEns) {
         ConexionPG con = new ConexionPG();
         String aguja = codigoEns;
         try {
-           JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/Reporte/rptTicketEnsalada.jasper")); 
-            Map parametros= new HashMap();
-            parametros.put("codigo",aguja );
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reporte/rptTicketEnsalada.jasper"));
+            Map parametros = new HashMap();
+            parametros.put("codigo", aguja);
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
-            JasperViewer jv = new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
             jv.show();
         } catch (JRException ex) {
             //Logger.getLogger(ControlPersona.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("ERROR");
-        }    
+        }
     }
 }

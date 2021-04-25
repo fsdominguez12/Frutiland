@@ -54,7 +54,7 @@ public class ControlVentanaPrincipal {
         vp.getDesktop().add(vistaIng);
         ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
         ingr.IniciaControl();
-        ingr.lis();
+        ingr.cargarLista("");
     }
 
     private void Ensalada() {
@@ -91,7 +91,7 @@ public class ControlVentanaPrincipal {
         Vista_Ingrediente vistaIng = new Vista_Ingrediente();
         ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
         ingr.IniciaControl();
-        ingr.lis();
+        ingr.cargarLista("");
     }
 
     public void BuscarEnsalada() {
@@ -112,7 +112,7 @@ public class ControlVentanaPrincipal {
        Vista_Principal vipri = new Vista_Principal();
        ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
        ingr.IniciaControl();
-       ingr.venIngrediente("CREAR", "REGISTRO INGREDIENTE");
+       ingr.MetodoControlTamaño("CREAR", "REGISTRO INGREDIENTE");
 
         
     }

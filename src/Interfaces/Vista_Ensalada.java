@@ -56,7 +56,8 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tableBuscarEnsalada = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnImprimirEnsaladaDeLista = new javax.swing.JButton();
+        btnCancelarEnsaladaDeLista = new javax.swing.JButton();
         btnEliminarEnsalada = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -378,13 +379,17 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jLabel2.setText("LISTA ENSALADA");
         jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cancelar 12.png"))); // NOI18N
-        jButton1.setText("CANCELAR");
-        jPanel9.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        btnImprimirEnsaladaDeLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cancelar 12.png"))); // NOI18N
+        btnImprimirEnsaladaDeLista.setText("IMPRIMIR");
+        jPanel9.add(btnImprimirEnsaladaDeLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
+
+        btnCancelarEnsaladaDeLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cancelar 12.png"))); // NOI18N
+        btnCancelarEnsaladaDeLista.setText("CANCELAR");
+        jPanel9.add(btnCancelarEnsaladaDeLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
 
         btnEliminarEnsalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/borrar12.png"))); // NOI18N
         btnEliminarEnsalada.setText("ELIMINAR");
-        jPanel9.add(btnEliminarEnsalada, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
+        jPanel9.add(btnEliminarEnsalada, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -943,6 +948,22 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         this.txtTiempoEnsaladaEnMinutos = txtTiempoEnsaladaEnMinutos;
     }
 
+    public JButton getBtnCancelarEnsaladaDeLista() {
+        return btnCancelarEnsaladaDeLista;
+    }
+
+    public void setBtnCancelarEnsaladaDeLista(JButton btnCancelarEnsaladaDeLista) {
+        this.btnCancelarEnsaladaDeLista = btnCancelarEnsaladaDeLista;
+    }
+
+    public JButton getBtnImprimirEnsaladaDeLista() {
+        return btnImprimirEnsaladaDeLista;
+    }
+
+    public void setBtnImprimirEnsaladaDeLista(JButton btnImprimirEnsaladaDeLista) {
+        this.btnImprimirEnsaladaDeLista = btnImprimirEnsaladaDeLista;
+    }
+
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -954,15 +975,16 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarIngrediente;
     private javax.swing.JButton btnCancelarEnsalada;
+    private javax.swing.JButton btnCancelarEnsaladaDeLista;
     private javax.swing.JButton btnEliminarEnsalada;
     private javax.swing.JButton btnGenerarEnsalada;
+    private javax.swing.JButton btnImprimirEnsaladaDeLista;
     private javax.swing.JButton btnQuitar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVerProductosAgregados;
     private javax.swing.JDialog dlgAgregarIngrediente;
     private javax.swing.JDialog dlgListaEnsaladas;
     private javax.swing.JDialog dlgListaProductosAgregados;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

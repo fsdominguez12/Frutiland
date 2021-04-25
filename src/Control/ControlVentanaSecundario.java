@@ -70,7 +70,7 @@ public class ControlVentanaSecundario {
         Vista_Ingrediente vistaIng = new Vista_Ingrediente();
         ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
         ingr.IniciaControl();
-        ingr.lis();
+        ingr.cargarLista("");
     }
     
     private void MV(){

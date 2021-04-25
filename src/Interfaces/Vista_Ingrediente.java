@@ -45,8 +45,8 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         txtPrecio = new javax.swing.JTextField();
         txtBeneficio = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
-        txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         txtMinTiPreparacion = new javax.swing.JTextField();
         txtSegTiPreparacion = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -176,11 +176,11 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         txtCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 140, 20));
 
-        txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 140, 20));
-
         txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 140, 20));
+
+        txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 140, 20));
 
         txtMinTiPreparacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txtMinTiPreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 50, 20));
@@ -836,6 +836,9 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     public void setTxtNombre(JTextField txtNombre) {
         this.txtNombre = txtNombre;
     }
+
+    
+    
 
     public JTextField getTxtPrecio() {
         return txtPrecio;
