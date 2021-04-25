@@ -282,15 +282,7 @@
                           <Component id="btnlistar" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnsalir" min="-2" pref="48" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                      <EmptySpace pref="180" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -303,7 +295,6 @@
                           <Component id="btnmodificar" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="btneliminar" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="btnlistar" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="btnsalir" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="txtbuscar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
@@ -311,8 +302,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel11" alignment="0" pref="26" max="32767" attributes="0"/>
-                          <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel10" alignment="0" pref="26" max="32767" attributes="0"/>
                           <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -397,20 +387,6 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnsalir">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="0" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/IconosBotones/Volver.PNG"/>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value="VOLVER"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
@@ -433,12 +409,6 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="LISTAR"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="SALIR"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">

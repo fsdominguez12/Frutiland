@@ -49,7 +49,6 @@ public class ControlCliente {
         vista.getBtnmodificar().addActionListener(l->Elegir());//llamamos al listener del boton modificar
         vista.getBtneliminar().addActionListener(l->Eliminar());//llamamos al listener del boton eliminar
         vista.getBtnlistar().addActionListener(l->CargarLista(""));//llamamos al listener del boton listar
-        vista.getBtnsalir().addActionListener(l->cancelar());//llamamos al listener del boton salir
         vista.getTxtbuscar().addKeyListener(kl);
         // JDIALOG
         
@@ -192,8 +191,5 @@ public class ControlCliente {
         }
         CargarLista("");
     }
-    //CERRAR JFRAME--------------------------------------------------------------------------------------------------------- 
-    public void cancelar(){
-        vista.setVisible(false);
-    }
+    
 }
