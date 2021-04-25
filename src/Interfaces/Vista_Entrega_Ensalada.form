@@ -69,7 +69,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="230" y="80" width="310" height="-1"/>
+              <AbsoluteConstraints x="230" y="80" width="440" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -90,10 +90,15 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnEntregaEntregar" min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="jLabel11" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="btnEntregaEntregar" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="jLabel11" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="55" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel13" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -102,13 +107,19 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnEntregaEntregar" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="btnEntregaEntregar" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="btnEntregaActualizar" min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -152,6 +163,17 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="IMPRIMIR"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel13">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="IMPRIMIR"/>
               </Properties>
             </Component>
           </SubComponents>

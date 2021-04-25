@@ -422,7 +422,8 @@ public void guardarEnsalada() {
             ModeloIngrediente ingrediente = new ModeloIngrediente(ident, cantidad);
 
             if (ingrediente.RestaIngrediente()) {
-                JOptionPane.showMessageDialog(visen, "Cantidad de base de datos actualizado");
+                //JOptionPane.showMessageDialog(visen, "Cantidad de base de datos actualizado");
+                //System.out.println("Datos Actualizados");
             } else {
                 JOptionPane.showMessageDialog(visen, "ERROR!!!");
             }
@@ -571,9 +572,9 @@ public void guardarEnsalada() {
             Map parametros= new HashMap();
             parametros.put("codigo",aguja );
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
-
+            jv.show();
         } catch (JRException ex) {
             //Logger.getLogger(ControlPersona.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("ERROR");
