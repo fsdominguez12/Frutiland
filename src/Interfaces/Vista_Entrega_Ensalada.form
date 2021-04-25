@@ -96,7 +96,7 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel13" min="-2" pref="72" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEntregaImprimir" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="64" max="32767" attributes="0"/>
                   </Group>
@@ -109,7 +109,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btnEntregaEntregar" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="btnEntregaImprimir" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btnEntregaActualizar" min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
@@ -165,7 +165,7 @@
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnEntregaImprimir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="IMPRIMIR"/>
               </Properties>
