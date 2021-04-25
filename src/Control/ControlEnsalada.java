@@ -400,11 +400,12 @@ public void guardarEnsalada() {
             int i =JOptionPane.showConfirmDialog(visen, "Desea imprimir Ticket");
             if (i==0){
               imprimirReporteEnsalada(visen.getTxtCodigoEnsalada().getText());  
+              restaroSumarIngrediente();
+              borrarDialogo();
+              restringirDialogo();
             }
              
-            restaroSumarIngrediente();
-            borrarDialogo();
-            restringirDialogo();
+            
         } else {
             JOptionPane.showMessageDialog(visen, "ERROR!!!!!!");
         }
