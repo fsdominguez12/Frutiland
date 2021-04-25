@@ -47,7 +47,7 @@ public class Vista_Inicio extends javax.swing.JFrame {
         btnUsuario1.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         btnUsuario1.setForeground(new java.awt.Color(0, 0, 51));
         btnUsuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/user.png"))); // NOI18N
-        btnUsuario1.setText("USUARIO 1");
+        btnUsuario1.setText("PRINCIPAL");
         btnUsuario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnUsuario1.setFocusPainted(false);
         btnUsuario1.setOpaque(false);
@@ -61,7 +61,7 @@ public class Vista_Inicio extends javax.swing.JFrame {
         btnUsuario2.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         btnUsuario2.setForeground(new java.awt.Color(0, 0, 51));
         btnUsuario2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/user.png"))); // NOI18N
-        btnUsuario2.setText("USUARIO 2");
+        btnUsuario2.setText("ENTREGA");
         btnUsuario2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnUsuario2.setFocusPainted(false);
         btnUsuario2.setOpaque(false);

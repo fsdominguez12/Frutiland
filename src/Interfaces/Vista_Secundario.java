@@ -7,6 +7,7 @@ package Interfaces;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -41,7 +42,10 @@ public class Vista_Secundario extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        mnuSecundarioBuscar = new javax.swing.JMenuItem();
+        mnuSecundarioBeneficios = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        mnuSecundarioMisionVision = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,10 +117,36 @@ public class Vista_Secundario extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im6.jpg"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 1450, 700));
 
-        jMenu1.setText("File");
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada-de-frutas.png"))); // NOI18N
+        jMenu1.setText("ENSALADAS");
+
+        mnuSecundarioBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/buscarEnsalada.png"))); // NOI18N
+        mnuSecundarioBuscar.setText("Buscar Ensalada");
+        mnuSecundarioBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSecundarioBuscarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuSecundarioBuscar);
+
+        mnuSecundarioBeneficios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/beneficio.png"))); // NOI18N
+        mnuSecundarioBeneficios.setText("Beneficios");
+        mnuSecundarioBeneficios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSecundarioBeneficiosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuSecundarioBeneficios);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/info.png"))); // NOI18N
+        jMenu2.setText("INFORMACIÓN");
+
+        mnuSecundarioMisionVision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/mision_vision.PNG"))); // NOI18N
+        mnuSecundarioMisionVision.setText("Visión/Misión");
+        jMenu2.add(mnuSecundarioMisionVision);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -135,20 +165,13 @@ public class Vista_Secundario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void mnuSecundarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSecundarioBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuSecundarioBuscarActionPerformed
 
-    public JButton getBtnSecundarioRegresar() {
-        return btnSecundarioRegresar;
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public void setBtnSecundarioRegresar(JButton btnSecundarioRegresar) {
-        this.btnSecundarioRegresar = btnSecundarioRegresar;
-    }
+    private void mnuSecundarioBeneficiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSecundarioBeneficiosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuSecundarioBeneficiosActionPerformed
 
     public JDesktopPane getDesktopSecundario() {
         return DesktopSecundario;
@@ -157,6 +180,41 @@ public class Vista_Secundario extends javax.swing.JFrame {
     public void setDesktopSecundario(JDesktopPane DesktopSecundario) {
         this.DesktopSecundario = DesktopSecundario;
     }
+
+    public JButton getBtnSecundarioRegresar() {
+        return btnSecundarioRegresar;
+    }
+
+    public void setBtnSecundarioRegresar(JButton btnSecundarioRegresar) {
+        this.btnSecundarioRegresar = btnSecundarioRegresar;
+    }
+
+    public JMenuItem getMnuSecundarioBuscar() {
+        return mnuSecundarioBuscar;
+    }
+
+    public void setMnuSecundarioBuscar(JMenuItem mnuSecundarioBuscar) {
+        this.mnuSecundarioBuscar = mnuSecundarioBuscar;
+    }
+
+    public JMenuItem getMnuSecundarioBeneficios() {
+        return mnuSecundarioBeneficios;
+    }
+
+    public void setMnuSecundarioBeneficios(JMenuItem mnuSecundarioBeneficios) {
+        this.mnuSecundarioBeneficios = mnuSecundarioBeneficios;
+    }
+
+    public JMenuItem getMnuSecundarioMisionVision() {
+        return mnuSecundarioMisionVision;
+    }
+
+    public void setMnuSecundarioMisionVision(JMenuItem mnuSecundarioMisionVision) {
+        this.mnuSecundarioMisionVision = mnuSecundarioMisionVision;
+    }
+
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -172,5 +230,8 @@ public class Vista_Secundario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblReloj;
+    private javax.swing.JMenuItem mnuSecundarioBeneficios;
+    private javax.swing.JMenuItem mnuSecundarioBuscar;
+    private javax.swing.JMenuItem mnuSecundarioMisionVision;
     // End of variables declaration//GEN-END:variables
 }
