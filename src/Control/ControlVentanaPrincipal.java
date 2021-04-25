@@ -36,6 +36,7 @@ public class ControlVentanaPrincipal {
         vp.getBtnBuscarEnsalada().addActionListener(l -> BuscarEnsalada());
         vp.getMnuAgregarStockIngrediente().addActionListener(l -> AgregarStockIngrediente());
         vp.getMnuCrearIngrediente().addActionListener(l -> CrearIngrediente());
+        vp.getMisionvisionItem().addActionListener(l->MV());
     }
 
     private void Cliente() {
@@ -131,6 +132,13 @@ public class ControlVentanaPrincipal {
         ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
         ingr.IniciaControl();
         ingr.RestringirDialogoStock();
+    }
+    
+    private void MV(){
+        Vista_Principal vista = new Vista_Principal();
+        vista.getDlgmisionvision().setSize(581, 430);
+        vista.getDlgmisionvision().setVisible(true);
+        vista.getDlgmisionvision().setLocationRelativeTo(null);
     }
 
     private void Salir() {
