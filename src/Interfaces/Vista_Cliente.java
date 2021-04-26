@@ -51,11 +51,9 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
         btncrear = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        btnlistar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcliente = new javax.swing.JTable();
@@ -67,22 +65,36 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("REGISTRO CLIENTE");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 405, 58));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 405, 58));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Identificación:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 87, -1, 22));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 22));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nombres:");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 164, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Apellido:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 239, -1, -1));
-        jPanel3.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 85, 198, 31));
-        jPanel3.add(txtnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 157, 198, 35));
-        jPanel3.add(txtapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 229, 198, 40));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        txtid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 85, 198, 30));
+
+        txtnombres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txtnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 162, 198, 30));
+
+        txtapellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtapellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtapellidosActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 229, 198, 30));
 
         btneditar.setBackground(new java.awt.Color(177, 162, 192));
         btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Guardar.PNG"))); // NOI18N
@@ -103,6 +115,7 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
         jPanel3.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 311, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 370));
@@ -127,12 +140,15 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 793, 63));
 
         jPanel2.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel2.setOpaque(false);
 
         jLabel2.setBackground(new java.awt.Color(0, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/BuscarCli.PNG"))); // NOI18N
         jLabel2.setToolTipText("BUSCAR");
+
+        txtbuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btncrear.setBackground(new java.awt.Color(0, 255, 255));
         btncrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/CrearCli.PNG"))); // NOI18N
@@ -149,11 +165,6 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
         btneliminar.setToolTipText("ELIMINAR");
         btneliminar.setBorder(null);
 
-        btnlistar.setBackground(new java.awt.Color(0, 255, 255));
-        btnlistar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ListarCli.PNG"))); // NOI18N
-        btnlistar.setToolTipText("LISTAR CLIENTES");
-        btnlistar.setBorder(null);
-
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("CREAR");
 
@@ -162,9 +173,6 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("ELIMINAR");
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("LISTAR");
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("BUSCAR");
@@ -193,28 +201,22 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnlistar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btncrear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnlistar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btncrear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel12)
@@ -223,7 +225,7 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 560, -1));
 
         tblcliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -266,6 +268,10 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtapellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtapellidosActionPerformed
+
     public JButton getBtncancelar() {
         return btncancelar;
     }
@@ -307,13 +313,7 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
         this.btnguardar = btnguardar;
     }
 
-    public JButton getBtnlistar() {
-        return btnlistar;
-    }
-
-    public void setBtnlistar(JButton btnlistar) {
-        this.btnlistar = btnlistar;
-    }
+    
 
     public JButton getBtnmodificar() {
         return btnmodificar;
@@ -388,11 +388,9 @@ public class Vista_Cliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JButton btnlistar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JDialog dgcliente;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

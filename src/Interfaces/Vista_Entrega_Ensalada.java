@@ -55,7 +55,7 @@ public class Vista_Entrega_Ensalada extends javax.swing.JInternalFrame {
         jPanel3.setRequestFocusEnabled(false);
 
         btnEntregaEntregar.setBackground(new java.awt.Color(0, 255, 255));
-        btnEntregaEntregar.setText("ENTREGA");
+        btnEntregaEntregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/paquete.png"))); // NOI18N
         btnEntregaEntregar.setToolTipText("LISTAR INGREDIENTES");
         btnEntregaEntregar.setBorder(null);
 
@@ -76,18 +76,18 @@ public class Vista_Entrega_Ensalada extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(btnEntregaActualizar)
-                        .addGap(78, 78, 78))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)))
+                        .addGap(67, 67, 67))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(btnEntregaActualizar)
+                        .addGap(78, 78, 78)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEntregaEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEntregaEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +103,7 @@ public class Vista_Entrega_Ensalada extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 440, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 300, -1));
 
         tblEntregaEnsalada.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

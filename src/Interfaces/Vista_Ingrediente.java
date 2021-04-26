@@ -36,18 +36,21 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
 
         DgIngrediente = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        lblFoto = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JButton();
-        btnExaminar = new javax.swing.JButton();
-        btnAtras = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
         txtPrecio = new javax.swing.JTextField();
         txtBeneficio = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtCodigo = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        btnExaminar = new javax.swing.JButton();
+        lblFoto = new javax.swing.JLabel();
         txtMinTiPreparacion = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        btnGuardar = new javax.swing.JButton();
+        lblMensaje = new javax.swing.JLabel();
+        btnCancelarRegiOEdiIngrediente = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
         txtSegTiPreparacion = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -59,30 +62,6 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         lblTituloIng = new javax.swing.JLabel();
         lblTexto2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        lblFoto1 = new javax.swing.JLabel();
-        btnSalir1 = new javax.swing.JButton();
-        btnExaminar1 = new javax.swing.JButton();
-        btnAtras1 = new javax.swing.JButton();
-        btnGuardar1 = new javax.swing.JButton();
-        txtPrecio1 = new javax.swing.JTextField();
-        txtBeneficio1 = new javax.swing.JTextField();
-        txtCantidad1 = new javax.swing.JTextField();
-        txtCodigo1 = new javax.swing.JTextField();
-        txtNombre1 = new javax.swing.JTextField();
-        txtMinTiPreparacion1 = new javax.swing.JTextField();
-        txtSegTiPreparacion1 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        lblTituloIng1 = new javax.swing.JLabel();
-        lblTexto3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         DgStock = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         btnStockGuardar = new javax.swing.JButton();
@@ -98,6 +77,8 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         txtStockNombre = new javax.swing.JTextField();
         txtStockCantidadActual = new javax.swing.JTextField();
         txtStockCodigoPro = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         lblTituloIng2 = new javax.swing.JLabel();
         btnStockCancelar = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
@@ -120,53 +101,6 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
-        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/blanco.png"))); // NOI18N
-        lblFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 150, 100));
-
-        btnSalir.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnSalir.setText("SALIR");
-        btnSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 100, 30));
-
-        btnExaminar.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnExaminar.setText("EXAMINAR");
-        btnExaminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(btnExaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 100, 30));
-
-        btnAtras.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnAtras.setText("ATRAS");
-        btnAtras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 100, 30));
-
-        btnGuardar.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnGuardar.setText("CREAR");
-        btnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 100, 30));
-
         txtPrecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 140, 20));
 
@@ -182,24 +116,116 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 140, 20));
 
+        jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel6.setOpaque(false);
+
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("EXAMINAR");
+
+        btnExaminar.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnExaminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/examinar11.png"))); // NOI18N
+        btnExaminar.setBorder(null);
+
+        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/blanco.png"))); // NOI18N
+        lblFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addContainerGap(18, Short.MAX_VALUE)
+                        .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25)
+                            .addComponent(btnExaminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnExaminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel25)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 180, 190));
+
         txtMinTiPreparacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(txtMinTiPreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 50, 20));
+        jPanel2.add(txtMinTiPreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 50, 20));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel5.setOpaque(false);
+
+        btnGuardar.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/doble-verificacion.png"))); // NOI18N
+        btnGuardar.setBorder(null);
+
+        lblMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMensaje.setText("lblMensaje");
+
+        btnCancelarRegiOEdiIngrediente.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        btnCancelarRegiOEdiIngrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cerrar.png"))); // NOI18N
+        btnCancelarRegiOEdiIngrediente.setBorder(null);
+
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("CANCELAR");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMensaje)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCancelarRegiOEdiIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
+                .addGap(34, 34, 34))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnCancelarRegiOEdiIngrediente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(lblMensaje))
+                .addContainerGap())
+        );
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 230, 80));
 
         txtSegTiPreparacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(txtSegTiPreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 50, 20));
+        jPanel2.add(txtSegTiPreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 50, 20));
 
         jLabel16.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel16.setText("Min");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel17.setText("Seg");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(204, 255, 255));
         jLabel12.setText("T. Preparación:");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 255, 255));
@@ -236,126 +262,6 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
 
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-
-        lblFoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/blanco.png"))); // NOI18N
-        lblFoto1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(lblFoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblFoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 150, 100));
-
-        btnSalir1.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnSalir1.setText("SALIR");
-        btnSalir1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnSalir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalir1ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 100, 30));
-
-        btnExaminar1.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnExaminar1.setText("EXAMINAR");
-        btnExaminar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(btnExaminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 100, 30));
-
-        btnAtras1.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnAtras1.setText("ATRAS");
-        btnAtras1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(btnAtras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 100, 30));
-
-        btnGuardar1.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnGuardar1.setText("CREAR");
-        btnGuardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 100, 30));
-
-        txtPrecio1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(txtPrecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 140, 20));
-
-        txtBeneficio1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(txtBeneficio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 140, 20));
-
-        txtCantidad1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(txtCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 140, 20));
-
-        txtCodigo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(txtCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 140, 20));
-
-        txtNombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 140, 20));
-
-        txtMinTiPreparacion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(txtMinTiPreparacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 50, 20));
-
-        txtSegTiPreparacion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(txtSegTiPreparacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 50, 20));
-
-        jLabel18.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
-        jLabel18.setText("Min");
-        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
-
-        jLabel19.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
-        jLabel19.setText("Seg");
-        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
-
-        jLabel20.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel20.setText("T. Preparación:");
-        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
-
-        jLabel21.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel21.setText("Nombre:");
-        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
-
-        jLabel22.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel22.setText("Beneficio:");
-        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
-
-        jLabel23.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel23.setText("Porción:");
-        jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
-
-        jLabel24.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel24.setText("Precio:");
-        jPanel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
-
-        lblTituloIng1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblTituloIng1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloIng1.setText("REGISTRO INGREDIENTE");
-        jPanel5.add(lblTituloIng1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
-
-        lblTexto3.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
-        lblTexto3.setForeground(new java.awt.Color(204, 255, 255));
-        lblTexto3.setText("Código:");
-        jPanel5.add(lblTexto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
-        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
-
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         javax.swing.GroupLayout DgIngredienteLayout = new javax.swing.GroupLayout(DgIngrediente.getContentPane());
         DgIngrediente.getContentPane().setLayout(DgIngredienteLayout);
         DgIngredienteLayout.setHorizontalGroup(
@@ -370,9 +276,9 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnStockGuardar.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnStockGuardar.setText("GUARDAR");
-        btnStockGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel7.add(btnStockGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 100, 30));
+        btnStockGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/guardar12.png"))); // NOI18N
+        btnStockGuardar.setBorder(null);
+        jPanel7.add(btnStockGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 60, 40));
 
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel10.setOpaque(false);
@@ -406,7 +312,7 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
 
         jPanel7.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 250, 50));
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel9.setOpaque(false);
 
         jLabel30.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
@@ -489,20 +395,28 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 350, 50));
 
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("CANCELAR");
+        jPanel7.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
+
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("GUARDAR");
+        jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
+
         lblTituloIng2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblTituloIng2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloIng2.setText("AGREGAR STOCK");
         jPanel7.add(lblTituloIng2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         btnStockCancelar.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        btnStockCancelar.setText("CANCELAR");
-        btnStockCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnStockCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cancelar 12.png"))); // NOI18N
+        btnStockCancelar.setBorder(null);
         btnStockCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStockCancelarActionPerformed(evt);
             }
         });
-        jPanel7.add(btnStockCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 100, 30));
+        jPanel7.add(btnStockCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 60, 40));
 
         jLabel40.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -671,14 +585,6 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalir1ActionPerformed
-
     private void btnStockCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnStockCancelarActionPerformed
@@ -692,11 +598,11 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     }
 
     public JButton getBtnAtras() {
-        return btnAtras;
+        return btnCancelarRegiOEdiIngrediente;
     }
 
     public void setBtnAtras(JButton btnAtras) {
-        this.btnAtras = btnAtras;
+        this.btnCancelarRegiOEdiIngrediente = btnAtras;
     }
 
     public JButton getBtnCrear() {
@@ -747,13 +653,15 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         this.btnModificar = btnModificar;
     }
 
-    public JButton getBtnSalir() {
-        return btnSalir;
+    public JButton getBtnCancelarRegiOEdiIngrediente() {
+        return btnCancelarRegiOEdiIngrediente;
     }
 
-    public void setBtnSalir(JButton btnSalir) {
-        this.btnSalir = btnSalir;
+    public void setBtnCancelarRegiOEdiIngrediente(JButton btnCancelarRegiOEdiIngrediente) {
+        this.btnCancelarRegiOEdiIngrediente = btnCancelarRegiOEdiIngrediente;
     }
+
+    
 
     
 
@@ -797,6 +705,16 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
         this.tblingredientes = tblingredientes;
     }
 
+    public JLabel getLblMensaje() {
+        return lblMensaje;
+    }
+
+    public void setLblMensaje(JLabel lblMensaje) {
+        this.lblMensaje = lblMensaje;
+    }
+
+    
+    
     public JTextField getTxtBeneficio() {
         return txtBeneficio;
     }
@@ -955,18 +873,13 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DgIngrediente;
     private javax.swing.JDialog DgStock;
-    private javax.swing.JButton btnAtras;
-    private javax.swing.JButton btnAtras1;
+    private javax.swing.JButton btnCancelarRegiOEdiIngrediente;
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnExaminar;
-    private javax.swing.JButton btnExaminar1;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnStockCancelar;
     private javax.swing.JButton btnStockGuardar;
     private javax.swing.JLabel jLabel1;
@@ -980,15 +893,11 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -999,7 +908,6 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -1007,29 +915,20 @@ public class Vista_Ingrediente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFoto;
-    private javax.swing.JLabel lblFoto1;
+    private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblTexto2;
-    private javax.swing.JLabel lblTexto3;
     private javax.swing.JLabel lblTexto4;
     private javax.swing.JLabel lblTituloIng;
-    private javax.swing.JLabel lblTituloIng1;
     private javax.swing.JLabel lblTituloIng2;
     private javax.swing.JTable tblingredientes;
     private javax.swing.JTextField txtBeneficio;
-    private javax.swing.JTextField txtBeneficio1;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCantidad;
-    private javax.swing.JTextField txtCantidad1;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtCodigo1;
     private javax.swing.JTextField txtMinTiPreparacion;
-    private javax.swing.JTextField txtMinTiPreparacion1;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombre1;
     private javax.swing.JTextField txtPrecio;
-    private javax.swing.JTextField txtPrecio1;
     private javax.swing.JTextField txtSegTiPreparacion;
-    private javax.swing.JTextField txtSegTiPreparacion1;
     private javax.swing.JTextField txtStockBusqueda;
     private javax.swing.JTextField txtStockCantidadActual;
     private javax.swing.JTextField txtStockCantidadAgregar;

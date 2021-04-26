@@ -76,6 +76,7 @@ public class ControlEnsalada {
         visen.getTxtPorcionIngrediente().addKeyListener(kl);
         visen.getBtnAgregarIngrediente().addActionListener(l -> agregaIngrediente());
         visen.getBtnSalir().addActionListener(l -> salirDialogo());
+
         visen.getBtnAgregaIngrediente().addActionListener(l -> agregarPro());
         visen.getBtnAdjuntar().addActionListener(l -> exportarDatos());
         visen.getBtnVerProductosAgregados().addActionListener(l -> abrirListaIngredientes());

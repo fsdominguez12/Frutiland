@@ -96,7 +96,7 @@ public class ControlVentanaPrincipal {
 
     public void BuscarEnsalada() {
         Vista_Ensalada vistaEns = new Vista_Ensalada();
-        vistaEns.getDlgListaEnsaladas().setSize(600, 390);
+        vistaEns.getDlgListaEnsaladas().setSize(600, 403);
         vistaEns.getDlgListaEnsaladas().setLocationRelativeTo(null);
         vistaEns.getDlgListaEnsaladas().setVisible(true);
         
@@ -135,7 +135,7 @@ public class ControlVentanaPrincipal {
     
     private void MV(){
         Vista_Principal vista = new Vista_Principal();
-        vista.getDlgmisionvision().setSize(581, 430);
+        vista.getDlgmisionvision().setSize(650, 500);
         vista.getDlgmisionvision().setVisible(true);
         vista.getDlgmisionvision().setLocationRelativeTo(null);
     }

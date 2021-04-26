@@ -22,6 +22,11 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblingredientes = new javax.swing.JTable();
+        jPanel13 = new javax.swing.JPanel();
+        btnAdjuntar = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         TxtBuscar = new javax.swing.JTextField();
@@ -36,8 +41,6 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         txtCanDisponible = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        btnAdjuntar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -45,20 +48,27 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblIngredientesParaCalcular = new javax.swing.JTable();
+        jPanel11 = new javax.swing.JPanel();
         btnQuitar = new javax.swing.JButton();
         btnActualizarLis = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         dlgListaEnsaladas = new javax.swing.JDialog();
         jPanel9 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        btnEliminarEnsalada = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        btnCancelarEnsaladaDeLista = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        btnImprimirEnsaladaDeLista = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         TxtBuscarEnsalada = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableBuscarEnsalada = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        btnImprimirEnsaladaDeLista = new javax.swing.JButton();
-        btnCancelarEnsaladaDeLista = new javax.swing.JButton();
-        btnEliminarEnsalada = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -82,6 +92,8 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jPanel6 = new javax.swing.JPanel();
         btnGenerarEnsalada = new javax.swing.JButton();
         btnCancelarEnsalada = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtTiempoEnsalada = new javax.swing.JTextField();
@@ -114,6 +126,63 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         }
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 550, 100));
+
+        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel13.setOpaque(false);
+
+        btnAdjuntar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/carrito.png"))); // NOI18N
+        btnAdjuntar.setBorder(null);
+        btnAdjuntar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdjuntarActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("AGREGAR");
+
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cerrar.png"))); // NOI18N
+        btnSalir.setBorder(null);
+
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("CANCELAR");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAdjuntar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel19)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel20)))
+                .addGap(29, 29, 29))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel20))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(btnAdjuntar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel19)))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 240, -1));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jPanel5.setOpaque(false);
@@ -233,19 +302,6 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
 
         jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 170, 150));
 
-        btnAdjuntar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/carrito.png"))); // NOI18N
-        btnAdjuntar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnAdjuntar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdjuntarActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnAdjuntar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 70, 50));
-
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cerrar.png"))); // NOI18N
-        btnSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel4.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 70, 50));
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fotosFondo/im1.jpg"))); // NOI18N
@@ -291,17 +347,57 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tblIngredientesParaCalcular);
 
-        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 550, 80));
+        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 550, 80));
+
+        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel11.setOpaque(false);
 
         btnQuitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/borrar12.png"))); // NOI18N
-        btnQuitar.setText("ELIMINAR");
         btnQuitar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel8.add(btnQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 100, 40));
 
         btnActualizarLis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/actualizar.png"))); // NOI18N
-        btnActualizarLis.setText("ACTUALIZAR");
         btnActualizarLis.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel8.add(btnActualizarLis, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 120, 40));
+
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("ELIMINAR");
+
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("ACTUALIZAR");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel21)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnActualizarLis, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel22)))
+                .addGap(47, 47, 47))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnActualizarLis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel8.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 260, 90));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -320,6 +416,66 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         );
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel12.setOpaque(false);
+
+        btnEliminarEnsalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/borrar12.png"))); // NOI18N
+
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("ELIMINAR");
+
+        btnCancelarEnsaladaDeLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cancelar 12.png"))); // NOI18N
+
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("CANCELAR");
+
+        btnImprimirEnsaladaDeLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/impresora.png"))); // NOI18N
+
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("IMPRIMIR");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEliminarEnsalada)
+                    .addComponent(jLabel23))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(btnImprimirEnsaladaDeLista)
+                        .addGap(28, 28, 28)))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel24)
+                    .addComponent(btnCancelarEnsaladaDeLista))
+                .addGap(35, 35, 35))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEliminarEnsalada)
+                    .addComponent(btnCancelarEnsaladaDeLista)
+                    .addComponent(btnImprimirEnsaladaDeLista))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25)
+                        .addComponent(jLabel24)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 300, 80));
 
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jPanel10.setOpaque(false);
@@ -378,18 +534,6 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("LISTA ENSALADA");
         jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
-
-        btnImprimirEnsaladaDeLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cancelar 12.png"))); // NOI18N
-        btnImprimirEnsaladaDeLista.setText("IMPRIMIR");
-        jPanel9.add(btnImprimirEnsaladaDeLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
-
-        btnCancelarEnsaladaDeLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cancelar 12.png"))); // NOI18N
-        btnCancelarEnsaladaDeLista.setText("CANCELAR");
-        jPanel9.add(btnCancelarEnsaladaDeLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
-
-        btnEliminarEnsalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/borrar12.png"))); // NOI18N
-        btnEliminarEnsalada.setText("ELIMINAR");
-        jPanel9.add(btnEliminarEnsalada, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -571,26 +715,38 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 430, 350));
 
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
         jPanel6.setOpaque(false);
 
         btnGenerarEnsalada.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnGenerarEnsalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/guardar12.png"))); // NOI18N
-        btnGenerarEnsalada.setText("GUARDAR");
 
         btnCancelarEnsalada.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnCancelarEnsalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cancelar 12.png"))); // NOI18N
-        btnCancelarEnsalada.setText("CANCELAR");
+
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("GUARDAR");
+
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("CANCELAR");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnGenerarEnsalada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(btnCancelarEnsalada)
-                .addGap(18, 18, 18))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGenerarEnsalada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(btnCancelarEnsalada, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -599,7 +755,11 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGenerarEnsalada)
                     .addComponent(btnCancelarEnsalada, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 290, -1));
@@ -993,13 +1153,25 @@ public class Vista_Ensalada extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

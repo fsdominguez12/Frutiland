@@ -48,7 +48,6 @@ public class ControlCliente {
         vista.getBtncrear().addActionListener(l->CrearCliente());//llamamos al listener del boton crear
         vista.getBtnmodificar().addActionListener(l->Elegir());//llamamos al listener del boton modificar
         vista.getBtneliminar().addActionListener(l->Eliminar());//llamamos al listener del boton eliminar
-        vista.getBtnlistar().addActionListener(l->CargarLista(""));//llamamos al listener del boton listar
         vista.getTxtbuscar().addKeyListener(kl);
         // JDIALOG
         

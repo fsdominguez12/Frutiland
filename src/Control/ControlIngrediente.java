@@ -70,6 +70,7 @@ public class ControlIngrediente {
         vistaIn.getBtnModificar().addActionListener(l -> CargaDatosIngredienteaModificar());
         vistaIn.getBtnEliminar().addActionListener(l -> EliminarIngrediente());
         vistaIn.getBtnStockGuardar().addActionListener(l -> guardarStockActualizado());
+        vistaIn.getBtnCancelarRegiOEdiIngrediente().addActionListener(l -> CancelarRegiOEdiIngrediente());
         vistaIn.getBtnStockCancelar().addActionListener(l -> cancelarVentanaStock());
         vistaIn.getTxtBuscar().addKeyListener(kl);
         vistaIn.getTxtStockBusqueda().addKeyListener(kl);
@@ -100,7 +101,7 @@ public class ControlIngrediente {
         vistaIn.getDgIngrediente().setTitle("CREAR INGREDIENTE");
         vistaIn.getDgIngrediente().setSize(615, 408);
         vistaIn.getDgIngrediente().setLocationRelativeTo(vistaIn);
-        vistaIn.getBtnGuardar().setText(nobo);
+        vistaIn.getLblMensaje().setText(nobo);
         vistaIn.getLblTituloIng().setText(nobi);
         vistaIn.getDgIngrediente().setVisible(true);
 
@@ -459,6 +460,10 @@ public class ControlIngrediente {
             }
 
         });
+    }
+    
+    public void CancelarRegiOEdiIngrediente(){
+        vistaIn.getDgIngrediente().setVisible(false);
     }
 }
 
