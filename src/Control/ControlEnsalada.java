@@ -52,6 +52,7 @@ public class ControlEnsalada {
     public void IniciaControl() {
         restringirDialogo();
         CargarListaEnsaladaParaBuscar("");
+        borrarDialogo();
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -185,7 +186,7 @@ public class ControlEnsalada {
         visen.getTxtPrecioIngrediente().setText("0");
         visen.getTxtCanDisponible().setText("0");
         visen.getTxtPorcionIngrediente().setText("0");
-        visen.getTxtCodigoEnsalada().setText("");
+        visen.getTxtCodigoEnsalada().setText("ens-");
         visen.getTxtCedulaClienteEnsalada().setText("");
         visen.getTxtClienteCedulaEnsalada().setText("");
         visen.getTxtClienteEnsalada().setText("");
@@ -404,6 +405,9 @@ public class ControlEnsalada {
             if (i == 0) {
                 imprimirReporteEnsalada(visen.getTxtCodigoEnsalada().getText());
                 restaroSumarIngrediente();
+                borrarDialogo();
+                restringirDialogo();
+            }else{
                 borrarDialogo();
                 restringirDialogo();
             }

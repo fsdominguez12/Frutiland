@@ -39,7 +39,7 @@ public class ControlIngrediente {
     }
 
     public void IniciaControl() {
-
+LimpiarDialogo();
        
         KeyListener kl = new KeyListener() {
             @Override
@@ -80,7 +80,7 @@ public class ControlIngrediente {
     }
 
     public void deBoton() {
-        String ca = vistaIn.getBtnGuardar().getText();
+        String ca = vistaIn.getLblMensaje().getText();
         if (ca == "CREAR") {
             grabaringrediente();
 
@@ -108,7 +108,7 @@ public class ControlIngrediente {
     }
 
     private void LimpiarDialogo() {
-        vistaIn.getTxtCodigo().setText("");
+        vistaIn.getTxtCodigo().setText("pro-");
         vistaIn.getTxtNombre().setText("");
         vistaIn.getTxtBeneficio().setText("");
         vistaIn.getTxtCantidad().setText("");

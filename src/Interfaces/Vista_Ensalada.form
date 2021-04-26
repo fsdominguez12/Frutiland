@@ -570,7 +570,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="160" y="260" width="260" height="90"/>
+                  <AbsoluteConstraints x="160" y="190" width="260" height="90"/>
                 </Constraint>
               </Constraints>
 
@@ -1382,7 +1382,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnGenerarEnsalada" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCancelarEnsalada" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
