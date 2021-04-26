@@ -40,6 +40,8 @@ public class ControlEnsalada {
     private Vista_Ensalada visen;
     private ControlCliente cocli;
     private Vista_Principal vp;
+    
+    
 
     public ControlEnsalada(ModeloEnsalada moes, Vista_Ensalada visen) {
         this.moes = moes;
@@ -87,6 +89,7 @@ public class ControlEnsalada {
         visen.getBtnEliminarEnsalada().addActionListener(l -> EliminarEnsaladaListaEnsalada());
         visen.getBtnImprimirEnsaladaDeLista().addActionListener(l -> MetodoParaAdjuntarParametroListaEnsalada());
         visen.getBtnCancelarEnsaladaDeLista().addActionListener(l -> CerrarDialogoListaEnsalada());
+        visen.getBtnAgregarCliente().addActionListener(l -> AgregarNuevoCliente());
 
     }
 
@@ -124,6 +127,16 @@ public class ControlEnsalada {
             visen.getTxtClienteEnsalada().setText(cl.getNombre() + " " + cl.getApellido());
 
         });
+    }
+    
+    public void AgregarNuevoCliente(){
+             
+       ModeloIngrediente modeloIng = new ModeloIngrediente();
+       Vista_Ingrediente vistaIng = new Vista_Ingrediente();
+       Vista_Principal vipri = new Vista_Principal();
+       ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
+       ingr.IniciaControl();
+       ingr.MetodoControlTamaño("CREAR", "REGISTRO INGREDIENTE");
     }
 
     private void CargarListaEnsaladaParaBuscar(String aguja) {
