@@ -40,7 +40,7 @@ public class ControlIngrediente {
 
     public void IniciaControl() {
 
-        //buscarIngredienetePrueba();
+       
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -127,9 +127,8 @@ public class ControlIngrediente {
 
         int ncols = tblModel.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
-
+        String a="";
         lista.stream().forEach(p -> {
-
             tblModel.addRow(new Object[ncols]);
             vistaIn.getTblingredientes().setValueAt(p.getCodigoIngrediente(), i.value, 0);
             vistaIn.getTblingredientes().setValueAt(p.getNombre(), i.value, 1);
@@ -214,7 +213,7 @@ public class ControlIngrediente {
             String[] parts = espera.split(" M ");
             String part1 = parts[0];
             String part2 = parts[1];
-           
+
             BuscarImagenDeBase(ident);
 
             vistaIn.getTxtCodigo().setText(ident);
@@ -225,14 +224,12 @@ public class ControlIngrediente {
             vistaIn.getTxtMinTiPreparacion().setText(part1);
             vistaIn.getTxtSegTiPreparacion().setText(part2);
             vistaIn.getTxtCodigo().setEnabled(false);
-            
+
             MetodoControlTamaño("ACTUALIZAR", "EDITAR PRODUCTO");
         }
     }
 
-    
-    
-     public void ActualizarIngrediente() {
+    public void ActualizarIngrediente() {
 
         String ident = vistaIn.getTxtCodigo().getText();
         String nombre = vistaIn.getTxtNombre().getText();
@@ -244,7 +241,7 @@ public class ControlIngrediente {
         min = min * 60;
         int tiempo = min + seg;
         LimpiarDialogo();
-        
+
         ModeloIngrediente ingrediente = new ModeloIngrediente(ident, nombre, beneficio, cantidad, precio, tiempo);
         ImageIcon ic = (ImageIcon) vistaIn.getLblFoto().getIcon();
         ingrediente.setFoto(ic.getImage());
@@ -418,13 +415,12 @@ public class ControlIngrediente {
         return descripcion;
     }
 
-    
-    public void BuscarImagenDeBase(String codigoIngrediente){
+    public void BuscarImagenDeBase(String codigoIngrediente) {
         List<Ingrediente> lista = ModeloIngrediente.listarIngrediente(codigoIngrediente);
         Holder<Integer> i = new Holder<>(0);
         lista.stream().forEach((Ingrediente p) -> {
             Image img = p.getFoto();
-            
+
             if (img != null) {
                 Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon icon = new ImageIcon(newimg);
@@ -435,35 +431,10 @@ public class ControlIngrediente {
 
         });
     }
-    
-    
-    public void buscarIngredienetePrueba() {
 
-        String aguja ="pro-11";
-        List<Ingrediente> lista =  ModeloIngrediente.listarIngrediente(aguja);
-        Holder<Integer> i = new Holder<>(0);
-        lista.stream().forEach(cl -> {
-            String[] ingrediente = {cl.getCodigoIngrediente()};
-            JOptionPane.showMessageDialog(null, cl.getCodigoIngrediente());
-            
-            
-        String string = cl.getCodigoIngrediente();
-        String[] parts = string.split("-");
-        String part1 = parts[0];
-        String part2 = parts[1];
-        
-            
-            if(Integer.parseInt(part2) == 11){
-                JOptionPane.showMessageDialog(null, "si esxiste");
-            }else{
-                 JOptionPane.showMessageDialog(null, "No existe");
-            }
-
-        });
-    }
     
-    public void CancelarRegiOEdiIngrediente(){
+
+    public void CancelarRegiOEdiIngrediente() {
         vistaIn.getDgIngrediente().setVisible(false);
     }
 }
-
