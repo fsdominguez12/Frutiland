@@ -40,6 +40,7 @@ public class ControlIngrediente {
 
     public void IniciaControl() {
 
+        //buscarIngredienetePrueba();
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -433,4 +434,31 @@ public class ControlIngrediente {
 
         });
     }
+    
+    
+    public void buscarIngredienetePrueba() {
+
+        String aguja ="pro-11";
+        List<Ingrediente> lista =  ModeloIngrediente.listarIngrediente(aguja);
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach(cl -> {
+            String[] ingrediente = {cl.getCodigoIngrediente()};
+            JOptionPane.showMessageDialog(null, cl.getCodigoIngrediente());
+            
+            
+        String string = cl.getCodigoIngrediente();
+        String[] parts = string.split("-");
+        String part1 = parts[0];
+        String part2 = parts[1];
+        
+            
+            if(Integer.parseInt(part2) == 11){
+                JOptionPane.showMessageDialog(null, "si esxiste");
+            }else{
+                 JOptionPane.showMessageDialog(null, "No existe");
+            }
+
+        });
+    }
 }
+

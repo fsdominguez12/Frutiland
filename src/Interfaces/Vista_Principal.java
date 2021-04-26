@@ -58,6 +58,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
+        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
@@ -82,7 +83,9 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         DlgBeneficios.setBackground(new java.awt.Color(51, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(50, 137, 180));
+
+        txtbusquedabeneficio.setToolTipText("");
 
         tblbeneficio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tblbeneficio.setModel(new javax.swing.table.DefaultTableModel(
@@ -104,28 +107,37 @@ public class Vista_Principal extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblbeneficio);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("BENEFICIOS");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Buscar Nombre de Fruta:");
 
+        btnvisualizar.setBackground(new java.awt.Color(25, 178, 229));
         btnvisualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnvisualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnvisualizar.setText("Visualizar");
+        btnvisualizar.setToolTipText("Visualizar");
 
         lblfruta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblfruta.setForeground(new java.awt.Color(255, 255, 255));
         lblfruta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblfruta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jepbeneficio.setEditable(false);
-        jepbeneficio.setBackground(new java.awt.Color(51, 255, 255));
+        jepbeneficio.setBackground(new java.awt.Color(50, 137, 180));
+        jepbeneficio.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jepbeneficio);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Nombre Fruta:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Beneficio:");
 
@@ -137,27 +149,28 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtbusquedabeneficio, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addGap(42, 42, 42)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel4))
-                            .addGap(61, 61, 61)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(lblfruta, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
-                                    .addComponent(btnvisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addGap(148, 148, 148)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addGap(61, 61, 61)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblfruta, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                                .addComponent(btnvisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtbusquedabeneficio, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(148, 148, 148)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(50, 50, 50))
         );
         jPanel3Layout.setVerticalGroup(
@@ -226,6 +239,11 @@ public class Vista_Principal extends javax.swing.JFrame {
         jTextPane2.setText("Ofrecer un servicio de calidad en todo el proceso, desde la elaboración de una\nensalada hasta la forma de atender a nuestros clientes, adaptándonos a sus\nnecesidades. Del mismo modo, implicar a nuestros empleados trabajando en\nequipo para lograr la excelencia.");
         jScrollPane5.setViewportView(jTextPane2);
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Dirección:  Vía a El Despacho - El Valle     Teléfono :  099 280 9914       Propietaria: Alexandra Vanegas");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -233,14 +251,14 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,18 +270,20 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 67, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DlgmisionvisionLayout = new javax.swing.GroupLayout(Dlgmisionvision.getContentPane());
         Dlgmisionvision.getContentPane().setLayout(DlgmisionvisionLayout);
         DlgmisionvisionLayout.setHorizontalGroup(
             DlgmisionvisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
         );
         DlgmisionvisionLayout.setVerticalGroup(
             DlgmisionvisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -278,6 +298,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 250, 100));
 
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/atras.png"))); // NOI18N
+        btnRegresar.setToolTipText("VOLVER");
         btnRegresar.setFocusable(false);
         btnRegresar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRegresar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -329,9 +350,12 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/grupo-de-personas-dibujadas-a-mano-de-personas.png"))); // NOI18N
         jMenu1.setText("CLIENTES");
+        jMenu1.setToolTipText("CLIENTES");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btncliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/cleinte.png"))); // NOI18N
         btncliente.setText("Clientes");
+        btncliente.setToolTipText("Clientes");
         btncliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnclienteActionPerformed(evt);
@@ -341,15 +365,19 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btnCrearClienteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/seguir.png"))); // NOI18N
         btnCrearClienteMenu.setText("Crear Cliente");
+        btnCrearClienteMenu.setToolTipText("Crear Cliente");
         jMenu1.add(btnCrearClienteMenu);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ingredientes.png"))); // NOI18N
         jMenu2.setText("INGREDIENTES");
+        jMenu2.setToolTipText("INGREDIENTES");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btningrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/Ingrediente (2).png"))); // NOI18N
         btningrediente.setText("Ingredientes");
+        btningrediente.setToolTipText("Ingredientes");
         btningrediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btningredienteActionPerformed(evt);
@@ -359,10 +387,12 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         mnuCrearIngrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/mas.png"))); // NOI18N
         mnuCrearIngrediente.setText("Crear Ingrediente");
+        mnuCrearIngrediente.setToolTipText("Crear Ingrediente");
         jMenu2.add(mnuCrearIngrediente);
 
         mnuAgregarStockIngrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/valores.png"))); // NOI18N
         mnuAgregarStockIngrediente.setText("Agregar Stock");
+        mnuAgregarStockIngrediente.setToolTipText("Agregar Stock");
         jMenu2.add(mnuAgregarStockIngrediente);
 
         jMenuBar1.add(jMenu2);
@@ -372,14 +402,17 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btnensalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/ensalada2.png"))); // NOI18N
         btnensalada.setText("Ensaladas");
+        btnensalada.setToolTipText("Ensaladas");
         jMenu3.add(btnensalada);
 
         btnBuscarEnsalada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/buscarEnsalada.png"))); // NOI18N
         btnBuscarEnsalada.setText("Buscar Ensalada");
+        btnBuscarEnsalada.setToolTipText("Buscar Ensalada");
         jMenu3.add(btnBuscarEnsalada);
 
         btnBeneficiosmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/beneficio.png"))); // NOI18N
         btnBeneficiosmenu.setText("Beneficios");
+        btnBeneficiosmenu.setToolTipText("Beneficios");
         btnBeneficiosmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBeneficiosmenuActionPerformed(evt);
@@ -391,9 +424,11 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/info.png"))); // NOI18N
         jMenu4.setText("INFORMACIÓN");
+        jMenu4.setToolTipText("INFORMACIÓN");
 
         misionvisionItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosBotones/mision_vision.PNG"))); // NOI18N
         misionvisionItem.setText("MISIÓN/VISIÓN");
+        misionvisionItem.setToolTipText("MISIÓN/VISIÓN");
         jMenu4.add(misionvisionItem);
 
         jMenuBar1.add(jMenu4);
@@ -608,6 +643,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

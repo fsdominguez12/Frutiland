@@ -93,12 +93,7 @@
                           <Component id="btnEntregaEntregar" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel13" min="-2" pref="72" max="-2" attributes="0"/>
-                          <Component id="btnEntregaImprimir" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <EmptySpace pref="185" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -107,19 +102,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="btnEntregaEntregar" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="btnEntregaImprimir" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnEntregaEntregar" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
                           <Component id="btnEntregaActualizar" min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -163,17 +152,6 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnEntregaImprimir">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="IMPRIMIR"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel13">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="IMPRIMIR"/>
               </Properties>
             </Component>
           </SubComponents>
