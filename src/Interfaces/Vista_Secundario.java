@@ -37,8 +37,6 @@ public class Vista_Secundario extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnSecundarioRegresar = new javax.swing.JButton();
         DesktopSecundario = new javax.swing.JDesktopPane();
-        jPanel2 = new javax.swing.JPanel();
-        lblReloj = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -85,32 +83,6 @@ public class Vista_Secundario extends javax.swing.JFrame {
         );
 
         jPanel1.add(DesktopSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 810, 470));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        jPanel2.setOpaque(false);
-
-        lblReloj.setBackground(new java.awt.Color(0, 255, 255));
-        lblReloj.setFont(new java.awt.Font("Baskerville Old Face", 0, 36)); // NOI18N
-        lblReloj.setForeground(new java.awt.Color(255, 255, 255));
-        lblReloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblReloj.setText("RELOJ");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(lblReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 18, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 1, Short.MAX_VALUE)
-                .addComponent(lblReloj))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 60, 200, 50));
 
         jLabel6.setFont(new java.awt.Font("Segoe Script", 0, 100)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -227,9 +199,7 @@ public class Vista_Secundario extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JLabel lblReloj;
     private javax.swing.JMenuItem mnuSecundarioBeneficios;
     private javax.swing.JMenuItem mnuSecundarioBuscar;
     private javax.swing.JMenuItem mnuSecundarioMisionVision;
