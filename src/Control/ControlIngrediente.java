@@ -83,7 +83,7 @@ public class ControlIngrediente {
             grabaringrediente();
 
         } else {
-            Actualizar();
+            ActualizarIngrediente();
 
         }
 
@@ -212,8 +212,8 @@ public class ControlIngrediente {
             String[] parts = espera.split(" M ");
             String part1 = parts[0];
             String part2 = parts[1];
-
-            ImageIcon icon = new ImageIcon((String) vistaIn.getTblingredientes().getValueAt(fila, 5));
+           
+            BuscarImagenDeBase(ident);
 
             vistaIn.getTxtCodigo().setText(ident);
             vistaIn.getTxtNombre().setText(nombre);
@@ -223,12 +223,14 @@ public class ControlIngrediente {
             vistaIn.getTxtMinTiPreparacion().setText(part1);
             vistaIn.getTxtSegTiPreparacion().setText(part2);
             vistaIn.getTxtCodigo().setEnabled(false);
-            vistaIn.getLblFoto().setIcon(icon);
+            
             MetodoControlTamaño("ACTUALIZAR", "EDITAR PRODUCTO");
         }
     }
 
-    public void Actualizar() {
+    
+    
+     public void ActualizarIngrediente() {
 
         String ident = vistaIn.getTxtCodigo().getText();
         String nombre = vistaIn.getTxtNombre().getText();
@@ -240,8 +242,11 @@ public class ControlIngrediente {
         min = min * 60;
         int tiempo = min + seg;
         LimpiarDialogo();
+        
         ModeloIngrediente ingrediente = new ModeloIngrediente(ident, nombre, beneficio, cantidad, precio, tiempo);
-        if (ingrediente.Modificar()) {
+        ImageIcon ic = (ImageIcon) vistaIn.getLblFoto().getIcon();
+        ingrediente.setFoto(ic.getImage());
+        if (ingrediente.ModificarConFoto()) {
             JOptionPane.showMessageDialog(vistaIn, "Datos De Cliente Modificados");
         } else {
             JOptionPane.showMessageDialog(vistaIn, "ERROR!!!");
@@ -411,4 +416,21 @@ public class ControlIngrediente {
         return descripcion;
     }
 
+    
+    public void BuscarImagenDeBase(String codigoIngrediente){
+        List<Ingrediente> lista = ModeloIngrediente.listarIngrediente(codigoIngrediente);
+        Holder<Integer> i = new Holder<>(0);
+        lista.stream().forEach((Ingrediente p) -> {
+            Image img = p.getFoto();
+            
+            if (img != null) {
+                Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(newimg);
+                vistaIn.getLblFoto().setIcon(icon);
+            } else {
+                vistaIn.getLblFoto().setIcon(null);
+            }
+
+        });
+    }
 }

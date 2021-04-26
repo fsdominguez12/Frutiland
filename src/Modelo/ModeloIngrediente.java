@@ -120,6 +120,32 @@ public class ModeloIngrediente extends Ingrediente {
         }
     }
     
+    
+    public boolean ModificarConFoto() {
+        String foto64 = null;
+        //Transformar imgagen a base64 para postgresql
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+        try {
+            BufferedImage img = imgBimage(getFoto());
+            ImageIO.write(img, "PNG", bos);
+            byte[] imgb = bos.toByteArray();
+            foto64 = Base64.encodeBytes(imgb);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        String sql;
+        sql = "UPDATE ingrediente SET cod_ingrediente='" + getCodigoIngrediente() + "', nombre='" +getNombre() + "', beneficio='" + getBeneficio() + "', cantidad='" +getCantidad() + "', precio='" + getPrecio() + "', tiempo_preparacion='" + getTiempoPreparacion() + "', foto='" +foto64 + "' WHERE cod_ingrediente='" + getCodigoIngrediente() + "'";
+        if (con.noquery(sql) == null) {
+            return true;
+            
+        } else {
+            return false;
+        }
+    }
+    
     public boolean RestaIngrediente() {
         String sql;
         sql = "UPDATE ingrediente SET cod_ingrediente='" + getCodigoIngrediente() + "',cantidad='" +getCantidad() + "' WHERE cod_ingrediente='" + getCodigoIngrediente() + "'";
@@ -165,6 +191,43 @@ public class ModeloIngrediente extends Ingrediente {
         return reader.read(0, param);
     }
 
+    public static List<Ingrediente> BuscarFoto(String aguja) {
+
+        try {
+            String sql = "SELECT foto FROM ingrediente WHERE ";
+            sql += "UPPER(cod_ingrediente) LIKE UPPER ('%" + aguja + "%')";
+           
+            ResultSet rs = con.query(sql);
+            List<Ingrediente> lista = new ArrayList<>();
+            byte[] bf;    
+            while (rs.next()) {
+                Ingrediente ingr = new Ingrediente();
+                ingr.setCodigoIngrediente(rs.getString("cod_ingrediente"));
+                ingr.setNombre(rs.getString("nombre"));
+                    bf = rs.getBytes("foto");
+                    
+                if (bf != null) {
+                    bf = Base64.decode(bf, 0, bf.length);
+                    try {
+                        //OBTENER IMAGEN
+                        ingr.setFoto(obtenImagen(bf));
+                    } catch (IOException ex) {
+                        ingr.setFoto(null);
+                        }
+                } else {
+                    ingr.setFoto(null);
+                }
+                
+                lista.add(ingr);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloIngrediente.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+  
     
     //---------------- SE UTILIZARA EN EL DLGBENEFICIO-----------------------
     
