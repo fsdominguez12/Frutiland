@@ -132,12 +132,12 @@ public class ControlEnsalada {
     
     public void AgregarNuevoCliente(){
              
-       ModeloIngrediente modeloIng = new ModeloIngrediente();
-       Vista_Ingrediente vistaIng = new Vista_Ingrediente();
-       Vista_Principal vipri = new Vista_Principal();
-       ControlIngrediente ingr = new ControlIngrediente(modeloIng, vistaIng, vipri);
-       ingr.IniciaControl();
-       ingr.MetodoControlTamaño("CREAR", "REGISTRO INGREDIENTE");
+        
+        ModeloCliente modelo = new ModeloCliente();
+        Vista_Cliente vista = new Vista_Cliente();
+        ControlCliente cli = new ControlCliente(modelo, vista);
+        cli.IniciaControl();
+        cli.CrearCliente();
     }
 
     private void CargarListaEnsaladaParaBuscar(String aguja) {
